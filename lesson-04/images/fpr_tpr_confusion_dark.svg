@@ -1,0 +1,106 @@
+<svg width="100%" viewBox="0 0 760 640" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>False positive rate and true positive rate</title>
+<desc>Confusion table with predictions g(xᵢ) &lt; t (negative) and g(xᵢ) ≥ t (positive) against actual y = 0 and y = 1. FPR = FP / (TN + FP) is computed over actual negatives and should be minimized; TPR = TP / (FN + TP) is computed over actual positives and should be maximized.</desc>
+<defs>
+  <style>
+    text { font-family: "Segoe UI", -apple-system, Helvetica, Arial, sans-serif; font-weight: 500; dominant-baseline: central; text-anchor: middle; }
+    .fg { fill: #ECEAE3; }
+    .muted { fill: #A8A59C; }
+    .blue { fill: #85B7EB; }
+    .red { fill: #F09595; }
+    .green { fill: #97C459; }
+    .ink { fill: #1C1B19; }
+    .cell { font-size: 30px; font-weight: 600; }
+    .mono { font-family: "SF Mono", Menlo, Consolas, monospace; }
+  </style>
+  <marker id="arrBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#85B7EB"/>
+  </marker>
+  <marker id="arrGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#97C459"/>
+  </marker>
+  <clipPath id="clipNeg"><circle cx="220" cy="500" r="92"/></clipPath>
+  <clipPath id="clipPos"><circle cx="545" cy="500" r="92"/></clipPath>
+</defs>
+
+<rect x="0" y="0" width="760" height="640" rx="14" fill="#1C1B19"/>
+
+<!-- ============ Confusion table ============ -->
+<text x="370" y="30" class="blue" style="font-size:20px;letter-spacing:1px">Predictions</text>
+<text x="295" y="64" class="fg mono" style="font-size:15px">g(xᵢ) &lt; t</text>
+<text x="445" y="64" class="fg mono" style="font-size:15px">g(xᵢ) ≥ t</text>
+<text x="295" y="88" class="blue" style="font-size:15px">Negative</text>
+<text x="445" y="88" class="blue" style="font-size:15px">Positive</text>
+
+<text transform="translate(42 190) rotate(-90)" class="red" style="font-size:20px;letter-spacing:1px">Actual</text>
+<text x="120" y="150" class="red mono" style="font-size:16px">y = 0</text>
+<text x="120" y="172" class="red" style="font-size:13px">Negative</text>
+<text x="120" y="230" class="red mono" style="font-size:16px">y = 1</text>
+<text x="120" y="252" class="red" style="font-size:13px">Positive</text>
+
+<!-- highlighted predicted-positive column -->
+<rect x="370" y="110" width="150" height="160" fill="#FAC775" fill-opacity="0.22"/>
+<!-- grid -->
+<g stroke="#5F5E5A" stroke-width="1.5" fill="none">
+  <rect x="220" y="110" width="300" height="160" rx="6"/>
+  <line x1="370" y1="110" x2="370" y2="270"/>
+  <line x1="220" y1="190" x2="740" y2="190" stroke-dasharray="4 5"/>
+</g>
+<text x="295" y="150" class="blue cell">TN</text>
+<text x="445" y="150" class="cell" fill="#FAC775">FP</text>
+<text x="295" y="230" class="blue cell">FN</text>
+<text x="445" y="230" class="cell" fill="#FAC775">TP</text>
+
+<!-- formulas -->
+<text x="582" y="150" class="fg" style="font-size:22px;font-weight:600">FPR =</text>
+<text x="685" y="132" style="font-size:19px" fill="#FAC775">FP</text>
+<line x1="638" y1="150" x2="732" y2="150" stroke="#ECEAE3" stroke-width="1.5"/>
+<text x="657" y="168" class="blue" style="font-size:19px">TN</text><text x="685" y="168" class="fg" style="font-size:19px">+</text><text x="713" y="168" style="font-size:19px" fill="#FAC775">FP</text>
+
+<text x="582" y="230" class="fg" style="font-size:22px;font-weight:600">TPR =</text>
+<text x="685" y="212" style="font-size:19px" fill="#FAC775">TP</text>
+<line x1="638" y1="230" x2="732" y2="230" stroke="#ECEAE3" stroke-width="1.5"/>
+<text x="657" y="248" class="blue" style="font-size:19px">FN</text><text x="685" y="248" class="fg" style="font-size:19px">+</text><text x="713" y="248" style="font-size:19px" fill="#FAC775">TP</text>
+
+<line x1="30" y1="312" x2="730" y2="312" stroke="#3A3935" stroke-width="1"/>
+
+<!-- ============ FPR: actual negatives ============ -->
+<text x="220" y="372" class="red" style="font-size:15px">all actual negatives (y = 0)</text>
+<g clip-path="url(#clipNeg)">
+  <rect x="128" y="408" width="184" height="184" fill="#2A2925"/>
+  <rect x="262" y="408" width="60" height="184" fill="#FAC775" fill-opacity="0.85"/>
+</g>
+<circle cx="220" cy="500" r="92" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
+<line x1="262" y1="418" x2="262" y2="582" stroke="#ECEAE3" stroke-width="1.5"/>
+<text x="205" y="500" class="blue cell">TN</text>
+<text x="284" y="500" class="ink" style="font-size:20px;font-weight:700">FP</text>
+<!-- shrink FP arrows -->
+<path d="M226 455 L 256 455" stroke="#97C459" stroke-width="2.5" fill="none" marker-end="url(#arrGreen)"/>
+<path d="M226 545 L 256 545" stroke="#97C459" stroke-width="2.5" fill="none" marker-end="url(#arrGreen)"/>
+
+<text x="62" y="455" class="blue" style="font-size:24px;font-weight:700">FPR</text>
+<path d="M90 470 L 124 488" stroke="#85B7EB" stroke-width="2" fill="none" marker-end="url(#arrBlue)"/>
+<path d="M62 482 L 62 528" stroke="#97C459" stroke-width="3" fill="none" marker-end="url(#arrGreen)"/>
+<text x="220" y="612" class="green" style="font-size:16px;letter-spacing:2px">MINIMIZE</text>
+<text x="220" y="390" class="muted" style="font-size:12px">fewer negatives wrongly flagged</text>
+
+<!-- ============ TPR: actual positives ============ -->
+<text x="545" y="372" class="red" style="font-size:15px">all actual positives (y = 1)</text>
+<g clip-path="url(#clipPos)">
+  <rect x="453" y="408" width="184" height="184" fill="#2A2925"/>
+  <rect x="500" y="408" width="140" height="184" fill="#FAC775" fill-opacity="0.85"/>
+</g>
+<circle cx="545" cy="500" r="92" fill="none" stroke="#ECEAE3" stroke-width="1.5"/>
+<line x1="500" y1="420" x2="500" y2="580" stroke="#ECEAE3" stroke-width="1.5"/>
+<text x="476" y="500" class="blue" style="font-size:20px;font-weight:700">FN</text>
+<text x="575" y="500" class="ink cell">TP</text>
+<!-- grow TP arrows -->
+<path d="M538 455 L 507 455" stroke="#97C459" stroke-width="2.5" fill="none" marker-end="url(#arrGreen)"/>
+<path d="M538 545 L 507 545" stroke="#97C459" stroke-width="2.5" fill="none" marker-end="url(#arrGreen)"/>
+
+<text x="700" y="455" class="blue" style="font-size:24px;font-weight:700">TPR</text>
+<path d="M672 470 L 642 488" stroke="#85B7EB" stroke-width="2" fill="none" marker-end="url(#arrBlue)"/>
+<path d="M700 528 L 700 482" stroke="#97C459" stroke-width="3" fill="none" marker-end="url(#arrGreen)"/>
+<text x="545" y="612" class="green" style="font-size:16px;letter-spacing:2px">MAXIMIZE</text>
+<text x="545" y="390" class="muted" style="font-size:12px">more positives correctly caught</text>
+</svg>
