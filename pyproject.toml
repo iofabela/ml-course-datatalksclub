@@ -20,3 +20,8 @@ dev = [
     "ipykernel>=7.4.0",
     "jupyterlab>=4.1",
 ]
+
+[tool.uv.workspace]
+members = [
+    "lesson-05",
+]
