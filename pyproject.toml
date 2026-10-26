@@ -26,3 +26,6 @@ dev = [
 members = [
     "lesson-05",
 ]
+exclude = [
+    "homeworks/05_deployment",
+]

@@ -1,0 +1,17 @@
+[project]
+name = "05-deployment"
+version = "0.1.0"
+description = "Reference deployment project for ML Zoomcamp 2026"
+readme = "README.md"
+authors = [
+    { name = "iofabela", email = "78162179+iofabela@users.noreply.github.com" }
+]
+requires-python = "==3.11.15"
+dependencies = [
+    "fastapi==0.119.1",
+    "numpy==2.3.3",
+    "pydantic>=2.14.1",
+    "scikit-learn==1.7.2",
+    "uvicorn==0.38.0",
+]
+
