@@ -1,0 +1,57 @@
+#0 building with "colima" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 637B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for ghcr.io/astral-sh/uv:0.10.11@sha256:3472e43b4e738cf911c99d41bb34331280efad54c73b1def654a6227bb59b2b4
+#2 ...
+
+#3 [internal] load metadata for docker.io/library/python:3.11.15-slim-bookworm@sha256:d29f48a31a8b408ed19272ca1e7b10ebae13b240a27e862d3d4217c528e2e0c3
+#3 DONE 1.1s
+
+#2 [internal] load metadata for ghcr.io/astral-sh/uv:0.10.11@sha256:3472e43b4e738cf911c99d41bb34331280efad54c73b1def654a6227bb59b2b4
+#2 DONE 1.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 297B done
+#5 DONE 0.0s
+
+#6 FROM ghcr.io/astral-sh/uv:0.10.11@sha256:3472e43b4e738cf911c99d41bb34331280efad54c73b1def654a6227bb59b2b4
+#6 resolve ghcr.io/astral-sh/uv:0.10.11@sha256:3472e43b4e738cf911c99d41bb34331280efad54c73b1def654a6227bb59b2b4 0.0s done
+#6 DONE 0.0s
+
+#7 [stage-0 1/6] FROM docker.io/library/python:3.11.15-slim-bookworm@sha256:d29f48a31a8b408ed19272ca1e7b10ebae13b240a27e862d3d4217c528e2e0c3
+#7 resolve docker.io/library/python:3.11.15-slim-bookworm@sha256:d29f48a31a8b408ed19272ca1e7b10ebae13b240a27e862d3d4217c528e2e0c3 0.0s done
+#7 DONE 0.0s
+
+#8 [stage-0 3/6] WORKDIR /code
+#8 CACHED
+
+#9 [stage-0 4/6] COPY pyproject.toml uv.lock .python-version ./
+#9 CACHED
+
+#10 [stage-0 5/6] RUN uv sync --locked --no-dev
+#10 CACHED
+
+#11 [stage-0 2/6] COPY --from=ghcr.io/astral-sh/uv:0.10.11@sha256:3472e43b4e738cf911c99d41bb34331280efad54c73b1def654a6227bb59b2b4 /uv /uvx /bin/
+#11 CACHED
+
+#12 [stage-0 6/6] COPY model.py predict.py feature_defaults.json model_metadata.json pipeline.bin q6_test.py ./
+#12 CACHED
+
+#13 exporting to image
+#13 exporting layers done
+#13 exporting manifest sha256:51db02ac516053ce520c5e50be391390675ac0ba41d473f544672b242389c5e9 done
+#13 exporting config sha256:953c4d9b214139e77bfd634ca74fe3963252c2faab80e0b2b07910af93edb08d done
+#13 exporting attestation manifest sha256:e4f7753e3be39a9844601cc35e0c14a80587291186def3ed01ba14a8e77f0013 done
+#13 exporting manifest list sha256:4118413bfb07cf548012fff3f201cc20fc086e03f924a3306d58e60d8e40acbb done
+#13 naming to docker.io/library/zoomcamp-model:2026-hw5 done
+#13 unpacking to docker.io/library/zoomcamp-model:2026-hw5 done
+#13 DONE 0.0s
+
+View build details: docker-desktop://dashboard/build/colima/colima/rr7n5uptjuvtfg4kkorsnee1b
