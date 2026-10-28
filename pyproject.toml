@@ -28,4 +28,5 @@ members = [
 ]
 exclude = [
     "homeworks/05_deployment",
+    "lesson-05-workshop",
 ]
