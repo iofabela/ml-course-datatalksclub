@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" width="1000" height="380" role="img" aria-labelledby="t d">
+  <title id="t">CNN summary</title>
+  <desc id="d">The image goes through the convolutional layers, which produce the vector representation. The dense layers turn the vector representation into the prediction, T-SHIRT.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .bg{fill:#fdfcf5}.ink{fill:#1d2433}.muted{fill:#6b7280}.accent{fill:#2f5bea}.card{fill:#ffffff}.hdr{fill:#eef2ff}
+    .s-ink{stroke:#1d2433;fill:none}.s-accent{stroke:#2f5bea;fill:none}.s-grid{stroke:#1d2433;fill:none}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#0f1420}.ink{fill:#e6e8ef}.muted{fill:#9aa3b2}.accent{fill:#7c9bff}.card{fill:#161c2a}.hdr{fill:#26304d}
+      .s-ink{stroke:#e6e8ef}.s-accent{stroke:#7c9bff}.s-grid{stroke:#e6e8ef}
+    }
+  </style>
+  <style>.serif{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,"Times New Roman",serif;font-style:italic}.halo{stroke:#fdfcf5}@media (prefers-color-scheme:dark){.halo{stroke:#0f1420}}</style>
+  <defs>
+<symbol id="tee" viewBox="0 0 100 100">
+      <path d="M31,14 L42,10 Q50,19 58,10 L69,14 L93,30 L83,46 L72,39 L72,89 L28,89 L28,39 L17,46 L7,30 Z" fill="#1f2430"/>
+      <path d="M42,10 Q50,19 58,10" fill="none" stroke="#3a4152" stroke-width="2"/>
+      <circle cx="61" cy="30" r="4.5" fill="#f4f4f4"/>
+    </symbol>
+    <symbol id="photo" viewBox="0 0 144 144">
+      <rect width="144" height="144" fill="#d4a15c"/>
+      <g fill="#c08a46">
+        <rect x="20" y="24" width="2" height="120"/><rect x="46" y="24" width="2" height="120"/><rect x="72" y="24" width="2" height="120"/>
+        <rect x="98" y="24" width="2" height="120"/><rect x="124" y="24" width="2" height="120"/>
+      </g>
+      <rect width="144" height="22" fill="#efe9dc"/>
+      <rect y="20" width="144" height="4" fill="#e2d9c6"/>
+      <use href="#tee" x="17" y="26" width="110" height="110"/>
+    </symbol>
+    <image id="f0" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAABmElEQVR4Xh2S224UMRBE+2p7dvYCITyA8q8I/hSeSBQpCZOdWdvtbjTp91JXnSr8+eMXMyMiIR4OxSOmktb1Nh1K7wYBNvartYt1T6qtmzC1bgCwLGvKer1uvdsYnpLW2phIWrPre/UIN39fKhJGRHgwk5kfT7lMuguyECKmLMyEhMdzBgAIIEJAyEXKQVmImERIvtyfSsnzoVwux3kuKSkzEdKtNrOxbfX1dfm3XHevEYAfobZbzVmJyN0jYIxhZttWAYGIIkKeHl97G28vW6t9vbZhbuat2WFOOasoHc9FE58v0+6VCHMRYmKhMfy2dSLa1l6raRLrAwLqzeTh4d7dc073Xz8hwN3nMzER4Ri+LGut7fn5DRDW9UYBgUSn0yEnTUkRMSctJbsHIrrHPE9MBADy+PfFR/z5/TRsf42IzNjaSInHiGlOqrwzIZAPjjvI69ZbNSJsANZHb5aLru81FxHhMqnkogBQcvr2/a7VnrL6cE1qZq3txZqZCI/hEhGq4hF7y8rzPPVu9LGekpMNr7UNG8z8H1UcAzan0i9lAAAAAElFTkSuQmCC" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <image id="f1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAACQElEQVR4XgXB207aYAAA4PbvX1qgtBShgApUME7m1EVdlmlM3C7M9gZLTPYuy/You1h2sV3sBbaEuczNOB0gRITggUOtBdq/55bu+/B3b9+bhkNAwLIREkLTskcK8twpRZPJFAshMR4j23IxDANIswgCxGIRjmVcz1cnhiLrQRBkMjxNhRAyPc/3XB8AHJAkEWXoEAl1w+rfKjfdESSJpeX5YnHWn05HClLuECDwKEMDSBI8z4YosnM5kPoqTZPbO+W11UVJGrWavXsJMSzNxZlwmAKCwFuWfdnq967GdJjc3VvZ2ioPhveHlUarMWRYOl8QODbqeT4wDbvbkRQZsXx49/mjne21dvv286fDZrWfmY8/3igmZzhV05V7DSgjTUd2LEbv7JbX1xartfbHD9//HV8XSjP7LzfKD8Q7eTLojXVkQ12zYxwtLmQelhfq9c7XL0e1v7dLK5mDNy9EMVv5cVo97fr+VMiwMMqEhDQ/m01Wa+2flfPOxd3q5vzrgz1RzB79rp/8uZyMjEIpmUpxMDHDUlSo15eb9RtZQutP8vuvNvO59NlZq/KthpCdExNxPgohAQGOq6ouDcfqxJzL80+fLXMsc3zS/HXY0FRrrsAXS1kAQL8vQ9txNdU0kJMUmFwhRdHkxcV14/waaXahlMznU47j2rbreT50HDcIgkQqyjBhNhaV5clVVzJ1JycmhHTc9fzJBJmGg+MYNA0HkkQkQpEkHAwVTTVsy02kGCEdxzFMVVEQBKEQxHDsP/GmJM9zM7RuAAAAAElFTkSuQmCC" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <image id="f2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAACB0lEQVR4XhWR3W7TMBhAY3+2kyZO0rRdV4aqMk0b1bhgDCTeAfFESEi8G3cIMQk2pLGfjpV17ZSkaZM0cWLHqA9wzsU56POnL5QBIZBnoizrlk2DwC3LSoi62FSMEcrAMIy6klhKpVSjVKMNrWRDCDBKXdd2HKuupNaaMdo02rQYNgwDIWTblpJbQEoFgAHjohBCKCDYNCnnrbKoyNantevaUqplOL+L8jwVGHAcZgghSoEArFZ5JSSp64ZUCiH0bNBFCP3+Ob2fRAihdsfeGwb7L/ayvNCNbhpNKIVNXt3ezE5ODt+djo8Oh2GYbDZiNBp0Ai+Mkj9X0zQtTZMQ17MeH5J0VXyvL1+/ORgfjd6ejptGr9fZr/Obsx/X84eks8NNi5K2zwkhk+vF+dm/y4vH56MLP7ABo2W0mU0ThIz+wOvucN/npCir3X7QCVxKJ/eT+NvX27pSAIgQ6Pb5wXj3+NXQ4a2nRUyWy8zznKDtfvj4Pl6uw3AVR2uMkevZvV677fOiEEmSxnFG8lT8vZsvWtHLo1G/FxyP9zFgy2RlKVbrbPYYTaeLp3mCMCLcM9OkyFIRLi64ZzETfM/R2hBVHT6ty7LWWgNgP7CJ7zuMkbKos7ScTZdKNZSCEBIAbS9y0+Fmt+cCYLKt3eaSNzt9P003QkiMkGFoIIAxcmxLGwZjtK7q/3EVF27buh5QAAAAAElFTkSuQmCC" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <path id="sig" d="M150,190 H880"/>
+  </defs>
+  <rect class="bg" width="1000" height="380" rx="18"/>
+
+  <rect class="card" x="26" y="126" width="128" height="128" rx="6"/>
+  <use href="#photo" x="30" y="130" width="120" height="120"/>
+  <rect class="s-ink" x="26" y="126" width="128" height="128" rx="6" stroke-width="2"/>
+  <g class="s-ink" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M168,182 H196 M168,198 H196 M186,172 L204,190 L186,208"/></g>
+  <g class="s-ink" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M466,182 H494 M466,198 H494 M484,172 L502,190 L484,208"/></g>
+  <g class="s-ink" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M588,182 H616 M588,198 H616 M606,172 L624,190 L606,208"/></g>
+  <g class="s-ink" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M856,182 H884 M856,198 H884 M874,172 L892,190 L874,208"/></g>
+  <rect class="card" x="220" y="60" width="230" height="260" rx="14"/>
+  <rect x="220" y="60" width="230" height="260" rx="14" fill="#fde047" opacity="0"><animate attributeName="opacity" values="0;0;.45;0;0" keyTimes="0;0.12;0.18;0.32;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect class="s-ink" x="220" y="60" width="230" height="260" rx="14" stroke-width="2.5"/>
+  <text class="ink" x="335" y="168" font-size="24" font-weight="800" text-anchor="middle" letter-spacing="2">CONV</text>
+  <text class="ink" x="335" y="198" font-size="24" font-weight="800" text-anchor="middle" letter-spacing="2">LAYERS</text>
+  <g transform="translate(290,232)">
+    <rect width="26" height="26" rx="3" fill="#111"/><use href="#f0" transform="translate(2,2) scale(2.2)"/>
+    <rect x="32" width="26" height="26" rx="3" fill="#111"/><use href="#f1" transform="translate(34,2) scale(2.2)"/>
+    <rect x="64" width="26" height="26" rx="3" fill="#111"/><use href="#f2" transform="translate(66,2) scale(2.2)"/>
+  </g>
+  <rect class="card" x="516" y="24" width="58" height="332" rx="8"/>
+  <rect x="516" y="24.0" width="58" height="23.7" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.14;0.16;0" keyTimes="0;0.360;0.400;0.95;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect x="516" y="47.7" width="58" height="23.7" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.16;0.30;0" keyTimes="0;0.366;0.406;0.95;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect x="516" y="71.4" width="58" height="23.7" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.19;0.12;0" keyTimes="0;0.372;0.412;0.95;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect x="516" y="95.1" width="58" height="23.7" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.15;0.22;0" keyTimes="0;0.378;0.418;0.95;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect x="516" y="118.9" width="58" height="23.7" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.26;0.16;0" keyTimes="0;0.384;0.424;0.95;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect x="516" y="142.6" width="58" height="23.7" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.30;0.15;0" keyTimes="0;0.390;0.430;0.95;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect x="516" y="166.3" width="58" height="23.7" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.29;0.27;0" keyTimes="0;0.396;0.436;0.95;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect x="516" y="190.0" width="58" height="23.7" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.14;0.32;0" keyTimes="0;0.402;0.442;0.95;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect x="516" y="213.7" width="58" height="23.7" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.21;0.25;0" keyTimes="0;0.408;0.448;0.95;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect x="516" y="237.4" width="58" height="23.7" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.27;0.28;0" keyTimes="0;0.414;0.454;0.95;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect x="516" y="261.1" width="58" height="23.7" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.22;0.10;0" keyTimes="0;0.420;0.460;0.95;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect x="516" y="284.9" width="58" height="23.7" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.33;0.36;0" keyTimes="0;0.426;0.466;0.95;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect x="516" y="308.6" width="58" height="23.7" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.24;0.27;0" keyTimes="0;0.432;0.472;0.95;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect x="516" y="332.3" width="58" height="23.7" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.17;0.37;0" keyTimes="0;0.438;0.478;0.95;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect class="s-ink" x="516" y="24" width="58" height="332" rx="8" stroke-width="2.5"/>
+  <text class="ink halo" transform="translate(551,190) rotate(-90)" font-size="16" font-weight="800" text-anchor="middle" letter-spacing="2.5" stroke-width="5" paint-order="stroke">VECTOR REPRESENTATION</text>
+  <rect class="card" x="640" y="60" width="200" height="260" rx="14"/>
+  <rect x="640" y="60" width="200" height="260" rx="14" fill="#fde047" opacity="0"><animate attributeName="opacity" values="0;0;.45;0;0" keyTimes="0;0.55;0.61;0.75;1" dur="5.0s" repeatCount="indefinite"/></rect>
+  <rect class="s-ink" x="640" y="60" width="200" height="260" rx="14" stroke-width="2.5"/>
+  <text class="ink" x="740" y="140" font-size="24" font-weight="800" text-anchor="middle" letter-spacing="2">DENSE</text>
+  <text class="ink" x="740" y="170" font-size="24" font-weight="800" text-anchor="middle" letter-spacing="2">LAYERS</text>
+  <line class="s-ink" x1="700" y1="205" x2="740" y2="220" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="700" y1="205" x2="740" y2="250" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="700" y1="205" x2="740" y2="280" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="700" y1="235" x2="740" y2="220" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="700" y1="235" x2="740" y2="250" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="700" y1="235" x2="740" y2="280" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="700" y1="265" x2="740" y2="220" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="700" y1="265" x2="740" y2="250" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="700" y1="265" x2="740" y2="280" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="700" y1="295" x2="740" y2="220" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="700" y1="295" x2="740" y2="250" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="700" y1="295" x2="740" y2="280" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="740" y1="220" x2="780" y2="235" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="740" y1="220" x2="780" y2="265" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="740" y1="250" x2="780" y2="235" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="740" y1="250" x2="780" y2="265" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="740" y1="280" x2="780" y2="235" stroke-width="1" opacity=".35"/>
+  <line class="s-ink" x1="740" y1="280" x2="780" y2="265" stroke-width="1" opacity=".35"/>
+  <circle class="card" cx="700" cy="205" r="7"/><circle class="s-accent" cx="700" cy="205" r="7" stroke-width="2"/>
+  <circle class="card" cx="700" cy="235" r="7"/><circle class="s-accent" cx="700" cy="235" r="7" stroke-width="2"/>
+  <circle class="card" cx="700" cy="265" r="7"/><circle class="s-accent" cx="700" cy="265" r="7" stroke-width="2"/>
+  <circle class="card" cx="700" cy="295" r="7"/><circle class="s-accent" cx="700" cy="295" r="7" stroke-width="2"/>
+  <circle class="card" cx="740" cy="220" r="7"/><circle class="s-accent" cx="740" cy="220" r="7" stroke-width="2"/>
+  <circle class="card" cx="740" cy="250" r="7"/><circle class="s-accent" cx="740" cy="250" r="7" stroke-width="2"/>
+  <circle class="card" cx="740" cy="280" r="7"/><circle class="s-accent" cx="740" cy="280" r="7" stroke-width="2"/>
+  <circle class="card" cx="780" cy="235" r="7"/><circle class="s-accent" cx="780" cy="235" r="7" stroke-width="2"/>
+  <circle class="card" cx="780" cy="265" r="7"/><circle class="s-accent" cx="780" cy="265" r="7" stroke-width="2"/>
+  <text class="ink" x="944" y="160" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="2">PRED</text>
+  <g opacity=".35"><animate attributeName="opacity" values=".35;.35;1;1;.35" keyTimes="0;0.78;0.82;0.96;1" dur="5.0s" repeatCount="indefinite"/>
+    <rect x="898" y="174" width="92" height="32" rx="16" fill="#2f5bea"/>
+    <text x="944" y="195" font-size="13" font-weight="800" text-anchor="middle" fill="#ffffff" letter-spacing="1">T-SHIRT</text>
+  </g>
+  <circle r="7" fill="#fde047" stroke="#1d2433" stroke-width="2" opacity="0">
+    <animateMotion dur="5.0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.78;1" keyPoints="0;1;1"><mpath href="#sig"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.76;0.79;1" dur="5.0s" repeatCount="indefinite"/>
+  </circle>
+</svg>

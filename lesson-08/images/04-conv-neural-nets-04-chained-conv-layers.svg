@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" width="1000" height="470" role="img" aria-labelledby="t10 d10">
+  <title id="t10">Chained convolutional layers</title>
+  <desc id="d10">The image goes into convolutional layer 1 with 6 filters, which produces 6 feature maps. These feature maps are treated as a new image and fed to convolutional layer 2, whose 12 filters each look at all 6 maps and produce 12 feature maps. A third layer can follow, and so on.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .bg{fill:#fdfcf5}.ink{fill:#1d2433}.muted{fill:#6b7280}.accent{fill:#2f5bea}.card{fill:#ffffff}
+    .s-ink{stroke:#1d2433;fill:none}.s-accent{stroke:#2f5bea;fill:none}.s-grid{stroke:#1d2433;fill:none}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#0f1420}.ink{fill:#e6e8ef}.muted{fill:#9aa3b2}.accent{fill:#7c9bff}.card{fill:#161c2a}
+      .s-ink{stroke:#e6e8ef}.s-accent{stroke:#7c9bff}.s-grid{stroke:#e6e8ef}
+    }
+  </style>
+  <defs>
+    <symbol id="tee" viewBox="0 0 100 100">
+      <path d="M31,14 L42,10 Q50,19 58,10 L69,14 L93,30 L83,46 L72,39 L72,89 L28,89 L28,39 L17,46 L7,30 Z" fill="#1f2430"/>
+      <path d="M42,10 Q50,19 58,10" fill="none" stroke="#3a4152" stroke-width="2"/>
+      <circle cx="61" cy="30" r="4.5" fill="#f4f4f4"/>
+    </symbol>
+    <symbol id="photo" viewBox="0 0 144 144">
+      <rect width="144" height="144" fill="#d4a15c"/>
+      <g fill="#c08a46">
+        <rect x="20" y="24" width="2" height="120"/><rect x="46" y="24" width="2" height="120"/><rect x="72" y="24" width="2" height="120"/>
+        <rect x="98" y="24" width="2" height="120"/><rect x="124" y="24" width="2" height="120"/>
+      </g>
+      <rect width="144" height="22" fill="#efe9dc"/>
+      <rect y="20" width="144" height="4" fill="#e2d9c6"/>
+      <use href="#tee" x="17" y="26" width="110" height="110"/>
+    </symbol>
+    <image id="f0" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAABmElEQVR4Xh2S224UMRBE+2p7dvYCITyA8q8I/hSeSBQpCZOdWdvtbjTp91JXnSr8+eMXMyMiIR4OxSOmktb1Nh1K7wYBNvartYt1T6qtmzC1bgCwLGvKer1uvdsYnpLW2phIWrPre/UIN39fKhJGRHgwk5kfT7lMuguyECKmLMyEhMdzBgAIIEJAyEXKQVmImERIvtyfSsnzoVwux3kuKSkzEdKtNrOxbfX1dfm3XHevEYAfobZbzVmJyN0jYIxhZttWAYGIIkKeHl97G28vW6t9vbZhbuat2WFOOasoHc9FE58v0+6VCHMRYmKhMfy2dSLa1l6raRLrAwLqzeTh4d7dc073Xz8hwN3nMzER4Ri+LGut7fn5DRDW9UYBgUSn0yEnTUkRMSctJbsHIrrHPE9MBADy+PfFR/z5/TRsf42IzNjaSInHiGlOqrwzIZAPjjvI69ZbNSJsANZHb5aLru81FxHhMqnkogBQcvr2/a7VnrL6cE1qZq3txZqZCI/hEhGq4hF7y8rzPPVu9LGekpMNr7UNG8z8H1UcAzan0i9lAAAAAElFTkSuQmCC" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <image id="f1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAACQElEQVR4XgXB207aYAAA4PbvX1qgtBShgApUME7m1EVdlmlM3C7M9gZLTPYuy/You1h2sV3sBbaEuczNOB0gRITggUOtBdq/55bu+/B3b9+bhkNAwLIREkLTskcK8twpRZPJFAshMR4j23IxDANIswgCxGIRjmVcz1cnhiLrQRBkMjxNhRAyPc/3XB8AHJAkEWXoEAl1w+rfKjfdESSJpeX5YnHWn05HClLuECDwKEMDSBI8z4YosnM5kPoqTZPbO+W11UVJGrWavXsJMSzNxZlwmAKCwFuWfdnq967GdJjc3VvZ2ioPhveHlUarMWRYOl8QODbqeT4wDbvbkRQZsXx49/mjne21dvv286fDZrWfmY8/3igmZzhV05V7DSgjTUd2LEbv7JbX1xartfbHD9//HV8XSjP7LzfKD8Q7eTLojXVkQ12zYxwtLmQelhfq9c7XL0e1v7dLK5mDNy9EMVv5cVo97fr+VMiwMMqEhDQ/m01Wa+2flfPOxd3q5vzrgz1RzB79rp/8uZyMjEIpmUpxMDHDUlSo15eb9RtZQutP8vuvNvO59NlZq/KthpCdExNxPgohAQGOq6ouDcfqxJzL80+fLXMsc3zS/HXY0FRrrsAXS1kAQL8vQ9txNdU0kJMUmFwhRdHkxcV14/waaXahlMznU47j2rbreT50HDcIgkQqyjBhNhaV5clVVzJ1JycmhHTc9fzJBJmGg+MYNA0HkkQkQpEkHAwVTTVsy02kGCEdxzFMVVEQBKEQxHDsP/GmJM9zM7RuAAAAAElFTkSuQmCC" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <image id="f2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAABl0lEQVR4Xh2Q2W7bUAxEud1NUuLEfir6sUX7sy3iQrUtRdblXVgo80bMAckZ/PnjV/B+nhcE/Pb9nHO5ftwR8f08DkP683sGgJhc8I5iDFm1aDMzOcTbqkXr6TSNYxRHiECEWiq11kXEDLrZkMLlctr3si55GlOKYVt1XXIIHhEFEQmxaK0VQ/SttaKt1T6OiZmIMS9FtYgQxeAMbPtUMJjGNI3p/m/TXJlJnCz3vXeL0U/jIDEFAGit73s5n19zPv7u3YYhinDvtm+FkJwXIcTaOhH6IN67UmrRVmszAxFmphDFwEqplHMBAESspRGiajUzABA+ykEC+3IPFAkBjhkAnrs6J8TovWipz2dmJuYDPxr42lSEKQ3+8VhzLm/nEQD2PZtZa73WllXfTi/yWD7NjB3V2vddW+tpcL1Zrf35XEX49SS1tmXdiJB6tzQcCW/3NWdlpuk1zvMdEVJyxAdwXAaE1o5A6cX33q9/b++XsZSWtXxcb4CYkgOA3k22bbduzrMIz/MDDHyQEAUBsyozshARish/+F8GgAeDY0MAAAAASUVORK5CYII=" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ink"/></marker>
+    <marker id="ah-acc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="accent"/></marker>
+  </defs>
+  <style>.grn{fill:#7cc35a}.s-grn{stroke:#5aa33a;fill:none}.tgrn{fill:#4c9a2a}@media (prefers-color-scheme:dark){.tgrn{fill:#8fd46c}}</style>
+
+  <rect class="bg" width="1000" height="470" rx="18"/>
+
+  <!-- image -->
+  <rect class="card" x="26" y="166" width="158" height="158" rx="6"/>
+  <use href="#photo" x="30" y="170" width="150" height="150"/>
+  <rect class="s-ink" x="26" y="166" width="158" height="158" rx="6" stroke-width="2"/>
+  <text class="ink" x="215" y="62" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="1.5">CONV</text>
+  <text class="ink" x="215" y="82" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="1.5">LAYER 1</text>
+  <path class="s-ink" d="M215,94 V212" stroke-width="2.2" marker-end="url(#ah-ink)">
+  </path>
+  <g class="s-ink" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M198,237 H230 M198,253 H230 M220,226 L238,245 L220,264"/></g>
+  <g transform="translate(190,292)">
+    <rect width="16" height="16" rx="2" fill="#111"/><use href="#f0" transform="translate(1,1) scale(1.4)"/>
+    <rect x="18" width="16" height="16" rx="2" fill="#111"/><use href="#f1" transform="translate(19,1) scale(1.4)"/>
+    <rect x="36" width="16" height="16" rx="2" fill="#111"/><use href="#f2" transform="translate(37,1) scale(1.4)"/>
+  </g>
+  <path class="s-accent" d="M215,350 V318" stroke-width="2" marker-end="url(#ah-acc)"/>
+  <text class="accent" x="215" y="372" font-size="17" font-weight="800" text-anchor="middle">6 filters</text>
+  <!-- 6 feature maps -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.080;0.110;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="290" y="130" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M312.5,130 V310 M335.0,130 V310 M357.5,130 V310 M380.0,130 V310 M402.5,130 V310 M425.0,130 V310 M447.5,130 V310 M290,152.5 H470 M290,175.0 H470 M290,197.5 H470 M290,220.0 H470 M290,242.5 H470 M290,265.0 H470 M290,287.5 H470" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="290" y="130" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.110;0.140;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="283" y="137" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M305.5,137 V317 M328.0,137 V317 M350.5,137 V317 M373.0,137 V317 M395.5,137 V317 M418.0,137 V317 M440.5,137 V317 M283,159.5 H463 M283,182.0 H463 M283,204.5 H463 M283,227.0 H463 M283,249.5 H463 M283,272.0 H463 M283,294.5 H463" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="283" y="137" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.140;0.170;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="276" y="144" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M298.5,144 V324 M321.0,144 V324 M343.5,144 V324 M366.0,144 V324 M388.5,144 V324 M411.0,144 V324 M433.5,144 V324 M276,166.5 H456 M276,189.0 H456 M276,211.5 H456 M276,234.0 H456 M276,256.5 H456 M276,279.0 H456 M276,301.5 H456" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="276" y="144" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.170;0.200;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="269" y="151" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M291.5,151 V331 M314.0,151 V331 M336.5,151 V331 M359.0,151 V331 M381.5,151 V331 M404.0,151 V331 M426.5,151 V331 M269,173.5 H449 M269,196.0 H449 M269,218.5 H449 M269,241.0 H449 M269,263.5 H449 M269,286.0 H449 M269,308.5 H449" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="269" y="151" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.200;0.230;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="262" y="158" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M284.5,158 V338 M307.0,158 V338 M329.5,158 V338 M352.0,158 V338 M374.5,158 V338 M397.0,158 V338 M419.5,158 V338 M262,180.5 H442 M262,203.0 H442 M262,225.5 H442 M262,248.0 H442 M262,270.5 H442 M262,293.0 H442 M262,315.5 H442" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="262" y="158" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.230;0.260;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="255" y="165" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M277.5,165 V345 M300.0,165 V345 M322.5,165 V345 M345.0,165 V345 M367.5,165 V345 M390.0,165 V345 M412.5,165 V345 M255,187.5 H435 M255,210.0 H435 M255,232.5 H435 M255,255.0 H435 M255,277.5 H435 M255,300.0 H435 M255,322.5 H435" stroke-width="1" opacity="0.5"/>
+    <rect class="s-ink" x="255" y="165" width="180" height="180" rx="3" stroke-width="2.4"/>
+  </g>
+  <text class="accent" x="345" y="372" font-size="17" font-weight="800" text-anchor="middle">6 feature maps</text>
+  <!-- layer-2 filter: covers all 6 maps -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.3;0.33;0.62;0.65;1" dur="8.0s" repeatCount="indefinite"/>
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="22.5,22.5;22.5,45.0;22.5,67.5;22.5,90.0;67.5,22.5;67.5,45.0;67.5,67.5;67.5,90.0" keyTimes="0.000;0.125;0.250;0.375;0.500;0.625;0.750;0.875" calcMode="discrete" dur="2.40s" begin="2.40s" repeatCount="indefinite"/>
+      <path class="grn" fill-opacity=".35" d="M255,232.5 L290,197.5 L290,130 L357.5,130 L322.5,165 L255,165 Z"/>
+      <path class="s-grn" stroke-width="2.2" d="M255,165 L290,130 H357.5 V197.5 L322.5,232.5 M322.5,165 L357.5,130"/>
+      <rect class="grn" x="255" y="165" width="67.5" height="67.5" fill-opacity=".55"/>
+      <rect class="s-grn" x="255" y="165" width="67.5" height="67.5" stroke-width="2.5"/>
+      <text class="ink" x="288.75" y="205.75" font-size="20" font-weight="800" text-anchor="middle">6</text>
+    </g>
+  </g>
+  <text class="tgrn" x="345" y="394" font-size="12" font-weight="700" text-anchor="middle">each layer-2 filter looks at all 6 maps</text>
+  <text class="ink" x="525" y="62" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="1.5">CONV</text>
+  <text class="ink" x="525" y="82" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="1.5">LAYER 2</text>
+  <path class="s-ink" d="M525,94 V212" stroke-width="2.2" marker-end="url(#ah-ink)">
+  </path>
+  <g class="s-ink" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M508,237 H540 M508,253 H540 M530,226 L548,245 L530,264"/></g>
+  <g transform="translate(511,288)">
+    <path class="grn" fill-opacity=".35" d="M0,22 L10,12 V0 H32 L22,10 H0 Z" transform="translate(0,0)"/>
+    <rect class="grn" y="10" width="22" height="22" fill-opacity=".6"/><rect class="s-grn" y="10" width="22" height="22" stroke-width="2"/>
+    <path class="s-grn" stroke-width="2" d="M0,10 L10,0 H32 V22 L22,32 M22,10 L32,0"/>
+  </g>
+  <path class="s-accent" d="M525,350 V326" stroke-width="2" marker-end="url(#ah-acc)"/>
+  <text class="accent" x="525" y="372" font-size="17" font-weight="800" text-anchor="middle">12 filters</text>
+  <!-- 12 feature maps -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.450;0.480;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="609" y="121" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M631.5,121 V301 M654.0,121 V301 M676.5,121 V301 M699.0,121 V301 M721.5,121 V301 M744.0,121 V301 M766.5,121 V301 M609,143.5 H789 M609,166.0 H789 M609,188.5 H789 M609,211.0 H789 M609,233.5 H789 M609,256.0 H789 M609,278.5 H789" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="609" y="121" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.475;0.505;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="605" y="125" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M627.5,125 V305 M650.0,125 V305 M672.5,125 V305 M695.0,125 V305 M717.5,125 V305 M740.0,125 V305 M762.5,125 V305 M605,147.5 H785 M605,170.0 H785 M605,192.5 H785 M605,215.0 H785 M605,237.5 H785 M605,260.0 H785 M605,282.5 H785" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="605" y="125" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.500;0.530;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="601" y="129" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M623.5,129 V309 M646.0,129 V309 M668.5,129 V309 M691.0,129 V309 M713.5,129 V309 M736.0,129 V309 M758.5,129 V309 M601,151.5 H781 M601,174.0 H781 M601,196.5 H781 M601,219.0 H781 M601,241.5 H781 M601,264.0 H781 M601,286.5 H781" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="601" y="129" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.525;0.555;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="597" y="133" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M619.5,133 V313 M642.0,133 V313 M664.5,133 V313 M687.0,133 V313 M709.5,133 V313 M732.0,133 V313 M754.5,133 V313 M597,155.5 H777 M597,178.0 H777 M597,200.5 H777 M597,223.0 H777 M597,245.5 H777 M597,268.0 H777 M597,290.5 H777" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="597" y="133" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.550;0.580;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="593" y="137" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M615.5,137 V317 M638.0,137 V317 M660.5,137 V317 M683.0,137 V317 M705.5,137 V317 M728.0,137 V317 M750.5,137 V317 M593,159.5 H773 M593,182.0 H773 M593,204.5 H773 M593,227.0 H773 M593,249.5 H773 M593,272.0 H773 M593,294.5 H773" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="593" y="137" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.575;0.605;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="589" y="141" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M611.5,141 V321 M634.0,141 V321 M656.5,141 V321 M679.0,141 V321 M701.5,141 V321 M724.0,141 V321 M746.5,141 V321 M589,163.5 H769 M589,186.0 H769 M589,208.5 H769 M589,231.0 H769 M589,253.5 H769 M589,276.0 H769 M589,298.5 H769" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="589" y="141" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.600;0.630;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="585" y="145" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M607.5,145 V325 M630.0,145 V325 M652.5,145 V325 M675.0,145 V325 M697.5,145 V325 M720.0,145 V325 M742.5,145 V325 M585,167.5 H765 M585,190.0 H765 M585,212.5 H765 M585,235.0 H765 M585,257.5 H765 M585,280.0 H765 M585,302.5 H765" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="585" y="145" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.625;0.655;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="581" y="149" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M603.5,149 V329 M626.0,149 V329 M648.5,149 V329 M671.0,149 V329 M693.5,149 V329 M716.0,149 V329 M738.5,149 V329 M581,171.5 H761 M581,194.0 H761 M581,216.5 H761 M581,239.0 H761 M581,261.5 H761 M581,284.0 H761 M581,306.5 H761" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="581" y="149" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.650;0.680;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="577" y="153" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M599.5,153 V333 M622.0,153 V333 M644.5,153 V333 M667.0,153 V333 M689.5,153 V333 M712.0,153 V333 M734.5,153 V333 M577,175.5 H757 M577,198.0 H757 M577,220.5 H757 M577,243.0 H757 M577,265.5 H757 M577,288.0 H757 M577,310.5 H757" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="577" y="153" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.675;0.705;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="573" y="157" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M595.5,157 V337 M618.0,157 V337 M640.5,157 V337 M663.0,157 V337 M685.5,157 V337 M708.0,157 V337 M730.5,157 V337 M573,179.5 H753 M573,202.0 H753 M573,224.5 H753 M573,247.0 H753 M573,269.5 H753 M573,292.0 H753 M573,314.5 H753" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="573" y="157" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.700;0.730;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="569" y="161" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M591.5,161 V341 M614.0,161 V341 M636.5,161 V341 M659.0,161 V341 M681.5,161 V341 M704.0,161 V341 M726.5,161 V341 M569,183.5 H749 M569,206.0 H749 M569,228.5 H749 M569,251.0 H749 M569,273.5 H749 M569,296.0 H749 M569,318.5 H749" stroke-width="1" opacity="0.18"/>
+    <rect class="s-ink" x="569" y="161" width="180" height="180" rx="3" stroke-width="1.6"/>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.725;0.755;0.95;1" dur="8.0s" repeatCount="indefinite"/>
+    <rect class="card" x="565" y="165" width="180" height="180" rx="3"/>
+    <path class="s-grid" d="M587.5,165 V345 M610.0,165 V345 M632.5,165 V345 M655.0,165 V345 M677.5,165 V345 M700.0,165 V345 M722.5,165 V345 M565,187.5 H745 M565,210.0 H745 M565,232.5 H745 M565,255.0 H745 M565,277.5 H745 M565,300.0 H745 M565,322.5 H745" stroke-width="1" opacity="0.5"/>
+    <rect class="s-ink" x="565" y="165" width="180" height="180" rx="3" stroke-width="2.4"/>
+  </g>
+  <text class="accent" x="680" y="372" font-size="17" font-weight="800" text-anchor="middle">12 feature maps</text>
+  <text class="ink" x="845" y="62" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="1.5">CONV</text>
+  <text class="ink" x="845" y="82" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="1.5">LAYER 3</text>
+  <path class="s-ink" d="M845,94 V212" stroke-width="2.2" marker-end="url(#ah-ink)">
+  </path>
+  <g class="s-ink" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M828,237 H860 M828,253 H860 M850,226 L868,245 L850,264"/></g>
+  <g class="ink">
+    <circle cx="895" cy="245" r="4" opacity=".25"><animate attributeName="opacity" values=".25;1;.25" dur="1.2s" begin="0.0s" repeatCount="indefinite"/></circle>
+    <circle cx="915" cy="245" r="4" opacity=".25"><animate attributeName="opacity" values=".25;1;.25" dur="1.2s" begin="0.2s" repeatCount="indefinite"/></circle>
+    <circle cx="935" cy="245" r="4" opacity=".25"><animate attributeName="opacity" values=".25;1;.25" dur="1.2s" begin="0.4s" repeatCount="indefinite"/></circle>
+  </g>
+</svg>

@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 485" width="920" height="485" role="img" aria-labelledby="t2 d2">
+  <title id="t2">A pre-trained model fails to classify the t-shirt</title>
+  <desc id="d2">A seller uploads a photo to a new listing. The photo is sent to a fashion classification service, which uses a neural network pre-trained on ImageNet. Its 1000 classes are not the shop categories, so it answers jersey instead of T-SHIRT and the listing cannot be published.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .bg{fill:#fdfcf5}.ink{fill:#1d2433}.muted{fill:#6b7280}.accent{fill:#2f5bea}.btxt{fill:#fdfcf5}
+    .s-ink{stroke:#1d2433;fill:none}.s-accent{stroke:#2f5bea;fill:none}.s-grid{stroke:#d6d3c4;fill:none}
+    .hdr{fill:#eef2ff}.card{fill:#ffffff}.bar{fill:#f1efe6}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#0f1420}.ink{fill:#e6e8ef}.muted{fill:#9aa3b2}.accent{fill:#7c9bff}.btxt{fill:#0f1420}
+      .s-ink{stroke:#e6e8ef}.s-accent{stroke:#7c9bff}.s-grid{stroke:#2c3448}
+      .hdr{fill:#1b2340}.card{fill:#161c2a}.bar{fill:#1c2333}
+    }
+  </style>
+  <defs>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ink"/></marker>
+    <marker id="ah-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e5484d"/></marker>
+    <marker id="ah-acc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="accent"/></marker>
+    <symbol id="tee" viewBox="0 0 100 100">
+      <path d="M31,14 L42,10 Q50,19 58,10 L69,14 L93,30 L83,46 L72,39 L72,89 L28,89 L28,39 L17,46 L7,30 Z" fill="#1f2430"/>
+      <path d="M42,10 Q50,19 58,10" fill="none" stroke="#3a4152" stroke-width="2"/>
+      <circle cx="61" cy="30" r="4.5" fill="#f4f4f4"/>
+    </symbol>
+    <symbol id="photo" viewBox="0 0 184 144">
+      <rect width="184" height="144" fill="#d4a15c"/>
+      <g fill="#c08a46">
+        <rect x="22" y="24" width="2" height="120"/><rect x="48" y="24" width="2" height="120"/><rect x="74" y="24" width="2" height="120"/>
+        <rect x="100" y="24" width="2" height="120"/><rect x="126" y="24" width="2" height="120"/><rect x="152" y="24" width="2" height="120"/>
+      </g>
+      <rect width="184" height="22" fill="#efe9dc"/>
+      <rect y="20" width="184" height="4" fill="#e2d9c6"/>
+      <use href="#tee" x="37" y="26" width="110" height="110"/>
+    </symbol>
+    <path id="req" d="M310,150 C330,20 760,20 790,160"/>
+    <path id="res" d="M790,280 C780,400 600,400 522,296"/>
+  </defs>
+
+  <rect class="bg" width="920" height="485" rx="18"/>
+
+  <!-- ===== Seller ===== -->
+  <circle class="ink" cx="85" cy="148" r="22"/>
+  <path class="ink" d="M48,236 Q48,182 85,182 Q122,182 122,236 Z"/>
+  <text class="muted" x="85" y="258" font-size="13" text-anchor="middle">seller</text>
+
+  <rect class="card" x="28" y="292" width="114" height="96" rx="6"/>
+  <use href="#photo" x="32" y="296" width="106" height="88"/>
+  <rect class="s-ink" x="28" y="292" width="114" height="96" rx="6" stroke-width="2"/>
+  <text class="muted" x="85" y="408" font-size="12" text-anchor="middle">photo.jpg</text>
+
+  <path class="s-ink" d="M140,205 H206" stroke-width="2.5" stroke-dasharray="6 6" marker-end="url(#ah-ink)">
+    <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- request / response paths -->
+  <use href="#req" class="s-accent" stroke-width="2.5" stroke-dasharray="7 7" marker-end="url(#ah-acc)" opacity=".55"/>
+  <!-- ===== Browser / listing page ===== -->
+  <rect class="card" x="220" y="70" width="380" height="350" rx="12"/>
+  <path class="bar" d="M232,70 H588 A12,12 0 0 1 600,82 V102 H220 V82 A12,12 0 0 1 232,70 Z"/>
+  <circle cx="240" cy="86" r="5" fill="#f87171"/><circle cx="257" cy="86" r="5" fill="#fbbf24"/><circle cx="274" cy="86" r="5" fill="#34d399"/>
+  <rect class="card" x="296" y="78" width="200" height="16" rx="8"/>
+  <text class="mono muted" x="306" y="90" font-size="10">shop.example/new-listing</text>
+  <path class="s-grid" d="M220,102 H600" stroke-width="1.5"/>
+  <rect class="s-ink" x="220" y="70" width="380" height="350" rx="12" stroke-width="2.5"/>
+
+  <text class="ink" x="245" y="134" font-size="16" font-weight="700">New listing</text>
+
+  <!-- photo slot -->
+  <rect class="card" x="245" y="150" width="130" height="105" rx="8"/>
+  <use href="#photo" x="251" y="156" width="118" height="93"/>
+  <rect class="s-ink" x="245" y="150" width="130" height="105" rx="8" stroke-width="2.5"/>
+  <rect class="s-accent" x="241" y="146" width="138" height="113" rx="11" stroke-width="3" opacity="0">
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.06;0.14;1" dur="6s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- add slot -->
+  <rect class="s-grid" x="390" y="150" width="130" height="105" rx="8" stroke-width="2.5" stroke-dasharray="7 6"/>
+  <path class="s-ink" d="M455,186 V218 M439,202 H471" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+
+  <!-- category -->
+  <text class="ink" x="245" y="302" font-size="15" font-weight="700">Category:</text>
+  <rect class="card" x="335" y="280" width="185" height="32" rx="7"/>
+  <rect class="s-grid" x="335" y="280" width="185" height="32" rx="7" stroke-width="2"/>
+  <rect x="335" y="280" width="185" height="32" rx="7" fill="none" stroke="#e5484d" stroke-width="2.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.76;0.8;1" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <text class="muted" x="348" y="301" font-size="14" font-style="italic">detecting…
+    <animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.76;0.78;1" dur="6s" repeatCount="indefinite"/>
+  </text>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.76;0.8;1" dur="6s" repeatCount="indefinite"/>
+    <text x="348" y="302" font-size="15" font-weight="800" fill="#e5484d">jersey ?</text>
+    <path d="M496,288 l12,12 M508,288 l-12,12" stroke="#e5484d" stroke-width="3" stroke-linecap="round"/>
+    <text x="427" y="327" font-size="11" font-weight="600" text-anchor="middle" fill="#e5484d">not one of our shop categories</text>
+  </g>
+
+  <!-- publish button -->
+  <g opacity=".35">
+        <rect class="ink" x="330" y="338" width="160" height="42" rx="9"/>
+    <text class="btxt" x="410" y="373" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="2">PUBLISH</text>
+  </g>
+
+  <!-- ===== Classification service ===== -->
+  <rect class="hdr" x="690" y="160" width="200" height="120" rx="14"/>
+  <rect class="s-accent" x="682" y="152" width="216" height="136" rx="20" stroke-width="2" opacity="0">
+    <animate attributeName="opacity" values="0;0;.8;.2;.8;0;0" keyTimes="0;0.42;0.46;0.5;0.53;0.56;1" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <rect class="s-accent" x="690" y="160" width="200" height="120" rx="14" stroke-width="3"/>
+  <g class="accent" font-size="17" font-weight="800" text-anchor="middle" letter-spacing=".5">
+    <text x="790" y="200">FASHION</text>
+    <text x="790" y="222">CLASSIFICATION</text>
+    <text x="790" y="244">SERVICE</text>
+  </g>
+  <g class="accent" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.42;0.44;0.55;0.57;1" dur="6s" repeatCount="indefinite"/>
+    <circle cx="776" cy="263" r="3.5"><animate attributeName="cy" values="263;257;263" dur=".6s" repeatCount="indefinite"/></circle>
+    <circle cx="790" cy="263" r="3.5"><animate attributeName="cy" values="263;257;263" dur=".6s" begin=".15s" repeatCount="indefinite"/></circle>
+    <circle cx="804" cy="263" r="3.5"><animate attributeName="cy" values="263;257;263" dur=".6s" begin=".3s" repeatCount="indefinite"/></circle>
+  </g>
+  <path d="M830,398 V292" stroke="#e5484d" stroke-width="3" stroke-dasharray="8 4" fill="none" marker-end="url(#ah-red)">
+    <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/>
+  </path>
+  <g fill="#e5484d" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="1">
+    <text x="830" y="420">PRE-TRAINED</text>
+    <text x="830" y="439">NEURAL NETWORK</text>
+  </g>
+  <text class="muted" x="830" y="460" font-size="12" text-anchor="middle">ImageNet · 1000 classes</text>
+
+  <use href="#res" fill="none" stroke="#e5484d" stroke-width="2.5" stroke-dasharray="7 7" marker-end="url(#ah-red)" opacity=".6"/>
+  <text class="mono muted" x="550" y="42" font-size="12" text-anchor="middle">send image</text>
+  <text class="mono" x="610" y="408" font-size="13" font-weight="700" fill="#e5484d">"jersey" ✗</text>
+
+  <!-- moving image packet -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.1;0.12;0.42;0.44;1" dur="6s" repeatCount="indefinite"/>
+    <animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.12;0.42;1" keyPoints="0;0;1;1"><mpath href="#req"/></animateMotion>
+    <rect x="-26" y="-21" width="52" height="42" rx="5" fill="#ffffff" stroke="#2f5bea" stroke-width="2.5"/>
+    <use href="#photo" x="-22" y="-17" width="44" height="34"/>
+  </g>
+
+  <!-- moving label packet -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.55;0.57;0.76;0.78;1" dur="6s" repeatCount="indefinite"/>
+    <animateMotion dur="6s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.57;0.76;1" keyPoints="0;0;1;1"><mpath href="#res"/></animateMotion>
+    <rect x="-40" y="-14" width="80" height="28" rx="14" fill="#e5484d"/>
+    <text x="0" y="5" font-size="13" font-weight="800" text-anchor="middle" fill="#ffffff">jersey ?</text>
+  </g>
+</svg>

@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 530" width="1000" height="530" role="img" aria-labelledby="t12 d12">
+  <title id="t12">From image to vector representation to prediction</title>
+  <desc id="d12">A 299 by 299 by 3 image goes through the convolutional layers, whose role is to extract a vector representation: a one-dimensional array x of 2048 numbers, x1 to xn. The dense layers then make the prediction. For binary classification, is it a T-shirt, y is 0 for not a T-shirt and 1 for a T-shirt, and g(x) = sigmoid(x transpose w) gives the probability that x is a T-shirt.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .bg{fill:#fdfcf5}.ink{fill:#1d2433}.muted{fill:#6b7280}.accent{fill:#2f5bea}.card{fill:#ffffff}.hdr{fill:#eef2ff}
+    .s-ink{stroke:#1d2433;fill:none}.s-accent{stroke:#2f5bea;fill:none}.s-grid{stroke:#1d2433;fill:none}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#0f1420}.ink{fill:#e6e8ef}.muted{fill:#9aa3b2}.accent{fill:#7c9bff}.card{fill:#161c2a}.hdr{fill:#26304d}
+      .s-ink{stroke:#e6e8ef}.s-accent{stroke:#7c9bff}.s-grid{stroke:#e6e8ef}
+    }
+  </style>
+  <defs>
+    <symbol id="tee" viewBox="0 0 100 100">
+      <path d="M31,14 L42,10 Q50,19 58,10 L69,14 L93,30 L83,46 L72,39 L72,89 L28,89 L28,39 L17,46 L7,30 Z" fill="#1f2430"/>
+      <path d="M42,10 Q50,19 58,10" fill="none" stroke="#3a4152" stroke-width="2"/>
+      <circle cx="61" cy="30" r="4.5" fill="#f4f4f4"/>
+    </symbol>
+    <symbol id="photo" viewBox="0 0 144 144">
+      <rect width="144" height="144" fill="#d4a15c"/>
+      <g fill="#c08a46">
+        <rect x="20" y="24" width="2" height="120"/><rect x="46" y="24" width="2" height="120"/><rect x="72" y="24" width="2" height="120"/>
+        <rect x="98" y="24" width="2" height="120"/><rect x="124" y="24" width="2" height="120"/>
+      </g>
+      <rect width="144" height="22" fill="#efe9dc"/>
+      <rect y="20" width="144" height="4" fill="#e2d9c6"/>
+      <use href="#tee" x="17" y="26" width="110" height="110"/>
+    </symbol>
+    <image id="f0" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAABmElEQVR4Xh2S224UMRBE+2p7dvYCITyA8q8I/hSeSBQpCZOdWdvtbjTp91JXnSr8+eMXMyMiIR4OxSOmktb1Nh1K7wYBNvartYt1T6qtmzC1bgCwLGvKer1uvdsYnpLW2phIWrPre/UIN39fKhJGRHgwk5kfT7lMuguyECKmLMyEhMdzBgAIIEJAyEXKQVmImERIvtyfSsnzoVwux3kuKSkzEdKtNrOxbfX1dfm3XHevEYAfobZbzVmJyN0jYIxhZttWAYGIIkKeHl97G28vW6t9vbZhbuat2WFOOasoHc9FE58v0+6VCHMRYmKhMfy2dSLa1l6raRLrAwLqzeTh4d7dc073Xz8hwN3nMzER4Ri+LGut7fn5DRDW9UYBgUSn0yEnTUkRMSctJbsHIrrHPE9MBADy+PfFR/z5/TRsf42IzNjaSInHiGlOqrwzIZAPjjvI69ZbNSJsANZHb5aLru81FxHhMqnkogBQcvr2/a7VnrL6cE1qZq3txZqZCI/hEhGq4hF7y8rzPPVu9LGekpMNr7UNG8z8H1UcAzan0i9lAAAAAElFTkSuQmCC" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <image id="f1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAACQElEQVR4XgXB207aYAAA4PbvX1qgtBShgApUME7m1EVdlmlM3C7M9gZLTPYuy/You1h2sV3sBbaEuczNOB0gRITggUOtBdq/55bu+/B3b9+bhkNAwLIREkLTskcK8twpRZPJFAshMR4j23IxDANIswgCxGIRjmVcz1cnhiLrQRBkMjxNhRAyPc/3XB8AHJAkEWXoEAl1w+rfKjfdESSJpeX5YnHWn05HClLuECDwKEMDSBI8z4YosnM5kPoqTZPbO+W11UVJGrWavXsJMSzNxZlwmAKCwFuWfdnq967GdJjc3VvZ2ioPhveHlUarMWRYOl8QODbqeT4wDbvbkRQZsXx49/mjne21dvv286fDZrWfmY8/3igmZzhV05V7DSgjTUd2LEbv7JbX1xartfbHD9//HV8XSjP7LzfKD8Q7eTLojXVkQ12zYxwtLmQelhfq9c7XL0e1v7dLK5mDNy9EMVv5cVo97fr+VMiwMMqEhDQ/m01Wa+2flfPOxd3q5vzrgz1RzB79rp/8uZyMjEIpmUpxMDHDUlSo15eb9RtZQutP8vuvNvO59NlZq/KthpCdExNxPgohAQGOq6ouDcfqxJzL80+fLXMsc3zS/HXY0FRrrsAXS1kAQL8vQ9txNdU0kJMUmFwhRdHkxcV14/waaXahlMznU47j2rbreT50HDcIgkQqyjBhNhaV5clVVzJ1JycmhHTc9fzJBJmGg+MYNA0HkkQkQpEkHAwVTTVsy02kGCEdxzFMVVEQBKEQxHDsP/GmJM9zM7RuAAAAAElFTkSuQmCC" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <image id="f2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAACB0lEQVR4XhWR3W7TMBhAY3+2kyZO0rRdV4aqMk0b1bhgDCTeAfFESEi8G3cIMQk2pLGfjpV17ZSkaZM0cWLHqA9wzsU56POnL5QBIZBnoizrlk2DwC3LSoi62FSMEcrAMIy6klhKpVSjVKMNrWRDCDBKXdd2HKuupNaaMdo02rQYNgwDIWTblpJbQEoFgAHjohBCKCDYNCnnrbKoyNantevaUqplOL+L8jwVGHAcZgghSoEArFZ5JSSp64ZUCiH0bNBFCP3+Ob2fRAihdsfeGwb7L/ayvNCNbhpNKIVNXt3ezE5ODt+djo8Oh2GYbDZiNBp0Ai+Mkj9X0zQtTZMQ17MeH5J0VXyvL1+/ORgfjd6ejptGr9fZr/Obsx/X84eks8NNi5K2zwkhk+vF+dm/y4vH56MLP7ABo2W0mU0ThIz+wOvucN/npCir3X7QCVxKJ/eT+NvX27pSAIgQ6Pb5wXj3+NXQ4a2nRUyWy8zznKDtfvj4Pl6uw3AVR2uMkevZvV677fOiEEmSxnFG8lT8vZsvWtHLo1G/FxyP9zFgy2RlKVbrbPYYTaeLp3mCMCLcM9OkyFIRLi64ZzETfM/R2hBVHT6ty7LWWgNgP7CJ7zuMkbKos7ScTZdKNZSCEBIAbS9y0+Fmt+cCYLKt3eaSNzt9P003QkiMkGFoIIAxcmxLGwZjtK7q/3EVF27buh5QAAAAAElFTkSuQmCC" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <marker id="ah-acc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="accent"/></marker>
+    <path id="sig" d="M150,210 H870"/>
+  </defs>
+  <style>.serif{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,"Times New Roman",serif;font-style:italic}</style>
+
+  <rect class="bg" width="1000" height="530" rx="18"/>
+
+  <!-- image -->
+  <rect class="card" x="26" y="146" width="128" height="128" rx="6"/>
+  <use href="#photo" x="30" y="150" width="120" height="120"/>
+  <rect class="s-ink" x="26" y="146" width="128" height="128" rx="6" stroke-width="2"/>
+  <text class="mono accent" x="90" y="300" font-size="15" font-weight="700" text-anchor="middle">299×299×3</text>
+  <g class="s-ink" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M162,202 H188 M162,218 H188 M178,192 L196,210 L178,228"/></g>
+  <g class="s-ink" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M424,202 H450 M424,218 H450 M440,192 L458,210 L440,228"/></g>
+  <g class="s-ink" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M552,202 H578 M552,218 H578 M568,192 L586,210 L568,228"/></g>
+  <g class="s-ink" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M834,202 H860 M834,218 H860 M850,192 L868,210 L850,228"/></g>
+  <rect class="card" x="210" y="120" width="200" height="180" rx="14"/>
+  <rect x="210" y="120" width="200" height="180" rx="14" fill="#fde047" opacity="0">
+    <animate attributeName="opacity" values="0;0;.45;0;0" keyTimes="0;0.12;0.18;0.32;1" dur="6.0s" repeatCount="indefinite"/>
+  </rect>
+  <rect class="s-ink" x="210" y="120" width="200" height="180" rx="14" stroke-width="2.5"/>
+  <text class="ink" x="310" y="188" font-size="19" font-weight="800" text-anchor="middle" letter-spacing="1.5">CONV.</text>
+  <text class="ink" x="310" y="213" font-size="19" font-weight="800" text-anchor="middle" letter-spacing="1.5">LAYERS</text>
+  <g transform="translate(268,240)">
+    <rect width="24" height="24" rx="3" fill="#111"/><use href="#f0" transform="translate(2,2) scale(2)"/>
+    <rect x="30" width="24" height="24" rx="3" fill="#111"/><use href="#f1" transform="translate(32,2) scale(2)"/>
+    <rect x="60" width="24" height="24" rx="3" fill="#111"/><use href="#f2" transform="translate(62,2) scale(2)"/>
+  </g>
+  <path class="s-accent" d="M300,372 Q284,340 302,312" stroke-width="2.2" marker-end="url(#ah-acc)"/>
+  <text class="accent" x="310" y="394" font-size="14" font-weight="800" text-anchor="middle">Role: extract vector</text>
+  <text class="accent" x="310" y="412" font-size="14" font-weight="800" text-anchor="middle">representation</text>
+  <text class="serif ink" x="506.0" y="50" font-size="26" text-anchor="middle">x</text>
+  <rect class="card" x="470" y="62" width="72" height="304" rx="6"/>
+  <rect x="470" y="62" width="72" height="38" fill="#2f5bea" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.35;0.35;0" keyTimes="0;0.330;0.360;0.95;1" dur="6.0s" repeatCount="indefinite"/>
+  </rect>
+  <path class="s-grid" d="M470,100 H542" stroke-width="1" opacity=".35"/>
+  <text class="serif ink" x="506.0" y="87" font-size="20" text-anchor="middle">x<tspan font-size="13" dy="5">1</tspan></text>
+  <rect x="470" y="100" width="72" height="38" fill="#2f5bea" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.10;0.10;0" keyTimes="0;0.348;0.378;0.95;1" dur="6.0s" repeatCount="indefinite"/>
+  </rect>
+  <path class="s-grid" d="M470,138 H542" stroke-width="1" opacity=".35"/>
+  <text class="serif ink" x="506.0" y="125" font-size="20" text-anchor="middle">x<tspan font-size="13" dy="5">2</tspan></text>
+  <rect x="470" y="138" width="72" height="38" fill="#2f5bea" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.45;0.45;0" keyTimes="0;0.366;0.396;0.95;1" dur="6.0s" repeatCount="indefinite"/>
+  </rect>
+  <path class="s-grid" d="M470,176 H542" stroke-width="1" opacity=".35"/>
+  <text class="serif ink" x="506.0" y="163" font-size="20" text-anchor="middle">x<tspan font-size="13" dy="5">3</tspan></text>
+  <rect x="470" y="176" width="72" height="38" fill="#2f5bea" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.20;0.20;0" keyTimes="0;0.384;0.414;0.95;1" dur="6.0s" repeatCount="indefinite"/>
+  </rect>
+  <path class="s-grid" d="M470,214 H542" stroke-width="1" opacity=".35"/>
+  <text class="serif ink" x="506.0" y="201" font-size="20" text-anchor="middle">x<tspan font-size="13" dy="5">4</tspan></text>
+  <path class="s-grid" d="M470,252 H542" stroke-width="1" opacity=".35"/>
+  <text class="ink" x="506.0" y="241" font-size="22" text-anchor="middle">⋮</text>
+  <path class="s-grid" d="M470,290 H542" stroke-width="1" opacity=".35"/>
+  <text class="ink" x="506.0" y="279" font-size="22" text-anchor="middle">⋮</text>
+  <rect x="470" y="290" width="72" height="38" fill="#2f5bea" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.28;0.28;0" keyTimes="0;0.438;0.468;0.95;1" dur="6.0s" repeatCount="indefinite"/>
+  </rect>
+  <path class="s-grid" d="M470,328 H542" stroke-width="1" opacity=".35"/>
+  <text class="serif ink" x="506.0" y="315" font-size="20" text-anchor="middle">x<tspan font-size="13" dy="5">n−1</tspan></text>
+  <rect x="470" y="328" width="72" height="38" fill="#2f5bea" opacity="0">
+    <animate attributeName="opacity" values="0;0;0.15;0.15;0" keyTimes="0;0.456;0.486;0.95;1" dur="6.0s" repeatCount="indefinite"/>
+  </rect>
+  <text class="serif ink" x="506.0" y="353" font-size="20" text-anchor="middle">x<tspan font-size="13" dy="5">n</tspan></text>
+  <rect class="s-ink" x="470" y="62" width="72" height="304" rx="6" stroke-width="2.5"/>
+  <text class="mono accent" x="506.0" y="394" font-size="18" font-weight="800" text-anchor="middle">2048</text>
+  <text class="muted" x="506.0" y="412" font-size="12" text-anchor="middle">numbers (1-D array)</text>
+  <rect class="card" x="600" y="120" width="220" height="180" rx="14"/>
+  <rect x="600" y="120" width="220" height="180" rx="14" fill="#fde047" opacity="0">
+    <animate attributeName="opacity" values="0;0;.45;0;0" keyTimes="0;0.55;0.61;0.75;1" dur="6.0s" repeatCount="indefinite"/>
+  </rect>
+  <rect class="s-ink" x="600" y="120" width="220" height="180" rx="14" stroke-width="2.5"/>
+  <text class="ink" x="710" y="168" font-size="19" font-weight="800" text-anchor="middle" letter-spacing="1.5">DENSE</text>
+  <text class="ink" x="710" y="193" font-size="19" font-weight="800" text-anchor="middle" letter-spacing="1.5">LAYERS</text>
+  <rect class="hdr" x="622" y="222" width="176" height="46" rx="8"/>
+  <text class="serif ink" x="710" y="252" font-size="19" text-anchor="middle">g(x) = <tspan font-style="normal">sigmoid</tspan>(x<tspan font-size="12" dy="-8">T</tspan><tspan dy="8">w)</tspan></text>
+  <path class="s-accent" d="M712,372 Q730,340 712,312" stroke-width="2.2" marker-end="url(#ah-acc)"/>
+  <text class="accent" x="710" y="394" font-size="14" font-weight="800" text-anchor="middle">Role: make predictions</text>
+  <g opacity=".3">
+    <animate attributeName="opacity" values=".3;.3;1;1;.3" keyTimes="0;0.72;0.76;0.95;1" dur="6.0s" repeatCount="indefinite"/>
+    <rect x="878" y="193" width="100" height="34" rx="17" fill="#2f5bea"/>
+    <text x="928" y="216" font-size="15" font-weight="800" text-anchor="middle" fill="#ffffff" letter-spacing="1">T-SHIRT</text>
+  </g>
+  <rect class="hdr" x="878" y="244" width="100" height="10" rx="5"/>
+  <rect x="878" y="244" width="0" height="10" rx="5" fill="#2f5bea">
+    <animate attributeName="width" values="0;0;92;92;0" keyTimes="0;0.72;0.82;0.95;1" dur="6.0s" repeatCount="indefinite"/>
+  </rect>
+  <text class="mono muted" x="928" y="274" font-size="12" text-anchor="middle">P = 0.92</text>
+  <circle r="7" fill="#fde047" stroke="#1d2433" stroke-width="2" opacity="0">
+    <animateMotion dur="6.0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.75;1" keyPoints="0;1;1"><mpath href="#sig"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.73;0.76;1" dur="6.0s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- binary classification -->
+  <rect class="card" x="30" y="448" width="940" height="62" rx="12"/>
+  <rect class="s-accent" x="30" y="448" width="940" height="62" rx="12" stroke-width="2" stroke-dasharray="6 5"/>
+  <text class="accent" x="52" y="476" font-size="15" font-weight="800">Binary classification:</text>
+  <text class="ink" x="52" y="497" font-size="14">is it a T-shirt?</text>
+  <text class="serif ink" x="300" y="487" font-size="20">y ∈ {0, 1}</text>
+  <text class="muted" x="400" y="486" font-size="13" xml:space="preserve"><tspan class="mono accent" font-weight="700">0</tspan><tspan> = not T-shirt</tspan><tspan dx="18" class="mono accent" font-weight="700">1</tspan><tspan> = T-shirt</tspan></text>
+  <text class="ink" x="610" y="487" font-size="14" xml:space="preserve"><tspan class="serif" font-size="18">g(x)</tspan><tspan dx="8">⇒</tspan><tspan dx="8">probability</tspan><tspan> that <tspan class="serif" font-size="18">x</tspan> is a T-shirt</tspan></text>
+</svg>

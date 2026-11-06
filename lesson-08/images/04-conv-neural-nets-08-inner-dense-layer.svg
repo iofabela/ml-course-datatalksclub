@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1020 600" width="1020" height="600" role="img" aria-labelledby="t d">
+  <title id="t">Full network: conv layers, inner dense layer, output dense layer</title>
+  <desc id="d">The image is turned into a vector representation by the convolutional layers. An inner dense layer converts this vector into an inner representation, and the output dense layer converts that into 10 values, one per class: dress, hat, longsleeve, outwear, pants, shirt, shoes, shorts, skirt and t-shirt. The highest value, t-shirt, is the prediction.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .bg{fill:#fdfcf5}.ink{fill:#1d2433}.muted{fill:#6b7280}.accent{fill:#2f5bea}.card{fill:#ffffff}.hdr{fill:#eef2ff}
+    .s-ink{stroke:#1d2433;fill:none}.s-accent{stroke:#2f5bea;fill:none}.s-grid{stroke:#1d2433;fill:none}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#0f1420}.ink{fill:#e6e8ef}.muted{fill:#9aa3b2}.accent{fill:#7c9bff}.card{fill:#161c2a}.hdr{fill:#26304d}
+      .s-ink{stroke:#e6e8ef}.s-accent{stroke:#7c9bff}.s-grid{stroke:#e6e8ef}
+    }
+  </style>
+  <style>.serif{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,"Times New Roman",serif;font-style:italic}.halo{stroke:#fdfcf5}@media (prefers-color-scheme:dark){.halo{stroke:#0f1420}}</style>
+  <defs>
+<symbol id="tee" viewBox="0 0 100 100">
+      <path d="M31,14 L42,10 Q50,19 58,10 L69,14 L93,30 L83,46 L72,39 L72,89 L28,89 L28,39 L17,46 L7,30 Z" fill="#1f2430"/>
+      <path d="M42,10 Q50,19 58,10" fill="none" stroke="#3a4152" stroke-width="2"/>
+      <circle cx="61" cy="30" r="4.5" fill="#f4f4f4"/>
+    </symbol>
+    <symbol id="photo" viewBox="0 0 144 144">
+      <rect width="144" height="144" fill="#d4a15c"/>
+      <g fill="#c08a46">
+        <rect x="20" y="24" width="2" height="120"/><rect x="46" y="24" width="2" height="120"/><rect x="72" y="24" width="2" height="120"/>
+        <rect x="98" y="24" width="2" height="120"/><rect x="124" y="24" width="2" height="120"/>
+      </g>
+      <rect width="144" height="22" fill="#efe9dc"/>
+      <rect y="20" width="144" height="4" fill="#e2d9c6"/>
+      <use href="#tee" x="17" y="26" width="110" height="110"/>
+    </symbol>
+    <marker id="mk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="accent"/></marker>
+    <marker id="mi" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ink"/></marker>
+    <path id="sig" d="M150,290 H633.0"/>
+  </defs>
+  <style>.ylw{fill:#fde047}@media (prefers-color-scheme:dark){.ylw{fill:#d4b106}}</style>
+  <rect class="bg" width="1020" height="600" rx="18"/>
+
+  <rect class="card" x="26" y="226" width="128" height="128" rx="6"/>
+  <use href="#photo" x="30" y="230" width="120" height="120"/>
+  <rect class="s-ink" x="26" y="226" width="128" height="128" rx="6" stroke-width="2"/>
+  <g class="s-ink" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M168,282 H198 M168,298 H198 M188,272 L206,290 L188,308"/></g>
+  <text class="muted" x="187" y="328" font-size="12" font-weight="700" text-anchor="middle">conv</text>
+  <text class="muted" x="187" y="343" font-size="12" font-weight="700" text-anchor="middle">layers</text>
+  <g class="s-ink" stroke-width="1" opacity=".12">
+    <animate attributeName="opacity" values=".12;.12;.5;.12;.12" keyTimes="0;0.30;0.36;0.50;1" dur="6.0s" repeatCount="indefinite"/>
+    <line x1="280" y1="98" x2="430" y2="140"/><line x1="280" y1="98" x2="430" y2="200"/><line x1="280" y1="98" x2="430" y2="260"/><line x1="280" y1="98" x2="430" y2="320"/><line x1="280" y1="98" x2="430" y2="380"/><line x1="280" y1="98" x2="430" y2="440"/><line x1="280" y1="175" x2="430" y2="140"/><line x1="280" y1="175" x2="430" y2="200"/><line x1="280" y1="175" x2="430" y2="260"/><line x1="280" y1="175" x2="430" y2="320"/><line x1="280" y1="175" x2="430" y2="380"/><line x1="280" y1="175" x2="430" y2="440"/><line x1="280" y1="252" x2="430" y2="140"/><line x1="280" y1="252" x2="430" y2="200"/><line x1="280" y1="252" x2="430" y2="260"/><line x1="280" y1="252" x2="430" y2="320"/><line x1="280" y1="252" x2="430" y2="380"/><line x1="280" y1="252" x2="430" y2="440"/><line x1="280" y1="328" x2="430" y2="140"/><line x1="280" y1="328" x2="430" y2="200"/><line x1="280" y1="328" x2="430" y2="260"/><line x1="280" y1="328" x2="430" y2="320"/><line x1="280" y1="328" x2="430" y2="380"/><line x1="280" y1="328" x2="430" y2="440"/><line x1="280" y1="405" x2="430" y2="140"/><line x1="280" y1="405" x2="430" y2="200"/><line x1="280" y1="405" x2="430" y2="260"/><line x1="280" y1="405" x2="430" y2="320"/><line x1="280" y1="405" x2="430" y2="380"/><line x1="280" y1="405" x2="430" y2="440"/><line x1="280" y1="482" x2="430" y2="140"/><line x1="280" y1="482" x2="430" y2="200"/><line x1="280" y1="482" x2="430" y2="260"/><line x1="280" y1="482" x2="430" y2="320"/><line x1="280" y1="482" x2="430" y2="380"/><line x1="280" y1="482" x2="430" y2="440"/>
+  </g>
+  <path class="s-ink" d="M280,60 L430,110 M280,520 L430,470" stroke-width="2.5"/>
+  <g class="s-ink" stroke-width="1" opacity=".12">
+    <animate attributeName="opacity" values=".12;.12;.5;.12;.12" keyTimes="0;0.50;0.56;0.70;1" dur="6.0s" repeatCount="indefinite"/>
+    <line x1="476" y1="140" x2="610" y2="166"/><line x1="476" y1="140" x2="610" y2="218"/><line x1="476" y1="140" x2="610" y2="269"/><line x1="476" y1="140" x2="610" y2="321"/><line x1="476" y1="140" x2="610" y2="372"/><line x1="476" y1="140" x2="610" y2="424"/><line x1="476" y1="200" x2="610" y2="166"/><line x1="476" y1="200" x2="610" y2="218"/><line x1="476" y1="200" x2="610" y2="269"/><line x1="476" y1="200" x2="610" y2="321"/><line x1="476" y1="200" x2="610" y2="372"/><line x1="476" y1="200" x2="610" y2="424"/><line x1="476" y1="260" x2="610" y2="166"/><line x1="476" y1="260" x2="610" y2="218"/><line x1="476" y1="260" x2="610" y2="269"/><line x1="476" y1="260" x2="610" y2="321"/><line x1="476" y1="260" x2="610" y2="372"/><line x1="476" y1="260" x2="610" y2="424"/><line x1="476" y1="320" x2="610" y2="166"/><line x1="476" y1="320" x2="610" y2="218"/><line x1="476" y1="320" x2="610" y2="269"/><line x1="476" y1="320" x2="610" y2="321"/><line x1="476" y1="320" x2="610" y2="372"/><line x1="476" y1="320" x2="610" y2="424"/><line x1="476" y1="380" x2="610" y2="166"/><line x1="476" y1="380" x2="610" y2="218"/><line x1="476" y1="380" x2="610" y2="269"/><line x1="476" y1="380" x2="610" y2="321"/><line x1="476" y1="380" x2="610" y2="372"/><line x1="476" y1="380" x2="610" y2="424"/><line x1="476" y1="440" x2="610" y2="166"/><line x1="476" y1="440" x2="610" y2="218"/><line x1="476" y1="440" x2="610" y2="269"/><line x1="476" y1="440" x2="610" y2="321"/><line x1="476" y1="440" x2="610" y2="372"/><line x1="476" y1="440" x2="610" y2="424"/>
+  </g>
+  <path class="s-ink" d="M476,110 L610,140 M476,470 L610,450" stroke-width="2.5"/>
+  <rect class="ylw" x="230" y="60" width="50" height="460" rx="6"/>
+  <rect class="ink" x="240" y="67.5" width="30" height="6" rx="3" opacity="0.43"/>
+  <rect class="ink" x="240" y="88.4" width="30" height="6" rx="3" opacity="0.43"/>
+  <rect class="ink" x="240" y="109.3" width="30" height="6" rx="3" opacity="0.10"/>
+  <rect class="ink" x="240" y="130.2" width="30" height="6" rx="3" opacity="0.11"/>
+  <rect class="ink" x="240" y="151.1" width="30" height="6" rx="3" opacity="0.39"/>
+  <rect class="ink" x="240" y="172.0" width="30" height="6" rx="3" opacity="0.35"/>
+  <rect class="ink" x="240" y="192.9" width="30" height="6" rx="3" opacity="0.33"/>
+  <rect class="ink" x="240" y="213.8" width="30" height="6" rx="3" opacity="0.19"/>
+  <rect class="ink" x="240" y="234.7" width="30" height="6" rx="3" opacity="0.30"/>
+  <rect class="ink" x="240" y="255.6" width="30" height="6" rx="3" opacity="0.30"/>
+  <rect class="ink" x="240" y="276.5" width="30" height="6" rx="3" opacity="0.30"/>
+  <rect class="ink" x="240" y="297.5" width="30" height="6" rx="3" opacity="0.14"/>
+  <rect class="ink" x="240" y="318.4" width="30" height="6" rx="3" opacity="0.24"/>
+  <rect class="ink" x="240" y="339.3" width="30" height="6" rx="3" opacity="0.23"/>
+  <rect class="ink" x="240" y="360.2" width="30" height="6" rx="3" opacity="0.35"/>
+  <rect class="ink" x="240" y="381.1" width="30" height="6" rx="3" opacity="0.45"/>
+  <rect class="ink" x="240" y="402.0" width="30" height="6" rx="3" opacity="0.43"/>
+  <rect class="ink" x="240" y="422.9" width="30" height="6" rx="3" opacity="0.28"/>
+  <rect class="ink" x="240" y="443.8" width="30" height="6" rx="3" opacity="0.24"/>
+  <rect class="ink" x="240" y="464.7" width="30" height="6" rx="3" opacity="0.18"/>
+  <rect class="ink" x="240" y="485.6" width="30" height="6" rx="3" opacity="0.09"/>
+  <rect class="ink" x="240" y="506.5" width="30" height="6" rx="3" opacity="0.09"/>
+  <rect x="230" y="60" width="50" height="460" rx="6" fill="#ffffff" opacity="0"><animate attributeName="opacity" values="0;0;.55;0;0" keyTimes="0;0.20;0.26;0.40;1" dur="6.0s" repeatCount="indefinite"/></rect>
+  <rect class="s-ink" x="230" y="60" width="50" height="460" rx="6" stroke-width="2.5"/>
+  <rect class="ylw" x="430" y="110" width="46" height="360" rx="6"/>
+  <rect class="ink" x="440" y="118.2" width="26" height="6" rx="3" opacity="0.25"/>
+  <rect class="ink" x="440" y="140.8" width="26" height="6" rx="3" opacity="0.20"/>
+  <rect class="ink" x="440" y="163.2" width="26" height="6" rx="3" opacity="0.22"/>
+  <rect class="ink" x="440" y="185.8" width="26" height="6" rx="3" opacity="0.41"/>
+  <rect class="ink" x="440" y="208.2" width="26" height="6" rx="3" opacity="0.27"/>
+  <rect class="ink" x="440" y="230.8" width="26" height="6" rx="3" opacity="0.29"/>
+  <rect class="ink" x="440" y="253.2" width="26" height="6" rx="3" opacity="0.17"/>
+  <rect class="ink" x="440" y="275.8" width="26" height="6" rx="3" opacity="0.09"/>
+  <rect class="ink" x="440" y="298.2" width="26" height="6" rx="3" opacity="0.20"/>
+  <rect class="ink" x="440" y="320.8" width="26" height="6" rx="3" opacity="0.13"/>
+  <rect class="ink" x="440" y="343.2" width="26" height="6" rx="3" opacity="0.27"/>
+  <rect class="ink" x="440" y="365.8" width="26" height="6" rx="3" opacity="0.45"/>
+  <rect class="ink" x="440" y="388.2" width="26" height="6" rx="3" opacity="0.33"/>
+  <rect class="ink" x="440" y="410.8" width="26" height="6" rx="3" opacity="0.15"/>
+  <rect class="ink" x="440" y="433.2" width="26" height="6" rx="3" opacity="0.41"/>
+  <rect class="ink" x="440" y="455.8" width="26" height="6" rx="3" opacity="0.37"/>
+  <rect x="430" y="110" width="46" height="360" rx="6" fill="#ffffff" opacity="0"><animate attributeName="opacity" values="0;0;.55;0;0" keyTimes="0;0.40;0.46;0.60;1" dur="6.0s" repeatCount="indefinite"/></rect>
+  <rect class="s-ink" x="430" y="110" width="46" height="360" rx="6" stroke-width="2.5"/>
+  <rect class="ylw" x="610" y="140" width="46" height="310" rx="6"/>
+  <rect class="s-ink" x="610" y="140" width="46" height="310" rx="6" stroke-width="2.5"/>
+  <circle class="card" cx="633.0" cy="156" r="10"/>
+  <circle cx="633.0" cy="156" r="10" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.08;0.08;0" keyTimes="0;0.68;0.76;0.96;1" dur="6.0s" repeatCount="indefinite"/></circle>
+  <circle class="s-ink" cx="633.0" cy="156" r="10" stroke-width="2"/>
+  <text class="ink" x="670" y="161" font-size="13" font-weight="500">dress</text>
+  <rect class="hdr" x="752" y="152" width="90" height="8" rx="4"/>
+  <rect x="752" y="152" width="0" height="8" rx="4" fill="#2f5bea"><animate attributeName="width" values="0;0;0.9;0.9;0" keyTimes="0;0.68;0.8;0.96;1" dur="6.0s" repeatCount="indefinite"/></rect>
+  <text class="mono muted" x="848" y="160" font-size="11">0.01</text>
+  <circle class="card" cx="633.0" cy="187" r="10"/>
+  <circle cx="633.0" cy="187" r="10" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.08;0.08;0" keyTimes="0;0.68;0.76;0.96;1" dur="6.0s" repeatCount="indefinite"/></circle>
+  <circle class="s-ink" cx="633.0" cy="187" r="10" stroke-width="2"/>
+  <text class="ink" x="670" y="192" font-size="13" font-weight="500">hat</text>
+  <rect class="hdr" x="752" y="183" width="90" height="8" rx="4"/>
+  <rect x="752" y="183" width="0" height="8" rx="4" fill="#2f5bea"><animate attributeName="width" values="0;0;0.9;0.9;0" keyTimes="0;0.68;0.8;0.96;1" dur="6.0s" repeatCount="indefinite"/></rect>
+  <text class="mono muted" x="848" y="191" font-size="11">0.01</text>
+  <circle class="card" cx="633.0" cy="218" r="10"/>
+  <circle cx="633.0" cy="218" r="10" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.08;0.08;0" keyTimes="0;0.68;0.76;0.96;1" dur="6.0s" repeatCount="indefinite"/></circle>
+  <circle class="s-ink" cx="633.0" cy="218" r="10" stroke-width="2"/>
+  <text class="ink" x="670" y="223" font-size="13" font-weight="500">longsleeve</text>
+  <rect class="hdr" x="752" y="214" width="90" height="8" rx="4"/>
+  <rect x="752" y="214" width="0" height="8" rx="4" fill="#2f5bea"><animate attributeName="width" values="0;0;4.5;4.5;0" keyTimes="0;0.68;0.8;0.96;1" dur="6.0s" repeatCount="indefinite"/></rect>
+  <text class="mono muted" x="848" y="222" font-size="11">0.05</text>
+  <circle class="card" cx="633.0" cy="249" r="10"/>
+  <circle cx="633.0" cy="249" r="10" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.08;0.08;0" keyTimes="0;0.68;0.76;0.96;1" dur="6.0s" repeatCount="indefinite"/></circle>
+  <circle class="s-ink" cx="633.0" cy="249" r="10" stroke-width="2"/>
+  <text class="ink" x="670" y="254" font-size="13" font-weight="500">outwear</text>
+  <rect class="hdr" x="752" y="245" width="90" height="8" rx="4"/>
+  <rect x="752" y="245" width="0" height="8" rx="4" fill="#2f5bea"><animate attributeName="width" values="0;0;1.8;1.8;0" keyTimes="0;0.68;0.8;0.96;1" dur="6.0s" repeatCount="indefinite"/></rect>
+  <text class="mono muted" x="848" y="253" font-size="11">0.02</text>
+  <circle class="card" cx="633.0" cy="280" r="10"/>
+  <circle cx="633.0" cy="280" r="10" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.08;0.08;0" keyTimes="0;0.68;0.76;0.96;1" dur="6.0s" repeatCount="indefinite"/></circle>
+  <circle class="s-ink" cx="633.0" cy="280" r="10" stroke-width="2"/>
+  <text class="ink" x="670" y="285" font-size="13" font-weight="500">pants</text>
+  <rect class="hdr" x="752" y="276" width="90" height="8" rx="4"/>
+  <rect x="752" y="276" width="0" height="8" rx="4" fill="#2f5bea"><animate attributeName="width" values="0;0;0.9;0.9;0" keyTimes="0;0.68;0.8;0.96;1" dur="6.0s" repeatCount="indefinite"/></rect>
+  <text class="mono muted" x="848" y="284" font-size="11">0.01</text>
+  <circle class="card" cx="633.0" cy="311" r="10"/>
+  <circle cx="633.0" cy="311" r="10" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.08;0.08;0" keyTimes="0;0.68;0.76;0.96;1" dur="6.0s" repeatCount="indefinite"/></circle>
+  <circle class="s-ink" cx="633.0" cy="311" r="10" stroke-width="2"/>
+  <text class="ink" x="670" y="316" font-size="13" font-weight="500">shirt</text>
+  <rect class="hdr" x="752" y="307" width="90" height="8" rx="4"/>
+  <rect x="752" y="307" width="0" height="8" rx="4" fill="#2f5bea"><animate attributeName="width" values="0;0;7.2;7.2;0" keyTimes="0;0.68;0.8;0.96;1" dur="6.0s" repeatCount="indefinite"/></rect>
+  <text class="mono muted" x="848" y="315" font-size="11">0.08</text>
+  <circle class="card" cx="633.0" cy="342" r="10"/>
+  <circle cx="633.0" cy="342" r="10" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.08;0.08;0" keyTimes="0;0.68;0.76;0.96;1" dur="6.0s" repeatCount="indefinite"/></circle>
+  <circle class="s-ink" cx="633.0" cy="342" r="10" stroke-width="2"/>
+  <text class="ink" x="670" y="347" font-size="13" font-weight="500">shoes</text>
+  <rect class="hdr" x="752" y="338" width="90" height="8" rx="4"/>
+  <rect x="752" y="338" width="0" height="8" rx="4" fill="#2f5bea"><animate attributeName="width" values="0;0;0.0;0.0;0" keyTimes="0;0.68;0.8;0.96;1" dur="6.0s" repeatCount="indefinite"/></rect>
+  <text class="mono muted" x="848" y="346" font-size="11">0.00</text>
+  <circle class="card" cx="633.0" cy="373" r="10"/>
+  <circle cx="633.0" cy="373" r="10" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.08;0.08;0" keyTimes="0;0.68;0.76;0.96;1" dur="6.0s" repeatCount="indefinite"/></circle>
+  <circle class="s-ink" cx="633.0" cy="373" r="10" stroke-width="2"/>
+  <text class="ink" x="670" y="378" font-size="13" font-weight="500">shorts</text>
+  <rect class="hdr" x="752" y="369" width="90" height="8" rx="4"/>
+  <rect x="752" y="369" width="0" height="8" rx="4" fill="#2f5bea"><animate attributeName="width" values="0;0;0.9;0.9;0" keyTimes="0;0.68;0.8;0.96;1" dur="6.0s" repeatCount="indefinite"/></rect>
+  <text class="mono muted" x="848" y="377" font-size="11">0.01</text>
+  <circle class="card" cx="633.0" cy="404" r="10"/>
+  <circle cx="633.0" cy="404" r="10" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.08;0.08;0" keyTimes="0;0.68;0.76;0.96;1" dur="6.0s" repeatCount="indefinite"/></circle>
+  <circle class="s-ink" cx="633.0" cy="404" r="10" stroke-width="2"/>
+  <text class="ink" x="670" y="409" font-size="13" font-weight="500">skirt</text>
+  <rect class="hdr" x="752" y="400" width="90" height="8" rx="4"/>
+  <rect x="752" y="400" width="0" height="8" rx="4" fill="#2f5bea"><animate attributeName="width" values="0;0;0.9;0.9;0" keyTimes="0;0.68;0.8;0.96;1" dur="6.0s" repeatCount="indefinite"/></rect>
+  <text class="mono muted" x="848" y="408" font-size="11">0.01</text>
+  <circle class="card" cx="633.0" cy="435" r="10"/>
+  <circle cx="633.0" cy="435" r="10" fill="#2f5bea" opacity="0"><animate attributeName="opacity" values="0;0;0.80;0.80;0" keyTimes="0;0.68;0.76;0.96;1" dur="6.0s" repeatCount="indefinite"/></circle>
+  <circle class="s-ink" cx="633.0" cy="435" r="10" stroke-width="2"/>
+  <text class="accent" x="670" y="440" font-size="13" font-weight="800">t-shirt</text>
+  <rect class="hdr" x="752" y="431" width="90" height="8" rx="4"/>
+  <rect x="752" y="431" width="0" height="8" rx="4" fill="#2f5bea"><animate attributeName="width" values="0;0;72.0;72.0;0" keyTimes="0;0.68;0.8;0.96;1" dur="6.0s" repeatCount="indefinite"/></rect>
+  <text class="mono muted" x="848" y="439" font-size="11">0.80</text>
+  <path class="s-ink" d="M882,435 H912" stroke-width="2.5" marker-end="url(#mi)"/>
+  <g opacity=".35"><animate attributeName="opacity" values=".35;.35;1;1;.35" keyTimes="0;0.8;0.84;0.96;1" dur="6.0s" repeatCount="indefinite"/>
+    <rect x="920" y="419" width="84" height="32" rx="16" fill="#2f5bea"/>
+    <text x="962" y="440" font-size="13" font-weight="800" text-anchor="middle" fill="#ffffff" letter-spacing="1">T-SHIRT</text>
+  </g>
+  <circle r="7" fill="#fde047" stroke="#1d2433" stroke-width="2" opacity="0">
+    <animateMotion dur="6.0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.66;1" keyPoints="0;1;1"><mpath href="#sig"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.64;0.67;1" dur="6.0s" repeatCount="indefinite"/>
+  </circle>
+  <text class="accent" x="255" y="28" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="1.5">VECTOR REPR.</text>
+  <path class="s-accent" d="M255,36 V54" stroke-width="2.2" marker-end="url(#mk)"/>
+  <text class="mono muted" x="222" y="76" font-size="11" text-anchor="end">2048</text>
+  <text class="accent" x="453" y="78" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="1.5">INNER</text>
+  <path class="s-accent" d="M453,86 V104" stroke-width="2.2" marker-end="url(#mk)"/>
+  <text class="accent" x="633" y="108" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="1.5">OUTPUT</text>
+  <path class="s-accent" d="M633,116 V134" stroke-width="2.2" marker-end="url(#mk)"/>
+  <text class="muted" x="680" y="112" font-size="12">10 values, one per class</text>
+
+  <path class="s-ink" d="M355,560 V438" stroke-width="2" marker-end="url(#mi)"/>
+  <text class="ink" x="355" y="582" font-size="14" font-weight="800" text-anchor="middle" letter-spacing="1">INNER DENSE LAYER</text>
+  <path class="s-ink" d="M545,560 V448" stroke-width="2" marker-end="url(#mi)"/>
+  <text class="ink" x="545" y="582" font-size="14" font-weight="800" text-anchor="middle" letter-spacing="1">OUTPUT DENSE LAYER</text>
+</svg>

@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 610" width="980" height="610" role="img" aria-labelledby="t7 d7">
+  <title id="t7">Filters and a feature map</title>
+  <desc id="d7">A convolutional layer has filters, small patterns such as curves and lines. One filter slides across the image; at each position it records how similar that part of the image is to the filter. The results form a feature map. Most values are 0, and the highest value, 9, is where the logo on the t-shirt matches the filter. High values mean higher similarity between the filter and that part of the image.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .bg{fill:#fdfcf5}.ink{fill:#1d2433}.muted{fill:#6b7280}.accent{fill:#2f5bea}.card{fill:#ffffff}
+    .s-ink{stroke:#1d2433;fill:none}.s-accent{stroke:#2f5bea;fill:none}.s-grid{stroke:#1d2433;fill:none}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#0f1420}.ink{fill:#e6e8ef}.muted{fill:#9aa3b2}.accent{fill:#7c9bff}.card{fill:#161c2a}
+      .s-ink{stroke:#e6e8ef}.s-accent{stroke:#7c9bff}.s-grid{stroke:#e6e8ef}
+    }
+  </style>
+  <defs>
+    <marker id="ah-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e5484d"/></marker>
+    <symbol id="tee" viewBox="0 0 100 100">
+      <path d="M31,14 L42,10 Q50,19 58,10 L69,14 L93,30 L83,46 L72,39 L72,89 L28,89 L28,39 L17,46 L7,30 Z" fill="#1f2430"/>
+      <path d="M42,10 Q50,19 58,10" fill="none" stroke="#3a4152" stroke-width="2"/>
+      <circle cx="61" cy="30" r="4.5" fill="#f4f4f4"/>
+    </symbol>
+    <symbol id="photo" viewBox="0 0 144 144">
+      <rect width="144" height="144" fill="#d4a15c"/>
+      <g fill="#c08a46">
+        <rect x="20" y="24" width="2" height="120"/><rect x="46" y="24" width="2" height="120"/><rect x="72" y="24" width="2" height="120"/>
+        <rect x="98" y="24" width="2" height="120"/><rect x="124" y="24" width="2" height="120"/>
+      </g>
+      <rect width="144" height="22" fill="#efe9dc"/>
+      <rect y="20" width="144" height="4" fill="#e2d9c6"/>
+      <use href="#tee" x="17" y="26" width="110" height="110"/>
+    </symbol>
+  </defs>
+
+  <rect class="bg" width="980" height="610" rx="18"/>
+
+  <!-- filters -->
+  <text class="accent" x="40" y="112" font-size="30" font-weight="800" letter-spacing="2">“FILTERS”</text>
+  <g transform="translate(250,72)"><rect width="56" height="56" rx="6" fill="#111"/><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAACB0lEQVR4Xh3R6W4SQQAA4J1zb46FxUJB0aa1msY09Zfpyxl9N62J9k+NmjZuD6AVFgrsMbs7szNj9HuFD3x4/9GyTK21oY2y4nlW1kJZNlFKE4raLU9KhTAqigpTStKUCS4LxtOkVFJJqTmvbZsiDJbz1HZoJ/QBADjPy4LxkglMUCf0go5HCDEpzlm5mG9ZxvOsQhgSinDBuFK6P2yPhr3BIAyCBiUYY1SWPM3YbBZPpvN4sWVZhT3f2tnpDPpdhGC8XH/99rMoKim179u9sD0YdF3XgnCSJDluNlwEYXQ9u7uJo6t4Eq2kUkpq1zeDrnt41D84HAZBw7ZNDCCczhb3k83k5pFSdPJu3Am9WsjVMku35a/vDyzn472eZVGcpvnjMq9r+ebt8OTk4PWrcbfb4rxeb5Krq+nZ2Y/lPJ0/bIKuh1leCV7vjtrHx/u+7/6OZp8+X5SVePb0SRi2Tk+Pzs8v06RkrMJlIbyGNRz1DMM4+3IRXcbJppBStYJo72Vv78XucBReR39EJbHjmRAArfX1zf30dq21fr4fcl5v18X93dq2TdMktkPKQmCMISFYiHoZJ4Sgwag1HvcFr29v56s4227yRtNxHMswDCy4hBBUlSAE+U2LErxZpxDBZsv9v6Pkv2oppYK2Q2WtspSZFiEUGQBwXiulORcYQ9MiCEEAAITwL2hLL3Iymr8nAAAAAElFTkSuQmCC" x="3" y="3" width="50" height="50" preserveAspectRatio="none" style="image-rendering:pixelated"/></g>
+  <g transform="translate(316,72)"><rect width="56" height="56" rx="6" fill="#111"/><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAABmElEQVR4Xh2S224UMRBE+2p7dvYCITyA8q8I/hSeSBQpCZOdWdvtbjTp91JXnSr8+eMXMyMiIR4OxSOmktb1Nh1K7wYBNvartYt1T6qtmzC1bgCwLGvKer1uvdsYnpLW2phIWrPre/UIN39fKhJGRHgwk5kfT7lMuguyECKmLMyEhMdzBgAIIEJAyEXKQVmImERIvtyfSsnzoVwux3kuKSkzEdKtNrOxbfX1dfm3XHevEYAfobZbzVmJyN0jYIxhZttWAYGIIkKeHl97G28vW6t9vbZhbuat2WFOOasoHc9FE58v0+6VCHMRYmKhMfy2dSLa1l6raRLrAwLqzeTh4d7dc073Xz8hwN3nMzER4Ri+LGut7fn5DRDW9UYBgUSn0yEnTUkRMSctJbsHIrrHPE9MBADy+PfFR/z5/TRsf42IzNjaSInHiGlOqrwzIZAPjjvI69ZbNSJsANZHb5aLru81FxHhMqnkogBQcvr2/a7VnrL6cE1qZq3txZqZCI/hEhGq4hF7y8rzPPVu9LGekpMNr7UNG8z8H1UcAzan0i9lAAAAAElFTkSuQmCC" x="3" y="3" width="50" height="50" preserveAspectRatio="none" style="image-rendering:pixelated"/></g>
+  <g transform="translate(382,72)"><rect width="56" height="56" rx="6" fill="#111"/><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAACQElEQVR4XgXB207aYAAA4PbvX1qgtBShgApUME7m1EVdlmlM3C7M9gZLTPYuy/You1h2sV3sBbaEuczNOB0gRITggUOtBdq/55bu+/B3b9+bhkNAwLIREkLTskcK8twpRZPJFAshMR4j23IxDANIswgCxGIRjmVcz1cnhiLrQRBkMjxNhRAyPc/3XB8AHJAkEWXoEAl1w+rfKjfdESSJpeX5YnHWn05HClLuECDwKEMDSBI8z4YosnM5kPoqTZPbO+W11UVJGrWavXsJMSzNxZlwmAKCwFuWfdnq967GdJjc3VvZ2ioPhveHlUarMWRYOl8QODbqeT4wDbvbkRQZsXx49/mjne21dvv286fDZrWfmY8/3igmZzhV05V7DSgjTUd2LEbv7JbX1xartfbHD9//HV8XSjP7LzfKD8Q7eTLojXVkQ12zYxwtLmQelhfq9c7XL0e1v7dLK5mDNy9EMVv5cVo97fr+VMiwMMqEhDQ/m01Wa+2flfPOxd3q5vzrgz1RzB79rp/8uZyMjEIpmUpxMDHDUlSo15eb9RtZQutP8vuvNvO59NlZq/KthpCdExNxPgohAQGOq6ouDcfqxJzL80+fLXMsc3zS/HXY0FRrrsAXS1kAQL8vQ9txNdU0kJMUmFwhRdHkxcV14/waaXahlMznU47j2rbreT50HDcIgkQqyjBhNhaV5clVVzJ1JycmhHTc9fzJBJmGg+MYNA0HkkQkQpEkHAwVTTVsy02kGCEdxzFMVVEQBKEQxHDsP/GmJM9zM7RuAAAAAElFTkSuQmCC" x="3" y="3" width="50" height="50" preserveAspectRatio="none" style="image-rendering:pixelated"/></g>
+  <g transform="translate(448,72)"><rect width="56" height="56" rx="6" fill="#111"/><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAACB0lEQVR4XhWR3W7TMBhAY3+2kyZO0rRdV4aqMk0b1bhgDCTeAfFESEi8G3cIMQk2pLGfjpV17ZSkaZM0cWLHqA9wzsU56POnL5QBIZBnoizrlk2DwC3LSoi62FSMEcrAMIy6klhKpVSjVKMNrWRDCDBKXdd2HKuupNaaMdo02rQYNgwDIWTblpJbQEoFgAHjohBCKCDYNCnnrbKoyNantevaUqplOL+L8jwVGHAcZgghSoEArFZ5JSSp64ZUCiH0bNBFCP3+Ob2fRAihdsfeGwb7L/ayvNCNbhpNKIVNXt3ezE5ODt+djo8Oh2GYbDZiNBp0Ai+Mkj9X0zQtTZMQ17MeH5J0VXyvL1+/ORgfjd6ejptGr9fZr/Obsx/X84eks8NNi5K2zwkhk+vF+dm/y4vH56MLP7ABo2W0mU0ThIz+wOvucN/npCir3X7QCVxKJ/eT+NvX27pSAIgQ6Pb5wXj3+NXQ4a2nRUyWy8zznKDtfvj4Pl6uw3AVR2uMkevZvV677fOiEEmSxnFG8lT8vZsvWtHLo1G/FxyP9zFgy2RlKVbrbPYYTaeLp3mCMCLcM9OkyFIRLi64ZzETfM/R2hBVHT6ty7LWWgNgP7CJ7zuMkbKos7ScTZdKNZSCEBIAbS9y0+Fmt+cCYLKt3eaSNzt9P003QkiMkGFoIIAxcmxLGwZjtK7q/3EVF27buh5QAAAAAElFTkSuQmCC" x="3" y="3" width="50" height="50" preserveAspectRatio="none" style="image-rendering:pixelated"/></g>
+  <g transform="translate(514,72)"><rect width="56" height="56" rx="6" fill="#111"/><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAABl0lEQVR4Xh2Q2W7bUAxEud1NUuLEfir6sUX7sy3iQrUtRdblXVgo80bMAckZ/PnjV/B+nhcE/Pb9nHO5ftwR8f08DkP683sGgJhc8I5iDFm1aDMzOcTbqkXr6TSNYxRHiECEWiq11kXEDLrZkMLlctr3si55GlOKYVt1XXIIHhEFEQmxaK0VQ/SttaKt1T6OiZmIMS9FtYgQxeAMbPtUMJjGNI3p/m/TXJlJnCz3vXeL0U/jIDEFAGit73s5n19zPv7u3YYhinDvtm+FkJwXIcTaOhH6IN67UmrRVmszAxFmphDFwEqplHMBAESspRGiajUzABA+ykEC+3IPFAkBjhkAnrs6J8TovWipz2dmJuYDPxr42lSEKQ3+8VhzLm/nEQD2PZtZa73WllXfTi/yWD7NjB3V2vddW+tpcL1Zrf35XEX49SS1tmXdiJB6tzQcCW/3NWdlpuk1zvMdEVJyxAdwXAaE1o5A6cX33q9/b++XsZSWtXxcb4CYkgOA3k22bbduzrMIz/MDDHyQEAUBsyozshARish/+F8GgAeDY0MAAAAASUVORK5CYII=" x="3" y="3" width="50" height="50" preserveAspectRatio="none" style="image-rendering:pixelated"/></g>
+  <g transform="translate(580,72)"><rect width="56" height="56" rx="6" fill="#111"/><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAACQElEQVR4XgXB2U4TUQAA0Nmncy+zdC+BtiwtIGB5ETQGTSS+Ed5IjIlGjT9hYuK3+GTiD5gYY0QkRoMEadlSAVtqoct0n6Vz79wZz6Ffv3pDiA+hKCsAY7elD2wLASgEQ7Ig8I6DOm2D5RgpIDCCyLkuwS7xPR8CKRyRKYqqX/W7HYMQomkjEuAxchF2GVEUIBT7XbtabdEMnRyPz91ISoAvnenX1bZlDaPRoKICjAnDsowsAwnw3bZ1elxxXTI3l767Og+gUDrTK2Xd83xFgYoicY6Dx8diYkAY9IYXxaZtofWN20u5rOf521uH5QudoqjJ6YQ8ArhO21QUczQRCYcU09zP/6qYBnrybG1lZZ4XuK3P+cZ1n2boRELjXEwuzmuCwC/lMusbvGXuFPYqb/Gnpy/WZrOpXtf4vf+317FommIAFJDjHh6Uin8qiwtTz18+zN1KnhSu3r/7enJazuUyizdTsir5PsWpGnQct62b378dE0JWluc3H91Dzpfyeevjh737DxZi8ZCDcL3WYYAUSKdjoTDUG8buj2I+f5ZKxTcfr84ujg569u7P4uVlbQRKqga5oYNUBSbTUd/3r//1draPDNOenUkt38kWDkpt3Wg2eh7xAiLPtfT+cIgiYTU7M8awTK3aPT689Dw/GtGmMwmebyLkNpt9VQMcz7O2jQaGFdTkick4z7PN+uCoUJ6YsgEIRGKKbTtDC2PsMgFJ8IhnWcNGo+M4SFVBMAxYlq7XuqZpQxhgGFqUOIzJf/xXLhjrP1XFAAAAAElFTkSuQmCC" x="3" y="3" width="50" height="50" preserveAspectRatio="none" style="image-rendering:pixelated"/></g>
+  <rect class="s-accent" x="244" y="66" width="68" height="68" rx="11" stroke-width="3"/>
+  <path class="s-accent" d="M278,136 C278,170 160,160 140,186" stroke-width="2" stroke-dasharray="5 5"/>
+
+  <!-- chosen filter above the image -->
+  <g transform="translate(116,186)"><rect width="48" height="48" rx="6" fill="#111"/><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAACB0lEQVR4Xh3R6W4SQQAA4J1zb46FxUJB0aa1msY09Zfpyxl9N62J9k+NmjZuD6AVFgrsMbs7szNj9HuFD3x4/9GyTK21oY2y4nlW1kJZNlFKE4raLU9KhTAqigpTStKUCS4LxtOkVFJJqTmvbZsiDJbz1HZoJ/QBADjPy4LxkglMUCf0go5HCDEpzlm5mG9ZxvOsQhgSinDBuFK6P2yPhr3BIAyCBiUYY1SWPM3YbBZPpvN4sWVZhT3f2tnpDPpdhGC8XH/99rMoKim179u9sD0YdF3XgnCSJDluNlwEYXQ9u7uJo6t4Eq2kUkpq1zeDrnt41D84HAZBw7ZNDCCczhb3k83k5pFSdPJu3Am9WsjVMku35a/vDyzn472eZVGcpvnjMq9r+ebt8OTk4PWrcbfb4rxeb5Krq+nZ2Y/lPJ0/bIKuh1leCV7vjtrHx/u+7/6OZp8+X5SVePb0SRi2Tk+Pzs8v06RkrMJlIbyGNRz1DMM4+3IRXcbJppBStYJo72Vv78XucBReR39EJbHjmRAArfX1zf30dq21fr4fcl5v18X93dq2TdMktkPKQmCMISFYiHoZJ4Sgwag1HvcFr29v56s4227yRtNxHMswDCy4hBBUlSAE+U2LErxZpxDBZsv9v6Pkv2oppYK2Q2WtspSZFiEUGQBwXiulORcYQ9MiCEEAAITwL2hLL3Iymr8nAAAAAElFTkSuQmCC" x="3" y="3" width="42" height="42" preserveAspectRatio="none" style="image-rendering:pixelated"/><rect class="s-accent" x="-3" y="-3" width="54" height="54" rx="8" stroke-width="2.5"/></g>
+
+  <!-- image -->
+  <rect class="card" x="34" y="244" width="212" height="212" rx="6"/>
+  <use href="#photo" x="40" y="250" width="200" height="200"/>
+  <rect class="s-ink" x="34" y="244" width="212" height="212" rx="6" stroke-width="2"/>
+  <text class="muted" x="140" y="478" font-size="13" text-anchor="middle">image</text>
+  <rect x="40.0" y="250.0" width="48" height="48" rx="4" fill="#ffffff" fill-opacity=".18" stroke="#ffffff" stroke-width="3"><animate attributeName="x" values="40.0;70.4;100.8;131.2;161.6;192.0;40.0;70.4;100.8;131.2;161.6;192.0;40.0;70.4;100.8;131.2;161.6;192.0;40.0;70.4;100.8;131.2;161.6;192.0;40.0;70.4;100.8;131.2;161.6;192.0;40.0;70.4;100.8;131.2;161.6;192.0" keyTimes="0.0000;0.0244;0.0488;0.0732;0.0976;0.1220;0.1463;0.1707;0.1951;0.2195;0.2439;0.2683;0.2927;0.3171;0.3415;0.3659;0.4634;0.4878;0.5122;0.5366;0.5610;0.5854;0.6098;0.6341;0.6585;0.6829;0.7073;0.7317;0.7561;0.7805;0.8049;0.8293;0.8537;0.8780;0.9024;0.9268" dur="14.35s" calcMode="discrete" repeatCount="indefinite"/><animate attributeName="y" values="250.0;250.0;250.0;250.0;250.0;250.0;280.4;280.4;280.4;280.4;280.4;280.4;310.8;310.8;310.8;310.8;310.8;310.8;341.2;341.2;341.2;341.2;341.2;341.2;371.6;371.6;371.6;371.6;371.6;371.6;402.0;402.0;402.0;402.0;402.0;402.0" keyTimes="0.0000;0.0244;0.0488;0.0732;0.0976;0.1220;0.1463;0.1707;0.1951;0.2195;0.2439;0.2683;0.2927;0.3171;0.3415;0.3659;0.4634;0.4878;0.5122;0.5366;0.5610;0.5854;0.6098;0.6341;0.6585;0.6829;0.7073;0.7317;0.7561;0.7805;0.8049;0.8293;0.8537;0.8780;0.9024;0.9268" dur="14.35s" calcMode="discrete" repeatCount="indefinite"/></rect>
+
+  <!-- feature map -->
+  <rect class="card" x="420" y="250" width="300" height="300" rx="4"/>
+  <rect x="470" y="300" width="50" height="50" fill="#2f5bea" fill-opacity="0.10"/>
+  <rect x="520" y="300" width="50" height="50" fill="#2f5bea" fill-opacity="0.25"/>
+  <rect x="570" y="300" width="50" height="50" fill="#2f5bea" fill-opacity="0.30"/>
+  <rect x="620" y="300" width="50" height="50" fill="#2f5bea" fill-opacity="0.10"/>
+  <rect x="420" y="350" width="50" height="50" fill="#2f5bea" fill-opacity="0.05"/>
+  <rect x="470" y="350" width="50" height="50" fill="#2f5bea" fill-opacity="0.15"/>
+  <rect x="520" y="350" width="50" height="50" fill="#2f5bea" fill-opacity="0.10"/>
+  <rect x="570" y="350" width="50" height="50" fill="#2f5bea" fill-opacity="0.45"/>
+  <rect x="620" y="350" width="50" height="50" fill="#2f5bea" fill-opacity="0.15"/>
+  <rect x="670" y="350" width="50" height="50" fill="#2f5bea" fill-opacity="0.05"/>
+  <rect x="470" y="400" width="50" height="50" fill="#2f5bea" fill-opacity="0.05"/>
+  <rect x="570" y="400" width="50" height="50" fill="#2f5bea" fill-opacity="0.05"/>
+  <rect x="620" y="400" width="50" height="50" fill="#2f5bea" fill-opacity="0.05"/>
+  <rect x="420" y="250" width="50" height="50" fill="#fde047" opacity=".6"><animate attributeName="x" values="420.0;470.0;520.0;570.0;620.0;670.0;420.0;470.0;520.0;570.0;620.0;670.0;420.0;470.0;520.0;570.0;620.0;670.0;420.0;470.0;520.0;570.0;620.0;670.0;420.0;470.0;520.0;570.0;620.0;670.0;420.0;470.0;520.0;570.0;620.0;670.0" keyTimes="0.0000;0.0244;0.0488;0.0732;0.0976;0.1220;0.1463;0.1707;0.1951;0.2195;0.2439;0.2683;0.2927;0.3171;0.3415;0.3659;0.4634;0.4878;0.5122;0.5366;0.5610;0.5854;0.6098;0.6341;0.6585;0.6829;0.7073;0.7317;0.7561;0.7805;0.8049;0.8293;0.8537;0.8780;0.9024;0.9268" dur="14.35s" calcMode="discrete" repeatCount="indefinite"/><animate attributeName="y" values="250.0;250.0;250.0;250.0;250.0;250.0;300.0;300.0;300.0;300.0;300.0;300.0;350.0;350.0;350.0;350.0;350.0;350.0;400.0;400.0;400.0;400.0;400.0;400.0;450.0;450.0;450.0;450.0;450.0;450.0;500.0;500.0;500.0;500.0;500.0;500.0" keyTimes="0.0000;0.0244;0.0488;0.0732;0.0976;0.1220;0.1463;0.1707;0.1951;0.2195;0.2439;0.2683;0.2927;0.3171;0.3415;0.3659;0.4634;0.4878;0.5122;0.5366;0.5610;0.5854;0.6098;0.6341;0.6585;0.6829;0.7073;0.7317;0.7561;0.7805;0.8049;0.8293;0.8537;0.8780;0.9024;0.9268" dur="14.35s" calcMode="discrete" repeatCount="indefinite"/></rect>
+  <path class="s-grid" d="M470,250 V550 M520,250 V550 M570,250 V550 M620,250 V550 M670,250 V550 M420,300 H720 M420,350 H720 M420,400 H720 M420,450 H720 M420,500 H720" stroke-width="1.5" opacity=".45"/>
+  <rect class="s-ink" x="420" y="250" width="300" height="300" rx="4" stroke-width="2.5"/>
+  <g class="mono" text-anchor="middle">
+    <text class="muted" x="445.0" y="281.0" font-size="16">0</text>
+    <text class="muted" x="495.0" y="281.0" font-size="16">0</text>
+    <text class="muted" x="545.0" y="281.0" font-size="16">0</text>
+    <text class="muted" x="595.0" y="281.0" font-size="16">0</text>
+    <text class="muted" x="645.0" y="281.0" font-size="16">0</text>
+    <text class="muted" x="695.0" y="281.0" font-size="16">0</text>
+    <text class="muted" x="445.0" y="331.0" font-size="16">0</text>
+    <text class="ink" x="495.0" y="331.0" font-size="17" font-weight="700">2</text>
+    <text class="ink" x="545.0" y="331.0" font-size="17" font-weight="700">5</text>
+    <text class="ink" x="595.0" y="331.0" font-size="17" font-weight="700">6</text>
+    <text class="ink" x="645.0" y="331.0" font-size="17" font-weight="700">2</text>
+    <text class="muted" x="695.0" y="331.0" font-size="16">0</text>
+    <text class="ink" x="445.0" y="381.0" font-size="17" font-weight="700">1</text>
+    <text class="ink" x="495.0" y="381.0" font-size="17" font-weight="700">3</text>
+    <text class="ink" x="545.0" y="381.0" font-size="17" font-weight="700">2</text>
+    <text class="accent" x="595.0" y="384.0" font-size="26" font-weight="800">9</text>
+    <text class="ink" x="645.0" y="381.0" font-size="17" font-weight="700">3</text>
+    <text class="ink" x="695.0" y="381.0" font-size="17" font-weight="700">1</text>
+    <text class="muted" x="445.0" y="431.0" font-size="16">0</text>
+    <text class="ink" x="495.0" y="431.0" font-size="17" font-weight="700">1</text>
+    <text class="muted" x="545.0" y="431.0" font-size="16">0</text>
+    <text class="ink" x="595.0" y="431.0" font-size="17" font-weight="700">1</text>
+    <text class="ink" x="645.0" y="431.0" font-size="17" font-weight="700">1</text>
+    <text class="muted" x="695.0" y="431.0" font-size="16">0</text>
+    <text class="muted" x="445.0" y="481.0" font-size="16">0</text>
+    <text class="muted" x="495.0" y="481.0" font-size="16">0</text>
+    <text class="muted" x="545.0" y="481.0" font-size="16">0</text>
+    <text class="muted" x="595.0" y="481.0" font-size="16">0</text>
+    <text class="muted" x="645.0" y="481.0" font-size="16">0</text>
+    <text class="muted" x="695.0" y="481.0" font-size="16">0</text>
+    <text class="muted" x="445.0" y="531.0" font-size="16">0</text>
+    <text class="muted" x="495.0" y="531.0" font-size="16">0</text>
+    <text class="muted" x="545.0" y="531.0" font-size="16">0</text>
+    <text class="muted" x="595.0" y="531.0" font-size="16">0</text>
+    <text class="muted" x="645.0" y="531.0" font-size="16">0</text>
+    <text class="muted" x="695.0" y="531.0" font-size="16">0</text>
+  </g>
+  <text class="accent" x="570" y="592" font-size="24" font-weight="800" text-anchor="middle" letter-spacing="2">FEATURE MAP</text>
+
+  <line x1="88.0" y1="274.0" x2="418" y2="275.0" stroke="#e5484d" stroke-width="2.5" marker-end="url(#ah-red)" opacity=".9"><animate attributeName="x1" values="88.0;118.4;148.8;179.2;209.6;240.0;88.0;118.4;148.8;179.2;209.6;240.0;88.0;118.4;148.8;179.2;209.6;240.0;88.0;118.4;148.8;179.2;209.6;240.0;88.0;118.4;148.8;179.2;209.6;240.0;88.0;118.4;148.8;179.2;209.6;240.0" keyTimes="0.0000;0.0244;0.0488;0.0732;0.0976;0.1220;0.1463;0.1707;0.1951;0.2195;0.2439;0.2683;0.2927;0.3171;0.3415;0.3659;0.4634;0.4878;0.5122;0.5366;0.5610;0.5854;0.6098;0.6341;0.6585;0.6829;0.7073;0.7317;0.7561;0.7805;0.8049;0.8293;0.8537;0.8780;0.9024;0.9268" dur="14.35s" calcMode="discrete" repeatCount="indefinite"/><animate attributeName="y1" values="274.0;274.0;274.0;274.0;274.0;274.0;304.4;304.4;304.4;304.4;304.4;304.4;334.8;334.8;334.8;334.8;334.8;334.8;365.2;365.2;365.2;365.2;365.2;365.2;395.6;395.6;395.6;395.6;395.6;395.6;426.0;426.0;426.0;426.0;426.0;426.0" keyTimes="0.0000;0.0244;0.0488;0.0732;0.0976;0.1220;0.1463;0.1707;0.1951;0.2195;0.2439;0.2683;0.2927;0.3171;0.3415;0.3659;0.4634;0.4878;0.5122;0.5366;0.5610;0.5854;0.6098;0.6341;0.6585;0.6829;0.7073;0.7317;0.7561;0.7805;0.8049;0.8293;0.8537;0.8780;0.9024;0.9268" dur="14.35s" calcMode="discrete" repeatCount="indefinite"/><animate attributeName="x2" values="418.0;468.0;518.0;568.0;618.0;668.0;418.0;468.0;518.0;568.0;618.0;668.0;418.0;468.0;518.0;568.0;618.0;668.0;418.0;468.0;518.0;568.0;618.0;668.0;418.0;468.0;518.0;568.0;618.0;668.0;418.0;468.0;518.0;568.0;618.0;668.0" keyTimes="0.0000;0.0244;0.0488;0.0732;0.0976;0.1220;0.1463;0.1707;0.1951;0.2195;0.2439;0.2683;0.2927;0.3171;0.3415;0.3659;0.4634;0.4878;0.5122;0.5366;0.5610;0.5854;0.6098;0.6341;0.6585;0.6829;0.7073;0.7317;0.7561;0.7805;0.8049;0.8293;0.8537;0.8780;0.9024;0.9268" dur="14.35s" calcMode="discrete" repeatCount="indefinite"/><animate attributeName="y2" values="275.0;275.0;275.0;275.0;275.0;275.0;325.0;325.0;325.0;325.0;325.0;325.0;375.0;375.0;375.0;375.0;375.0;375.0;425.0;425.0;425.0;425.0;425.0;425.0;475.0;475.0;475.0;475.0;475.0;475.0;525.0;525.0;525.0;525.0;525.0;525.0" keyTimes="0.0000;0.0244;0.0488;0.0732;0.0976;0.1220;0.1463;0.1707;0.1951;0.2195;0.2439;0.2683;0.2927;0.3171;0.3415;0.3659;0.4634;0.4878;0.5122;0.5366;0.5610;0.5854;0.6098;0.6341;0.6585;0.6829;0.7073;0.7317;0.7561;0.7805;0.8049;0.8293;0.8537;0.8780;0.9024;0.9268" dur="14.35s" calcMode="discrete" repeatCount="indefinite"/></line>
+
+  <!-- note -->
+  <g font-size="17" font-weight="700">
+    <text class="accent" x="760" y="370" font-size="19" font-weight="800">High values ⇒</text>
+    <text class="accent" x="760" y="396">higher similarity</text>
+    <text class="accent" x="760" y="420">between filter &amp;</text>
+    <text class="accent" x="760" y="444">image part</text>
+  </g>
+</svg>

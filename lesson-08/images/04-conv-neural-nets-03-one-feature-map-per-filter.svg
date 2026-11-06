@@ -1,0 +1,224 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480" role="img" aria-labelledby="t8 d8">
+  <title id="t8">One feature map per filter</title>
+  <desc id="d8">The image goes into a convolutional layer with six filters. Each filter slides across the image and produces its own feature map, so the layer outputs a stack of six feature maps, one per filter.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .bg{fill:#fdfcf5}.ink{fill:#1d2433}.muted{fill:#6b7280}.accent{fill:#2f5bea}.card{fill:#ffffff}
+    .s-ink{stroke:#1d2433;fill:none}.s-accent{stroke:#2f5bea;fill:none}.s-grid{stroke:#1d2433;fill:none}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#0f1420}.ink{fill:#e6e8ef}.muted{fill:#9aa3b2}.accent{fill:#7c9bff}.card{fill:#161c2a}
+      .s-ink{stroke:#e6e8ef}.s-accent{stroke:#7c9bff}.s-grid{stroke:#e6e8ef}
+    }
+  </style>
+  <defs>
+    <symbol id="tee" viewBox="0 0 100 100">
+      <path d="M31,14 L42,10 Q50,19 58,10 L69,14 L93,30 L83,46 L72,39 L72,89 L28,89 L28,39 L17,46 L7,30 Z" fill="#1f2430"/>
+      <path d="M42,10 Q50,19 58,10" fill="none" stroke="#3a4152" stroke-width="2"/>
+      <circle cx="61" cy="30" r="4.5" fill="#f4f4f4"/>
+    </symbol>
+    <symbol id="photo" viewBox="0 0 144 144">
+      <rect width="144" height="144" fill="#d4a15c"/>
+      <g fill="#c08a46">
+        <rect x="20" y="24" width="2" height="120"/><rect x="46" y="24" width="2" height="120"/><rect x="72" y="24" width="2" height="120"/>
+        <rect x="98" y="24" width="2" height="120"/><rect x="124" y="24" width="2" height="120"/>
+      </g>
+      <rect width="144" height="22" fill="#efe9dc"/>
+      <rect y="20" width="144" height="4" fill="#e2d9c6"/>
+      <use href="#tee" x="17" y="26" width="110" height="110"/>
+    </symbol>
+    <image id="f0" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAACB0lEQVR4Xh3R6W4SQQAA4J1zb46FxUJB0aa1msY09Zfpyxl9N62J9k+NmjZuD6AVFgrsMbs7szNj9HuFD3x4/9GyTK21oY2y4nlW1kJZNlFKE4raLU9KhTAqigpTStKUCS4LxtOkVFJJqTmvbZsiDJbz1HZoJ/QBADjPy4LxkglMUCf0go5HCDEpzlm5mG9ZxvOsQhgSinDBuFK6P2yPhr3BIAyCBiUYY1SWPM3YbBZPpvN4sWVZhT3f2tnpDPpdhGC8XH/99rMoKim179u9sD0YdF3XgnCSJDluNlwEYXQ9u7uJo6t4Eq2kUkpq1zeDrnt41D84HAZBw7ZNDCCczhb3k83k5pFSdPJu3Am9WsjVMku35a/vDyzn472eZVGcpvnjMq9r+ebt8OTk4PWrcbfb4rxeb5Krq+nZ2Y/lPJ0/bIKuh1leCV7vjtrHx/u+7/6OZp8+X5SVePb0SRi2Tk+Pzs8v06RkrMJlIbyGNRz1DMM4+3IRXcbJppBStYJo72Vv78XucBReR39EJbHjmRAArfX1zf30dq21fr4fcl5v18X93dq2TdMktkPKQmCMISFYiHoZJ4Sgwag1HvcFr29v56s4227yRtNxHMswDCy4hBBUlSAE+U2LErxZpxDBZsv9v6Pkv2oppYK2Q2WtspSZFiEUGQBwXiulORcYQ9MiCEEAAITwL2hLL3Iymr8nAAAAAElFTkSuQmCC" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <image id="f1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAABmElEQVR4Xh2S224UMRBE+2p7dvYCITyA8q8I/hSeSBQpCZOdWdvtbjTp91JXnSr8+eMXMyMiIR4OxSOmktb1Nh1K7wYBNvartYt1T6qtmzC1bgCwLGvKer1uvdsYnpLW2phIWrPre/UIN39fKhJGRHgwk5kfT7lMuguyECKmLMyEhMdzBgAIIEJAyEXKQVmImERIvtyfSsnzoVwux3kuKSkzEdKtNrOxbfX1dfm3XHevEYAfobZbzVmJyN0jYIxhZttWAYGIIkKeHl97G28vW6t9vbZhbuat2WFOOasoHc9FE58v0+6VCHMRYmKhMfy2dSLa1l6raRLrAwLqzeTh4d7dc073Xz8hwN3nMzER4Ri+LGut7fn5DRDW9UYBgUSn0yEnTUkRMSctJbsHIrrHPE9MBADy+PfFR/z5/TRsf42IzNjaSInHiGlOqrwzIZAPjjvI69ZbNSJsANZHb5aLru81FxHhMqnkogBQcvr2/a7VnrL6cE1qZq3txZqZCI/hEhGq4hF7y8rzPPVu9LGekpMNr7UNG8z8H1UcAzan0i9lAAAAAElFTkSuQmCC" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <image id="f2" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAACQElEQVR4XgXB207aYAAA4PbvX1qgtBShgApUME7m1EVdlmlM3C7M9gZLTPYuy/You1h2sV3sBbaEuczNOB0gRITggUOtBdq/55bu+/B3b9+bhkNAwLIREkLTskcK8twpRZPJFAshMR4j23IxDANIswgCxGIRjmVcz1cnhiLrQRBkMjxNhRAyPc/3XB8AHJAkEWXoEAl1w+rfKjfdESSJpeX5YnHWn05HClLuECDwKEMDSBI8z4YosnM5kPoqTZPbO+W11UVJGrWavXsJMSzNxZlwmAKCwFuWfdnq967GdJjc3VvZ2ioPhveHlUarMWRYOl8QODbqeT4wDbvbkRQZsXx49/mjne21dvv286fDZrWfmY8/3igmZzhV05V7DSgjTUd2LEbv7JbX1xartfbHD9//HV8XSjP7LzfKD8Q7eTLojXVkQ12zYxwtLmQelhfq9c7XL0e1v7dLK5mDNy9EMVv5cVo97fr+VMiwMMqEhDQ/m01Wa+2flfPOxd3q5vzrgz1RzB79rp/8uZyMjEIpmUpxMDHDUlSo15eb9RtZQutP8vuvNvO59NlZq/KthpCdExNxPgohAQGOq6ouDcfqxJzL80+fLXMsc3zS/HXY0FRrrsAXS1kAQL8vQ9txNdU0kJMUmFwhRdHkxcV14/waaXahlMznU47j2rbreT50HDcIgkQqyjBhNhaV5clVVzJ1JycmhHTc9fzJBJmGg+MYNA0HkkQkQpEkHAwVTTVsy02kGCEdxzFMVVEQBKEQxHDsP/GmJM9zM7RuAAAAAElFTkSuQmCC" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <image id="f3" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAACB0lEQVR4XhWR3W7TMBhAY3+2kyZO0rRdV4aqMk0b1bhgDCTeAfFESEi8G3cIMQk2pLGfjpV17ZSkaZM0cWLHqA9wzsU56POnL5QBIZBnoizrlk2DwC3LSoi62FSMEcrAMIy6klhKpVSjVKMNrWRDCDBKXdd2HKuupNaaMdo02rQYNgwDIWTblpJbQEoFgAHjohBCKCDYNCnnrbKoyNantevaUqplOL+L8jwVGHAcZgghSoEArFZ5JSSp64ZUCiH0bNBFCP3+Ob2fRAihdsfeGwb7L/ayvNCNbhpNKIVNXt3ezE5ODt+djo8Oh2GYbDZiNBp0Ai+Mkj9X0zQtTZMQ17MeH5J0VXyvL1+/ORgfjd6ejptGr9fZr/Obsx/X84eks8NNi5K2zwkhk+vF+dm/y4vH56MLP7ABo2W0mU0ThIz+wOvucN/npCir3X7QCVxKJ/eT+NvX27pSAIgQ6Pb5wXj3+NXQ4a2nRUyWy8zznKDtfvj4Pl6uw3AVR2uMkevZvV677fOiEEmSxnFG8lT8vZsvWtHLo1G/FxyP9zFgy2RlKVbrbPYYTaeLp3mCMCLcM9OkyFIRLi64ZzETfM/R2hBVHT6ty7LWWgNgP7CJ7zuMkbKos7ScTZdKNZSCEBIAbS9y0+Fmt+cCYLKt3eaSNzt9P003QkiMkGFoIIAxcmxLGwZjtK7q/3EVF27buh5QAAAAAElFTkSuQmCC" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <image id="f4" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAABl0lEQVR4Xh2Q2W7bUAxEud1NUuLEfir6sUX7sy3iQrUtRdblXVgo80bMAckZ/PnjV/B+nhcE/Pb9nHO5ftwR8f08DkP683sGgJhc8I5iDFm1aDMzOcTbqkXr6TSNYxRHiECEWiq11kXEDLrZkMLlctr3si55GlOKYVt1XXIIHhEFEQmxaK0VQ/SttaKt1T6OiZmIMS9FtYgQxeAMbPtUMJjGNI3p/m/TXJlJnCz3vXeL0U/jIDEFAGit73s5n19zPv7u3YYhinDvtm+FkJwXIcTaOhH6IN67UmrRVmszAxFmphDFwEqplHMBAESspRGiajUzABA+ykEC+3IPFAkBjhkAnrs6J8TovWipz2dmJuYDPxr42lSEKQ3+8VhzLm/nEQD2PZtZa73WllXfTi/yWD7NjB3V2vddW+tpcL1Zrf35XEX49SS1tmXdiJB6tzQcCW/3NWdlpuk1zvMdEVJyxAdwXAaE1o5A6cX33q9/b++XsZSWtXxcb4CYkgOA3k22bbduzrMIz/MDDHyQEAUBsyozshARish/+F8GgAeDY0MAAAAASUVORK5CYII=" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <image id="f5" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAIAAACQKrqGAAACQElEQVR4XgXB2U4TUQAA0Nmncy+zdC+BtiwtIGB5ETQGTSS+Ed5IjIlGjT9hYuK3+GTiD5gYY0QkRoMEadlSAVtqoct0n6Vz79wZz6Ffv3pDiA+hKCsAY7elD2wLASgEQ7Ig8I6DOm2D5RgpIDCCyLkuwS7xPR8CKRyRKYqqX/W7HYMQomkjEuAxchF2GVEUIBT7XbtabdEMnRyPz91ISoAvnenX1bZlDaPRoKICjAnDsowsAwnw3bZ1elxxXTI3l767Og+gUDrTK2Xd83xFgYoicY6Dx8diYkAY9IYXxaZtofWN20u5rOf521uH5QudoqjJ6YQ8ArhO21QUczQRCYcU09zP/6qYBnrybG1lZZ4XuK3P+cZ1n2boRELjXEwuzmuCwC/lMusbvGXuFPYqb/Gnpy/WZrOpXtf4vf+317FommIAFJDjHh6Uin8qiwtTz18+zN1KnhSu3r/7enJazuUyizdTsir5PsWpGnQct62b378dE0JWluc3H91Dzpfyeevjh737DxZi8ZCDcL3WYYAUSKdjoTDUG8buj2I+f5ZKxTcfr84ujg569u7P4uVlbQRKqga5oYNUBSbTUd/3r//1draPDNOenUkt38kWDkpt3Wg2eh7xAiLPtfT+cIgiYTU7M8awTK3aPT689Dw/GtGmMwmebyLkNpt9VQMcz7O2jQaGFdTkick4z7PN+uCoUJ6YsgEIRGKKbTtDC2PsMgFJ8IhnWcNGo+M4SFVBMAxYlq7XuqZpQxhgGFqUOIzJf/xXLhjrP1XFAAAAAElFTkSuQmCC" width="10" height="10" preserveAspectRatio="none" style="image-rendering:pixelated"/>
+    <marker id="ah-ink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ink"/></marker>
+  </defs>
+
+  <rect class="bg" width="960" height="480" rx="18"/>
+
+  <!-- image -->
+  <text class="muted" x="115" y="138" font-size="12" font-weight="700" letter-spacing="2" text-anchor="middle">IMAGE</text>
+  <rect class="card" x="30" y="150" width="170" height="170" rx="6"/>
+  <use href="#photo" x="35" y="155" width="160" height="160"/>
+  <rect class="s-ink" x="30" y="150" width="170" height="170" rx="6" stroke-width="2"/>
+  <path class="s-ink" d="M210,235 H248" stroke-width="2.5" stroke-dasharray="6 6" marker-end="url(#ah-ink)">
+    <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- conv layer -->
+  <text class="accent" x="370" y="48" font-size="13" font-weight="800" letter-spacing="2" text-anchor="middle">CONVOLUTIONAL LAYER</text>
+  <rect class="card" x="260" y="60" width="220" height="350" rx="14"/>
+  <rect class="s-accent" x="260" y="60" width="220" height="350" rx="14" stroke-width="2.5"/>
+  <g transform="translate(298,88)"><rect width="64" height="64" rx="6" fill="#111"/><use href="#f0" transform="translate(4,4) scale(5.6)"/></g>
+  <text class="muted" x="330" y="170" font-size="11" text-anchor="middle">filter 1</text>
+  <rect class="s-accent" x="293" y="83" width="74" height="74" rx="9" stroke-width="3.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.000;0.025;0.157;0.167;1" dur="7.2s" repeatCount="indefinite"/>
+  </rect>
+  <g transform="translate(382,88)"><rect width="64" height="64" rx="6" fill="#111"/><use href="#f1" transform="translate(4,4) scale(5.6)"/></g>
+  <text class="muted" x="414" y="170" font-size="11" text-anchor="middle">filter 2</text>
+  <rect class="s-accent" x="377" y="83" width="74" height="74" rx="9" stroke-width="3.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.167;0.192;0.323;0.333;1" dur="7.2s" repeatCount="indefinite"/>
+  </rect>
+  <g transform="translate(298,194)"><rect width="64" height="64" rx="6" fill="#111"/><use href="#f2" transform="translate(4,4) scale(5.6)"/></g>
+  <text class="muted" x="330" y="276" font-size="11" text-anchor="middle">filter 3</text>
+  <rect class="s-accent" x="293" y="189" width="74" height="74" rx="9" stroke-width="3.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.333;0.358;0.490;0.500;1" dur="7.2s" repeatCount="indefinite"/>
+  </rect>
+  <g transform="translate(382,194)"><rect width="64" height="64" rx="6" fill="#111"/><use href="#f3" transform="translate(4,4) scale(5.6)"/></g>
+  <text class="muted" x="414" y="276" font-size="11" text-anchor="middle">filter 4</text>
+  <rect class="s-accent" x="377" y="189" width="74" height="74" rx="9" stroke-width="3.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.500;0.525;0.657;0.667;1" dur="7.2s" repeatCount="indefinite"/>
+  </rect>
+  <g transform="translate(298,300)"><rect width="64" height="64" rx="6" fill="#111"/><use href="#f4" transform="translate(4,4) scale(5.6)"/></g>
+  <text class="muted" x="330" y="382" font-size="11" text-anchor="middle">filter 5</text>
+  <rect class="s-accent" x="293" y="295" width="74" height="74" rx="9" stroke-width="3.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.667;0.692;0.823;0.833;1" dur="7.2s" repeatCount="indefinite"/>
+  </rect>
+  <g transform="translate(382,300)"><rect width="64" height="64" rx="6" fill="#111"/><use href="#f5" transform="translate(4,4) scale(5.6)"/></g>
+  <text class="muted" x="414" y="382" font-size="11" text-anchor="middle">filter 6</text>
+  <rect class="s-accent" x="377" y="295" width="74" height="74" rx="9" stroke-width="3.5" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.833;0.858;0.990;1.000;1" dur="7.2s" repeatCount="indefinite"/>
+  </rect>
+  <path class="s-ink" d="M490,235 H540" stroke-width="2.5" stroke-dasharray="6 6" marker-end="url(#ah-ink)">
+    <animate attributeName="stroke-dashoffset" from="24" to="0" dur="1s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- feature maps -->
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.000;0.045;0.97;1" dur="7.2s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="-30,0;-30,0;0,0;0,0" keyTimes="0;0.000;0.055;1" dur="7.2s" repeatCount="indefinite"/>
+    <rect class="card" x="560" y="78" width="150" height="150" rx="4"/>
+    <rect x="560" y="78" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="590" y="78" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="680" y="78" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="620" y="108" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="620" y="138" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="650" y="138" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="680" y="138" width="30" height="30" fill="#2f5bea" fill-opacity="0.17"/>
+    <rect x="650" y="168" width="30" height="30" fill="#2f5bea" fill-opacity="0.11"/>
+    <rect x="680" y="168" width="30" height="30" fill="#2f5bea" fill-opacity="0.39"/>
+    <rect x="620" y="198" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="680" y="198" width="30" height="30" fill="#2f5bea" fill-opacity="0.28"/>
+    <path class="s-grid" d="M590,78 V228 M620,78 V228 M650,78 V228 M680,78 V228 M560,108 H710 M560,138 H710 M560,168 H710 M560,198 H710" stroke-width="1" opacity=".35"/>
+    <rect class="s-ink" x="560" y="78" width="150" height="150" rx="4" stroke-width="2.2"/>
+    <g transform="translate(550,68)"><rect width="24" height="24" rx="4" fill="#111"/><use href="#f0" transform="translate(2,2) scale(2)"/></g>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.167;0.212;0.97;1" dur="7.2s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="-30,0;-30,0;0,0;0,0" keyTimes="0;0.167;0.222;1" dur="7.2s" repeatCount="indefinite"/>
+    <rect class="card" x="590" y="108" width="150" height="150" rx="4"/>
+    <rect x="650" y="108" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="590" y="138" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="650" y="138" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="620" y="198" width="30" height="30" fill="#2f5bea" fill-opacity="0.28"/>
+    <rect x="710" y="198" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="590" y="228" width="30" height="30" fill="#2f5bea" fill-opacity="0.11"/>
+    <rect x="620" y="228" width="30" height="30" fill="#2f5bea" fill-opacity="0.39"/>
+    <rect x="650" y="228" width="30" height="30" fill="#2f5bea" fill-opacity="0.11"/>
+    <path class="s-grid" d="M620,108 V258 M650,108 V258 M680,108 V258 M710,108 V258 M590,138 H740 M590,168 H740 M590,198 H740 M590,228 H740" stroke-width="1" opacity=".35"/>
+    <rect class="s-ink" x="590" y="108" width="150" height="150" rx="4" stroke-width="2.2"/>
+    <g transform="translate(580,98)"><rect width="24" height="24" rx="4" fill="#111"/><use href="#f1" transform="translate(2,2) scale(2)"/></g>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.333;0.378;0.97;1" dur="7.2s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="-30,0;-30,0;0,0;0,0" keyTimes="0;0.333;0.388;1" dur="7.2s" repeatCount="indefinite"/>
+    <rect class="card" x="620" y="138" width="150" height="150" rx="4"/>
+    <rect x="620" y="138" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="650" y="138" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="680" y="138" width="30" height="30" fill="#2f5bea" fill-opacity="0.28"/>
+    <rect x="710" y="138" width="30" height="30" fill="#2f5bea" fill-opacity="0.39"/>
+    <rect x="740" y="138" width="30" height="30" fill="#2f5bea" fill-opacity="0.17"/>
+    <rect x="710" y="168" width="30" height="30" fill="#2f5bea" fill-opacity="0.22"/>
+    <rect x="650" y="198" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="710" y="228" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="740" y="228" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="680" y="258" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <path class="s-grid" d="M650,138 V288 M680,138 V288 M710,138 V288 M740,138 V288 M620,168 H770 M620,198 H770 M620,228 H770 M620,258 H770" stroke-width="1" opacity=".35"/>
+    <rect class="s-ink" x="620" y="138" width="150" height="150" rx="4" stroke-width="2.2"/>
+    <g transform="translate(610,128)"><rect width="24" height="24" rx="4" fill="#111"/><use href="#f2" transform="translate(2,2) scale(2)"/></g>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.500;0.545;0.97;1" dur="7.2s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="-30,0;-30,0;0,0;0,0" keyTimes="0;0.500;0.555;1" dur="7.2s" repeatCount="indefinite"/>
+    <rect class="card" x="650" y="168" width="150" height="150" rx="4"/>
+    <rect x="680" y="168" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="710" y="168" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="650" y="228" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="740" y="228" width="30" height="30" fill="#2f5bea" fill-opacity="0.17"/>
+    <rect x="650" y="258" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="710" y="258" width="30" height="30" fill="#2f5bea" fill-opacity="0.11"/>
+    <rect x="740" y="258" width="30" height="30" fill="#2f5bea" fill-opacity="0.50"/>
+    <rect x="770" y="258" width="30" height="30" fill="#2f5bea" fill-opacity="0.22"/>
+    <rect x="680" y="288" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="740" y="288" width="30" height="30" fill="#2f5bea" fill-opacity="0.11"/>
+    <path class="s-grid" d="M680,168 V318 M710,168 V318 M740,168 V318 M770,168 V318 M650,198 H800 M650,228 H800 M650,258 H800 M650,288 H800" stroke-width="1" opacity=".35"/>
+    <rect class="s-ink" x="650" y="168" width="150" height="150" rx="4" stroke-width="2.2"/>
+    <g transform="translate(640,158)"><rect width="24" height="24" rx="4" fill="#111"/><use href="#f3" transform="translate(2,2) scale(2)"/></g>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.667;0.712;0.97;1" dur="7.2s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="-30,0;-30,0;0,0;0,0" keyTimes="0;0.667;0.722;1" dur="7.2s" repeatCount="indefinite"/>
+    <rect class="card" x="680" y="198" width="150" height="150" rx="4"/>
+    <rect x="800" y="198" width="30" height="30" fill="#2f5bea" fill-opacity="0.28"/>
+    <rect x="710" y="228" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="770" y="228" width="30" height="30" fill="#2f5bea" fill-opacity="0.28"/>
+    <rect x="800" y="228" width="30" height="30" fill="#2f5bea" fill-opacity="0.39"/>
+    <rect x="800" y="258" width="30" height="30" fill="#2f5bea" fill-opacity="0.17"/>
+    <rect x="740" y="288" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="770" y="288" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="680" y="318" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <path class="s-grid" d="M710,198 V348 M740,198 V348 M770,198 V348 M800,198 V348 M680,228 H830 M680,258 H830 M680,288 H830 M680,318 H830" stroke-width="1" opacity=".35"/>
+    <rect class="s-ink" x="680" y="198" width="150" height="150" rx="4" stroke-width="2.2"/>
+    <g transform="translate(670,188)"><rect width="24" height="24" rx="4" fill="#111"/><use href="#f4" transform="translate(2,2) scale(2)"/></g>
+  </g>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.833;0.878;0.97;1" dur="7.2s" repeatCount="indefinite"/>
+    <animateTransform attributeName="transform" type="translate" values="-30,0;-30,0;0,0;0,0" keyTimes="0;0.833;0.888;1" dur="7.2s" repeatCount="indefinite"/>
+    <rect class="card" x="710" y="228" width="150" height="150" rx="4"/>
+    <rect x="740" y="228" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="800" y="228" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="830" y="228" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="710" y="288" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="770" y="318" width="30" height="30" fill="#2f5bea" fill-opacity="0.22"/>
+    <rect x="800" y="318" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="830" y="318" width="30" height="30" fill="#2f5bea" fill-opacity="0.06"/>
+    <rect x="740" y="348" width="30" height="30" fill="#2f5bea" fill-opacity="0.11"/>
+    <rect x="770" y="348" width="30" height="30" fill="#2f5bea" fill-opacity="0.39"/>
+    <rect x="800" y="348" width="30" height="30" fill="#2f5bea" fill-opacity="0.17"/>
+    <path class="s-grid" d="M740,228 V378 M770,228 V378 M800,228 V378 M830,228 V378 M710,258 H860 M710,288 H860 M710,318 H860 M710,348 H860" stroke-width="1" opacity=".35"/>
+    <g class="mono" text-anchor="middle">
+      <text class="muted" x="725.0" y="248.0" font-size="13">0</text>
+      <text class="ink" x="755.0" y="248.0" font-size="13">1</text>
+      <text class="muted" x="785.0" y="248.0" font-size="13">0</text>
+      <text class="ink" x="815.0" y="248.0" font-size="13">1</text>
+      <text class="ink" x="845.0" y="248.0" font-size="13">1</text>
+      <text class="muted" x="725.0" y="278.0" font-size="13">0</text>
+      <text class="muted" x="755.0" y="278.0" font-size="13">0</text>
+      <text class="muted" x="785.0" y="278.0" font-size="13">0</text>
+      <text class="muted" x="815.0" y="278.0" font-size="13">0</text>
+      <text class="muted" x="845.0" y="278.0" font-size="13">0</text>
+      <text class="ink" x="725.0" y="308.0" font-size="13">1</text>
+      <text class="muted" x="755.0" y="308.0" font-size="13">0</text>
+      <text class="muted" x="785.0" y="308.0" font-size="13">0</text>
+      <text class="muted" x="815.0" y="308.0" font-size="13">0</text>
+      <text class="muted" x="845.0" y="308.0" font-size="13">0</text>
+      <text class="muted" x="725.0" y="338.0" font-size="13">0</text>
+      <text class="muted" x="755.0" y="338.0" font-size="13">0</text>
+      <text class="ink" x="785.0" y="338.0" font-size="13">4</text>
+      <text class="ink" x="815.0" y="338.0" font-size="13">1</text>
+      <text class="ink" x="845.0" y="338.0" font-size="13">1</text>
+      <text class="muted" x="725.0" y="368.0" font-size="13">0</text>
+      <text class="ink" x="755.0" y="368.0" font-size="13">2</text>
+      <text class="accent" x="785.0" y="368.0" font-weight="800" font-size="16">7</text>
+      <text class="ink" x="815.0" y="368.0" font-size="13">3</text>
+      <text class="muted" x="845.0" y="368.0" font-size="13">0</text>
+    </g>
+    <rect class="s-ink" x="710" y="228" width="150" height="150" rx="4" stroke-width="2.2"/>
+    <g transform="translate(700,218)"><rect width="24" height="24" rx="4" fill="#111"/><use href="#f5" transform="translate(2,2) scale(2)"/></g>
+  </g>
+
+  <text class="accent" x="800" y="432" font-size="20" font-weight="800" text-anchor="middle" letter-spacing="2">6 FEATURE MAPS</text>
+  <text class="muted" x="800" y="454" font-size="13" text-anchor="middle">one per filter</text>
+</svg>

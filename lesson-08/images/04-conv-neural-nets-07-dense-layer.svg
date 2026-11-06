@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" width="1000" height="580" role="img" aria-labelledby="t d">
+  <title id="t">Dense layer</title>
+  <desc id="d">The input x, the vector representation with elements x1 to xn, goes into a dense layer: each element of the input is connected to each element of the output. Each output has its own weights w1, w2, w3; stacked as rows they form the matrix W, so the layer computes W times x, a matrix multiplication. Softmax turns the outputs into the prediction, T-SHIRT. A neural network is like multiple logistic regressions.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .bg{fill:#fdfcf5}.ink{fill:#1d2433}.muted{fill:#6b7280}.accent{fill:#2f5bea}.card{fill:#ffffff}.hdr{fill:#eef2ff}
+    .s-ink{stroke:#1d2433;fill:none}.s-accent{stroke:#2f5bea;fill:none}.s-grid{stroke:#1d2433;fill:none}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#0f1420}.ink{fill:#e6e8ef}.muted{fill:#9aa3b2}.accent{fill:#7c9bff}.card{fill:#161c2a}.hdr{fill:#26304d}
+      .s-ink{stroke:#e6e8ef}.s-accent{stroke:#7c9bff}.s-grid{stroke:#e6e8ef}
+    }
+  </style>
+  <style>.serif{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,"Times New Roman",serif;font-style:italic}.halo{stroke:#fdfcf5}@media (prefers-color-scheme:dark){.halo{stroke:#0f1420}}</style>
+  <defs>
+    <marker id="m0" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#43a047"/></marker>
+    <marker id="m1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e5484d"/></marker>
+    <marker id="m2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#2f5bea"/></marker>
+    <marker id="mk" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="accent"/></marker>
+  </defs>
+  <rect class="bg" width="1000" height="580" rx="18"/>
+
+  <!-- input -->
+  <text class="ink" transform="translate(40,320) rotate(-90)" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="3">VECTOR REPRESENTATION</text>
+  <text class="ink" x="120" y="50" font-size="16" font-weight="800" text-anchor="middle" letter-spacing="2">INPUT</text>
+  <text class="serif ink" x="120" y="80" font-size="26" text-anchor="middle">x</text>
+  <path class="s-grid" d="M170,95 L420,222 M170,545 L420,418" stroke-width="1.8" opacity=".5"/>
+  <rect class="card" x="70" y="95" width="100" height="450" rx="10"/>
+  <rect class="s-ink" x="70" y="95" width="100" height="450" rx="10" stroke-width="2.5"/>
+  <text class="ink" x="120" y="420" font-size="26" text-anchor="middle">⋮</text>
+  <line x1="151" y1="150" x2="432" y2="262" stroke="#43a047" stroke-width="2" marker-end="url(#m0)" opacity=".5">
+    <animate attributeName="opacity" values=".5;.5;1;1;.15;.15;.5" keyTimes="0;0.000;0.030;0.230;0.250;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="2;2;3.2;3.2;2" keyTimes="0;0.000;0.030;0.230;0.250" dur="4.8s" repeatCount="indefinite"/>
+  </line>
+  <line x1="151" y1="245" x2="432" y2="262" stroke="#43a047" stroke-width="2" marker-end="url(#m0)" opacity=".5">
+    <animate attributeName="opacity" values=".5;.5;1;1;.15;.15;.5" keyTimes="0;0.000;0.030;0.230;0.250;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="2;2;3.2;3.2;2" keyTimes="0;0.000;0.030;0.230;0.250" dur="4.8s" repeatCount="indefinite"/>
+  </line>
+  <line x1="151" y1="340" x2="432" y2="262" stroke="#43a047" stroke-width="2" marker-end="url(#m0)" opacity=".5">
+    <animate attributeName="opacity" values=".5;.5;1;1;.15;.15;.5" keyTimes="0;0.000;0.030;0.230;0.250;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="2;2;3.2;3.2;2" keyTimes="0;0.000;0.030;0.230;0.250" dur="4.8s" repeatCount="indefinite"/>
+  </line>
+  <line x1="151" y1="490" x2="432" y2="262" stroke="#43a047" stroke-width="2" marker-end="url(#m0)" opacity=".5">
+    <animate attributeName="opacity" values=".5;.5;1;1;.15;.15;.5" keyTimes="0;0.000;0.030;0.230;0.250;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="2;2;3.2;3.2;2" keyTimes="0;0.000;0.030;0.230;0.250" dur="4.8s" repeatCount="indefinite"/>
+  </line>
+  <line x1="151" y1="150" x2="432" y2="322" stroke="#e5484d" stroke-width="2" marker-end="url(#m1)" opacity=".5">
+    <animate attributeName="opacity" values=".5;.5;1;1;.15;.15;.5" keyTimes="0;0.249;0.280;0.480;0.500;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="2;2;3.2;3.2;2" keyTimes="0;0.249;0.280;0.480;0.500" dur="4.8s" repeatCount="indefinite"/>
+  </line>
+  <line x1="151" y1="245" x2="432" y2="322" stroke="#e5484d" stroke-width="2" marker-end="url(#m1)" opacity=".5">
+    <animate attributeName="opacity" values=".5;.5;1;1;.15;.15;.5" keyTimes="0;0.249;0.280;0.480;0.500;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="2;2;3.2;3.2;2" keyTimes="0;0.249;0.280;0.480;0.500" dur="4.8s" repeatCount="indefinite"/>
+  </line>
+  <line x1="151" y1="340" x2="432" y2="322" stroke="#e5484d" stroke-width="2" marker-end="url(#m1)" opacity=".5">
+    <animate attributeName="opacity" values=".5;.5;1;1;.15;.15;.5" keyTimes="0;0.249;0.280;0.480;0.500;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="2;2;3.2;3.2;2" keyTimes="0;0.249;0.280;0.480;0.500" dur="4.8s" repeatCount="indefinite"/>
+  </line>
+  <line x1="151" y1="490" x2="432" y2="322" stroke="#e5484d" stroke-width="2" marker-end="url(#m1)" opacity=".5">
+    <animate attributeName="opacity" values=".5;.5;1;1;.15;.15;.5" keyTimes="0;0.249;0.280;0.480;0.500;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="2;2;3.2;3.2;2" keyTimes="0;0.249;0.280;0.480;0.500" dur="4.8s" repeatCount="indefinite"/>
+  </line>
+  <line x1="151" y1="150" x2="432" y2="382" stroke="#2f5bea" stroke-width="2" marker-end="url(#m2)" opacity=".5">
+    <animate attributeName="opacity" values=".5;.5;1;1;.15;.15;.5" keyTimes="0;0.499;0.530;0.730;0.750;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="2;2;3.2;3.2;2" keyTimes="0;0.499;0.530;0.730;0.750" dur="4.8s" repeatCount="indefinite"/>
+  </line>
+  <line x1="151" y1="245" x2="432" y2="382" stroke="#2f5bea" stroke-width="2" marker-end="url(#m2)" opacity=".5">
+    <animate attributeName="opacity" values=".5;.5;1;1;.15;.15;.5" keyTimes="0;0.499;0.530;0.730;0.750;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="2;2;3.2;3.2;2" keyTimes="0;0.499;0.530;0.730;0.750" dur="4.8s" repeatCount="indefinite"/>
+  </line>
+  <line x1="151" y1="340" x2="432" y2="382" stroke="#2f5bea" stroke-width="2" marker-end="url(#m2)" opacity=".5">
+    <animate attributeName="opacity" values=".5;.5;1;1;.15;.15;.5" keyTimes="0;0.499;0.530;0.730;0.750;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="2;2;3.2;3.2;2" keyTimes="0;0.499;0.530;0.730;0.750" dur="4.8s" repeatCount="indefinite"/>
+  </line>
+  <line x1="151" y1="490" x2="432" y2="382" stroke="#2f5bea" stroke-width="2" marker-end="url(#m2)" opacity=".5">
+    <animate attributeName="opacity" values=".5;.5;1;1;.15;.15;.5" keyTimes="0;0.499;0.530;0.730;0.750;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="2;2;3.2;3.2;2" keyTimes="0;0.499;0.530;0.730;0.750" dur="4.8s" repeatCount="indefinite"/>
+  </line>
+  <circle class="card" cx="120" cy="150" r="31"/><circle class="s-ink" cx="120" cy="150" r="31" stroke-width="2.5"/>
+  <text class="serif accent" x="118" y="158" font-size="24" text-anchor="middle">x<tspan font-size="14" dy="6">1</tspan></text>
+  <circle class="card" cx="120" cy="245" r="31"/><circle class="s-ink" cx="120" cy="245" r="31" stroke-width="2.5"/>
+  <text class="serif accent" x="118" y="253" font-size="24" text-anchor="middle">x<tspan font-size="14" dy="6">2</tspan></text>
+  <circle class="card" cx="120" cy="340" r="31"/><circle class="s-ink" cx="120" cy="340" r="31" stroke-width="2.5"/>
+  <text class="serif accent" x="118" y="348" font-size="24" text-anchor="middle">x<tspan font-size="14" dy="6">3</tspan></text>
+  <circle class="card" cx="120" cy="490" r="31"/><circle class="s-ink" cx="120" cy="490" r="31" stroke-width="2.5"/>
+  <text class="serif accent" x="118" y="498" font-size="24" text-anchor="middle">x<tspan font-size="14" dy="6">n</tspan></text>
+  <text class="ink" x="466" y="205" font-size="16" font-weight="800" text-anchor="middle" letter-spacing="2">OUTPUT</text>
+  <rect class="card" x="420" y="222" width="80" height="196" rx="8"/>
+  <rect class="s-ink" x="420" y="222" width="80" height="196" rx="8" stroke-width="2.5"/>
+  <rect class="ink" x="500" y="222" width="14" height="196" rx="3"/>
+  <path class="s-accent" d="M520,490 Q505,460 508,428" stroke-width="2.2" marker-end="url(#mk)"/>
+  <text class="accent" x="530" y="508" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="1">softmax</text>
+  <circle class="card" cx="460" cy="262" r="24"/>
+  <circle cx="460" cy="262" r="24" fill="#43a047" opacity="0">
+    <animate attributeName="opacity" values="0;0;.35;.1;.1;0.11;0.11;0" keyTimes="0;0.000;0.030;0.250;0.75;0.8;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="460" cy="262" r="24" fill="none" stroke="#43a047" stroke-width="3"/>
+  <text class="serif halo" x="394" y="252" font-size="18" text-anchor="middle" fill="#43a047" stroke-width="5" paint-order="stroke">w<tspan font-size="11" dy="4">1</tspan></text>
+  <circle class="card" cx="460" cy="322" r="24"/>
+  <circle cx="460" cy="322" r="24" fill="#e5484d" opacity="0">
+    <animate attributeName="opacity" values="0;0;.35;.1;.1;0.77;0.77;0" keyTimes="0;0.250;0.280;0.500;0.75;0.8;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="460" cy="322" r="24" fill="none" stroke="#e5484d" stroke-width="3"/>
+  <text class="serif halo" x="394" y="312" font-size="18" text-anchor="middle" fill="#e5484d" stroke-width="5" paint-order="stroke">w<tspan font-size="11" dy="4">2</tspan></text>
+  <circle class="card" cx="460" cy="382" r="24"/>
+  <circle cx="460" cy="382" r="24" fill="#2f5bea" opacity="0">
+    <animate attributeName="opacity" values="0;0;.35;.1;.1;0.07;0.07;0" keyTimes="0;0.500;0.530;0.750;0.75;0.8;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="460" cy="382" r="24" fill="none" stroke="#2f5bea" stroke-width="3"/>
+  <text class="serif halo" x="394" y="372" font-size="18" text-anchor="middle" fill="#2f5bea" stroke-width="5" paint-order="stroke">w<tspan font-size="11" dy="4">3</tspan></text>
+  <g class="s-ink" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M534,314 H562 M534,330 H562 M552,304 L570,322 L552,340"/></g>
+  <text class="ink" x="660" y="252" font-size="16" font-weight="800" text-anchor="middle" letter-spacing="2">PREDICTION</text>
+  <path class="s-ink" d="M652,262 L640,290" stroke-width="2" marker-end="url(#mk)"/>
+  <rect x="582" y="300" width="150" height="44" rx="12" fill="#fde047" transform="rotate(-2 657 322)" opacity=".6">
+    <animate attributeName="opacity" values=".6;.6;.95;.95;.6" keyTimes="0;0.76;0.8;0.97;1" dur="4.8s" repeatCount="indefinite"/>
+  </rect>
+  <text x="657" y="331" font-size="24" font-weight="800" text-anchor="middle" fill="#1d2433" letter-spacing="1">T-SHIRT</text>
+
+  <!-- dense layer = matrix multiplication -->
+  <text class="ink" x="610" y="62" font-size="24" font-weight="800" letter-spacing="2">DENSE LAYER =</text>
+  <text class="accent" x="610" y="92" font-size="19" font-weight="800">matrix multiplication</text>
+  <path class="s-ink" d="M600,70 C520,70 330,90 300,160" stroke-width="2" marker-end="url(#mk)"/>
+
+  <text class="serif ink" x="612" y="458" font-size="34">W</text>
+  <text class="ink" x="652" y="456" font-size="28">=</text>
+  <path class="s-ink" d="M690,390 H680 V510 H690 M860,390 H870 V510 H860" stroke-width="2.5"/>
+  <rect x="686" y="394" width="178" height="34" rx="6" fill="#43a047" opacity="0">
+    <animate attributeName="opacity" values="0;0;.18;.18;0;0" keyTimes="0;0.000;0.030;0.230;0.250;1" dur="4.8s" repeatCount="indefinite"/>
+  </rect>
+  <path d="M700,412 H748 M800,412 H848" stroke="#43a047" stroke-width="2.5" stroke-linecap="round"/>
+  <text class="serif" x="774" y="418" font-size="20" text-anchor="middle" fill="#43a047">w<tspan font-size="13" dy="5">1</tspan></text>
+  <rect x="686" y="432" width="178" height="34" rx="6" fill="#e5484d" opacity="0">
+    <animate attributeName="opacity" values="0;0;.18;.18;0;0" keyTimes="0;0.250;0.280;0.480;0.500;1" dur="4.8s" repeatCount="indefinite"/>
+  </rect>
+  <path d="M700,450 H748 M800,450 H848" stroke="#e5484d" stroke-width="2.5" stroke-linecap="round"/>
+  <text class="serif" x="774" y="456" font-size="20" text-anchor="middle" fill="#e5484d">w<tspan font-size="13" dy="5">2</tspan></text>
+  <rect x="686" y="470" width="178" height="34" rx="6" fill="#2f5bea" opacity="0">
+    <animate attributeName="opacity" values="0;0;.18;.18;0;0" keyTimes="0;0.500;0.530;0.730;0.750;1" dur="4.8s" repeatCount="indefinite"/>
+  </rect>
+  <path d="M700,488 H748 M800,488 H848" stroke="#2f5bea" stroke-width="2.5" stroke-linecap="round"/>
+  <text class="serif" x="774" y="494" font-size="20" text-anchor="middle" fill="#2f5bea">w<tspan font-size="13" dy="5">3</tspan></text>
+  <text class="serif ink" x="890" y="458" font-size="30">Wx</text>
+  <path class="s-accent" d="M888,470 q8,-6 16,0 t16,0 t16,0" stroke-width="2"/>
+
+  <text class="accent" x="610" y="548" font-size="15" font-weight="800">Neural network = multiple logistic regressions</text>
+</svg>

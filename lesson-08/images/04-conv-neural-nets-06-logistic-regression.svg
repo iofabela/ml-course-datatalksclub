@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560" role="img" aria-labelledby="t d">
+  <title id="t">Logistic regression on the vector representation</title>
+  <desc id="d">Each element of x, x1 to xn, is multiplied by its weight w1 to wn, everything is summed, and sigmoid turns the sum into the probability that x is a T-shirt.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .bg{fill:#fdfcf5}.ink{fill:#1d2433}.muted{fill:#6b7280}.accent{fill:#2f5bea}.card{fill:#ffffff}.hdr{fill:#eef2ff}
+    .s-ink{stroke:#1d2433;fill:none}.s-accent{stroke:#2f5bea;fill:none}.s-grid{stroke:#1d2433;fill:none}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#0f1420}.ink{fill:#e6e8ef}.muted{fill:#9aa3b2}.accent{fill:#7c9bff}.card{fill:#161c2a}.hdr{fill:#26304d}
+      .s-ink{stroke:#e6e8ef}.s-accent{stroke:#7c9bff}.s-grid{stroke:#e6e8ef}
+    }
+  </style>
+  <style>.serif{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,"Times New Roman",serif;font-style:italic}.halo{stroke:#fdfcf5}@media (prefers-color-scheme:dark){.halo{stroke:#0f1420}}</style>
+  <defs>
+    <marker id="ah0" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f5bea"/></marker>
+  </defs>
+  <rect class="bg" width="900" height="560" rx="18"/>
+
+  <text class="serif ink" x="90" y="52" font-size="30" text-anchor="middle">x</text>
+  <rect class="card" x="40" y="68" width="100" height="456" rx="10"/>
+  <rect class="s-ink" x="40" y="68" width="100" height="456" rx="10" stroke-width="2.5"/>
+  <text class="ink" x="90" y="385" font-size="26" text-anchor="middle">⋮</text>
+  <path id="e0" d="M121,120 C261,120 287,274.0 437,274.0" fill="none" stroke="#2f5bea" stroke-width="2.2" opacity=".85" marker-end="url(#ah0)"/>
+  <path id="e1" d="M121,215 C261,215 287,285.4 437,285.4" fill="none" stroke="#2f5bea" stroke-width="2.2" opacity=".85" marker-end="url(#ah0)"/>
+  <path id="e2" d="M121,310 C261,310 287,296.8 437,296.8" fill="none" stroke="#2f5bea" stroke-width="2.2" opacity=".85" marker-end="url(#ah0)"/>
+  <path id="e3" d="M121,470 C261,470 287,316.0 437,316.0" fill="none" stroke="#2f5bea" stroke-width="2.2" opacity=".85" marker-end="url(#ah0)"/>
+  <text class="serif halo" x="193" y="130" font-size="15" text-anchor="middle" fill="#2f5bea" stroke-width="5" paint-order="stroke">w<tspan font-size="10" dy="4">1</tspan></text>
+  <text class="serif halo" x="193" y="216" font-size="15" text-anchor="middle" fill="#2f5bea" stroke-width="5" paint-order="stroke">w<tspan font-size="10" dy="4">2</tspan></text>
+  <text class="serif halo" x="193" y="303" font-size="15" text-anchor="middle" fill="#2f5bea" stroke-width="5" paint-order="stroke">w<tspan font-size="10" dy="4">3</tspan></text>
+  <text class="serif halo" x="193" y="448" font-size="15" text-anchor="middle" fill="#2f5bea" stroke-width="5" paint-order="stroke">w<tspan font-size="10" dy="4">n</tspan></text>
+  <circle r="4.5" fill="#2f5bea" opacity="0">
+    <animateMotion dur="3.0s" begin="0.00s" repeatCount="indefinite" keyTimes="0;0.55;1" keyPoints="0;1;1" calcMode="linear"><mpath href="#e0"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05;0.52;0.56;1" dur="3.0s" begin="0.00s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="4.5" fill="#2f5bea" opacity="0">
+    <animateMotion dur="3.0s" begin="0.12s" repeatCount="indefinite" keyTimes="0;0.55;1" keyPoints="0;1;1" calcMode="linear"><mpath href="#e1"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05;0.52;0.56;1" dur="3.0s" begin="0.12s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="4.5" fill="#2f5bea" opacity="0">
+    <animateMotion dur="3.0s" begin="0.24s" repeatCount="indefinite" keyTimes="0;0.55;1" keyPoints="0;1;1" calcMode="linear"><mpath href="#e2"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05;0.52;0.56;1" dur="3.0s" begin="0.24s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="4.5" fill="#2f5bea" opacity="0">
+    <animateMotion dur="3.0s" begin="0.36s" repeatCount="indefinite" keyTimes="0;0.55;1" keyPoints="0;1;1" calcMode="linear"><mpath href="#e3"/></animateMotion>
+    <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.05;0.52;0.56;1" dur="3.0s" begin="0.36s" repeatCount="indefinite"/>
+  </circle>
+  <circle class="card" cx="90" cy="120" r="31"/><circle class="s-ink" cx="90" cy="120" r="31" stroke-width="2.5"/>
+  <text class="serif accent" x="88" y="128" font-size="24" text-anchor="middle">x<tspan font-size="14" dy="6">1</tspan></text>
+  <circle class="card" cx="90" cy="215" r="31"/><circle class="s-ink" cx="90" cy="215" r="31" stroke-width="2.5"/>
+  <text class="serif accent" x="88" y="223" font-size="24" text-anchor="middle">x<tspan font-size="14" dy="6">2</tspan></text>
+  <circle class="card" cx="90" cy="310" r="31"/><circle class="s-ink" cx="90" cy="310" r="31" stroke-width="2.5"/>
+  <text class="serif accent" x="88" y="318" font-size="24" text-anchor="middle">x<tspan font-size="14" dy="6">3</tspan></text>
+  <circle class="card" cx="90" cy="470" r="31"/><circle class="s-ink" cx="90" cy="470" r="31" stroke-width="2.5"/>
+  <text class="serif accent" x="88" y="478" font-size="24" text-anchor="middle">x<tspan font-size="14" dy="6">n</tspan></text>
+  <circle class="card" cx="470" cy="295" r="33"/>
+  <circle cx="470" cy="295" r="33" fill="#2f5bea" opacity="0">
+    <animate attributeName="opacity" values="0;0;.25;0;0" keyTimes="0;0.6;0.68;0.85;1" dur="3.0s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="470" cy="295" r="33" fill="none" stroke="#2f5bea" stroke-width="3"/>
+  <path d="M457,295 H483 M470,282 V308" class="s-ink" stroke-width="4" stroke-linecap="round"/>
+  <rect class="card" x="590" y="215" width="72" height="160" rx="12"/>
+  <rect class="s-ink" x="590" y="215" width="72" height="160" rx="12" stroke-width="2.5"/>
+  <text class="ink" transform="translate(633,295.0) rotate(-90)" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="3">SIGMOID</text>
+  <path d="M505,295 H584" fill="none" stroke="#2f5bea" stroke-width="2.5" marker-end="url(#ah0)"/>
+  <path d="M668,295 H712" fill="none" stroke="#2f5bea" stroke-width="2.5" marker-end="url(#ah0)"/>
+  <text x="725" y="291" font-size="22" font-weight="800" fill="#2f5bea" letter-spacing="1">T-SHIRT</text>
+  <rect class="hdr" x="725" y="303" width="120" height="10" rx="5"/>
+  <rect x="725" y="303" width="0" height="10" rx="5" fill="#2f5bea">
+    <animate attributeName="width" values="0;0;110.4;110.4;0" keyTimes="0;0.7;0.82;0.95;1" dur="3.0s" repeatCount="indefinite"/>
+  </rect>
+  <text class="mono muted" x="853" y="313" font-size="13">0.92</text>
+  <text class="muted" x="725" y="252" font-size="13">probability that x is a T-shirt</text>
+  <text class="serif ink" x="470" y="520" font-size="19" text-anchor="middle" xml:space="preserve"><tspan font-style="normal">sigmoid</tspan><tspan>(x</tspan><tspan font-size="12" dy="5">1</tspan><tspan dy="-5">w</tspan><tspan font-size="12" dy="5">1</tspan><tspan dy="-5"> + x</tspan><tspan font-size="12" dy="5">2</tspan><tspan dy="-5">w</tspan><tspan font-size="12" dy="5">2</tspan><tspan dy="-5"> + … + x</tspan><tspan font-size="12" dy="5">n</tspan><tspan dy="-5">w</tspan><tspan font-size="12" dy="5">n</tspan><tspan dy="-5">)</tspan></text>
+</svg>
