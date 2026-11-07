@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 650" width="1100" height="650" role="img" aria-labelledby="t d">
+  <title id="t">Global average pooling: from 5×5×2048 to one vector per image</title>
+  <desc id="d">A batch of 32 images of 150 by 150 by 3 goes into the base model, which outputs a four-dimensional array of 32 by 5 by 5 by 2048. Global average pooling slices each image's 5 by 5 by 2048 output into 2048 squares of 5 by 5, takes the average of each square and puts it into a vector, so the batch becomes 32 by 2048. A dense layer with 10 outputs then gives 32 by 10 predictions.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .bg{fill:#fdfcf5}.ink{fill:#1d2433}.muted{fill:#6b7280}.accent{fill:#2f5bea}.card{fill:#ffffff}.hdr{fill:#eef2ff}
+    .s-ink{stroke:#1d2433;fill:none}.s-accent{stroke:#2f5bea;fill:none}.s-grid{stroke:#1d2433;fill:none}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#0f1420}.ink{fill:#e6e8ef}.muted{fill:#9aa3b2}.accent{fill:#7c9bff}.card{fill:#161c2a}.hdr{fill:#26304d}
+      .s-ink{stroke:#e6e8ef}.s-accent{stroke:#7c9bff}.s-grid{stroke:#e6e8ef}
+    }
+  </style>
+  <style>.serif{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,"Times New Roman",serif;font-style:italic}.halo{stroke:#fdfcf5}@media (prefers-color-scheme:dark){.halo{stroke:#0f1420}}</style>
+  <style>.pink{fill:#fde2e7}.lav{fill:#e4ddff}.lblue{fill:#dceeff}.hl{fill:#fde047}
+  @media (prefers-color-scheme:dark){.pink{fill:#4a2530}.lav{fill:#2e2a52}.lblue{fill:#1c3350}.hl{fill:#a68a00}}</style>
+  <defs>
+<symbol id="tee" viewBox="0 0 100 100">
+      <path d="M31,14 L42,10 Q50,19 58,10 L69,14 L93,30 L83,46 L72,39 L72,89 L28,89 L28,39 L17,46 L7,30 Z" fill="#1f2430"/>
+      <path d="M42,10 Q50,19 58,10" fill="none" stroke="#3a4152" stroke-width="2"/>
+      <circle cx="61" cy="30" r="4.5" fill="#f4f4f4"/>
+    </symbol>
+    <symbol id="photo" viewBox="0 0 144 144">
+      <rect width="144" height="144" fill="#d4a15c"/>
+      <g fill="#c08a46">
+        <rect x="20" y="24" width="2" height="120"/><rect x="46" y="24" width="2" height="120"/><rect x="72" y="24" width="2" height="120"/>
+        <rect x="98" y="24" width="2" height="120"/><rect x="124" y="24" width="2" height="120"/>
+      </g>
+      <rect width="144" height="22" fill="#efe9dc"/>
+      <rect y="20" width="144" height="4" fill="#e2d9c6"/>
+      <use href="#tee" x="17" y="26" width="110" height="110"/>
+    </symbol>
+    <marker id="mi" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ink"/></marker>
+  </defs>
+  <rect class="bg" width="1100" height="650" rx="18"/>
+  <text class="accent" x="95" y="70" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="2">INPUTS</text>
+  <rect class="card" x="60" y="98" width="110" height="110" rx="5"/><rect class="s-ink" x="60" y="98" width="110" height="110" rx="5" stroke-width="1.8"/>
+  <rect class="card" x="50" y="108" width="110" height="110" rx="5"/><rect class="s-ink" x="50" y="108" width="110" height="110" rx="5" stroke-width="1.8"/>
+  <rect class="card" x="36" y="114" width="118" height="118" rx="5"/>
+  <use href="#photo" x="40" y="118" width="110" height="110"/>
+  <rect class="s-ink" x="36" y="114" width="118" height="118" rx="5" stroke-width="2"/>
+  <rect class="hl" x="27" y="248" width="23" height="20" rx="4" opacity=".9"/>
+  <text class="mono ink" x="30" y="262" font-size="14" font-weight="700">32<tspan font-weight="500"> × 150×150×3</tspan></text>
+  <path class="s-ink" d="M176,175 H214" stroke-width="3" marker-end="url(#mi)"/>
+  <path class="lblue" d="M226,130 L246,110 H366 V200 L346,220 Z"/>
+  <rect class="lblue" x="226" y="130" width="120" height="90"/>
+  <path class="s-ink" d="M226,130 L246,110 H366 V200 L346,220 M346,130 L366,110 M226,130 H346 V220 H226 Z" stroke-width="2.2" stroke-linejoin="round"/>
+  <text class="ink" x="286" y="170" font-size="15" font-weight="800" text-anchor="middle">BASE</text>
+  <text class="ink" x="286" y="190" font-size="15" font-weight="800" text-anchor="middle">MODEL</text>
+  <text class="mono muted" x="296" y="252" font-size="12" text-anchor="middle">base_model</text>
+  <path class="s-ink" d="M376,175 H412" stroke-width="3" marker-end="url(#mi)"/>
+  <g>
+    <path d="M478,106 h80 v80 h-80 z" fill="#2f6fd6" opacity="0.85" stroke="#1d2433" stroke-width="1"/>
+    <path d="M469,110 h80 v80 h-80 z" fill="#2f6fd6" opacity="0.80" stroke="#1d2433" stroke-width="1"/>
+    <path d="M460,114 h80 v80 h-80 z" fill="#2f6fd6" opacity="0.75" stroke="#1d2433" stroke-width="1"/>
+    <path d="M451,118 h80 v80 h-80 z" fill="#2f6fd6" opacity="0.70" stroke="#1d2433" stroke-width="1"/>
+    <path d="M442,122 h80 v80 h-80 z" fill="#2f6fd6" opacity="0.65" stroke="#1d2433" stroke-width="1"/>
+    <path d="M433,126 h80 v80 h-80 z" fill="#2f6fd6" opacity="0.60" stroke="#1d2433" stroke-width="1"/>
+    <rect x="424" y="130" width="16" height="16" fill="#2f6fd6"/><rect x="440" y="130" width="16" height="16" fill="#c7e04a"/><rect x="456" y="130" width="16" height="16" fill="#2c3e9e"/><rect x="472" y="130" width="16" height="16" fill="#25a5c9"/><rect x="488" y="130" width="16" height="16" fill="#2c3e9e"/><rect x="424" y="146" width="16" height="16" fill="#4cc38a"/><rect x="440" y="146" width="16" height="16" fill="#4cc38a"/><rect x="456" y="146" width="16" height="16" fill="#4cc38a"/><rect x="472" y="146" width="16" height="16" fill="#f5d33b"/><rect x="488" y="146" width="16" height="16" fill="#4cc38a"/><rect x="424" y="162" width="16" height="16" fill="#2f6fd6"/><rect x="440" y="162" width="16" height="16" fill="#2c3e9e"/><rect x="456" y="162" width="16" height="16" fill="#4cc38a"/><rect x="472" y="162" width="16" height="16" fill="#2c3e9e"/><rect x="488" y="162" width="16" height="16" fill="#4cc38a"/><rect x="424" y="178" width="16" height="16" fill="#4cc38a"/><rect x="440" y="178" width="16" height="16" fill="#c7e04a"/><rect x="456" y="178" width="16" height="16" fill="#2c3e9e"/><rect x="472" y="178" width="16" height="16" fill="#f5d33b"/><rect x="488" y="178" width="16" height="16" fill="#4cc38a"/><rect x="424" y="194" width="16" height="16" fill="#25a5c9"/><rect x="440" y="194" width="16" height="16" fill="#f5d33b"/><rect x="456" y="194" width="16" height="16" fill="#2f6fd6"/><rect x="472" y="194" width="16" height="16" fill="#c7e04a"/><rect x="488" y="194" width="16" height="16" fill="#2c3e9e"/>
+    <rect x="424" y="130" width="80" height="80" fill="none" class="s-ink" stroke-width="2"/>
+  </g>
+  <rect class="hl" x="397" y="82" width="23" height="20" rx="4" opacity=".9"/>
+  <text class="mono ink" x="400" y="96" font-size="14" font-weight="700">32<tspan font-weight="500"> × 5×5×2048</tspan></text>
+  <text class="muted" x="395" y="58" font-size="12" font-weight="700">4D · batch ↓</text>
+  <path class="s-ink" d="M572,175 H606" stroke-width="3" marker-end="url(#mi)"/>
+  <rect class="pink" x="616" y="120" width="128" height="110" rx="12"/>
+  <rect class="s-ink" x="616" y="120" width="128" height="110" rx="12" stroke-width="2.2"/>
+  <g class="ink" font-size="13" font-weight="800" text-anchor="middle"><text x="680" y="160">GLOBAL</text><text x="680" y="178">AVERAGE</text><text x="680" y="196">POOLING</text></g>
+  <text class="mono muted" x="680" y="252" font-size="10.5" text-anchor="middle">GlobalAveragePooling2D</text>
+  <path class="s-ink" d="M752,175 H786" stroke-width="3" marker-end="url(#mi)"/>
+  <text class="accent" x="850" y="138" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="2">VECTORS</text>
+  <rect class="lav" x="796" y="155" width="18" height="40"/>
+  <rect class="lav" x="814" y="155" width="18" height="40"/>
+  <rect class="lav" x="832" y="155" width="18" height="40"/>
+  <rect class="lav" x="850" y="155" width="18" height="40"/>
+  <rect class="lav" x="868" y="155" width="18" height="40"/>
+  <rect class="lav" x="886" y="155" width="18" height="40"/>
+  <rect class="s-ink" x="796" y="155" width="108" height="40" stroke-width="2"/>
+  <path class="s-ink" d="M814,155 v40 M832,155 v40 M850,155 v40 M868,155 v40 M886,155 v40" stroke-width="1" opacity=".5"/>
+  <rect class="hl" x="793" y="210" width="23" height="20" rx="4" opacity=".9"/>
+  <text class="mono ink" x="796" y="224" font-size="14" font-weight="700">32<tspan font-weight="500"> × 2048</tspan></text>
+  <path class="s-ink" d="M912,175 H946" stroke-width="3" marker-end="url(#mi)"/>
+  <text class="accent" x="1018" y="138" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="2">OUTPUTS</text>
+  <rect class="card" x="956" y="150" width="124" height="50" rx="10"/>
+  <rect class="s-ink" x="956" y="150" width="124" height="50" rx="10" stroke-width="2.2"/>
+  <text class="mono ink" x="1018" y="181" font-size="14" text-anchor="middle">Dense(10)</text>
+  <rect class="hl" x="975" y="210" width="23" height="20" rx="4" opacity=".9"/>
+  <text class="mono ink" x="978" y="224" font-size="14" font-weight="700">32<tspan font-weight="500"> × 10</tspan></text>
+  <path class="s-grid" d="M464,212 L380,322" stroke-width="1.8" stroke-dasharray="5 5" opacity=".6"/>
+  <rect class="card" x="40" y="322" width="1020" height="300" rx="16"/>
+  <rect class="s-grid" x="40" y="322" width="1020" height="300" rx="16" stroke-width="1.8" opacity=".5"/>
+  <text class="muted" x="62" y="350" font-size="12" font-weight="700" letter-spacing="2">ONE IMAGE</text>
+  <path d="M150,440 l10,-10 h26 l-10,10 z" fill="#5b8fe0" stroke="#1d2433" stroke-width="1"/>
+  <path d="M176,440 l10,-10 v110 l-10,10 z" fill="#2c3e9e" stroke="#1d2433" stroke-width="1"/>
+  <rect x="150" y="440" width="26" height="22" fill="#c7e04a" opacity=".9"/>
+  <rect x="150" y="462" width="26" height="22" fill="#2c3e9e" opacity=".9"/>
+  <rect x="150" y="484" width="26" height="22" fill="#4cc38a" opacity=".9"/>
+  <rect x="150" y="506" width="26" height="22" fill="#4cc38a" opacity=".9"/>
+  <rect x="150" y="528" width="26" height="22" fill="#c7e04a" opacity=".9"/>
+  <rect x="150" y="440" width="26" height="110" fill="none" stroke="#1d2433" stroke-width="1.5"/>
+  <path d="M186,440 l10,-10 h26 l-10,10 z" fill="#5b8fe0" stroke="#1d2433" stroke-width="1"/>
+  <path d="M212,440 l10,-10 v110 l-10,10 z" fill="#2c3e9e" stroke="#1d2433" stroke-width="1"/>
+  <rect x="186" y="440" width="26" height="22" fill="#4cc38a" opacity=".9"/>
+  <rect x="186" y="462" width="26" height="22" fill="#c7e04a" opacity=".9"/>
+  <rect x="186" y="484" width="26" height="22" fill="#4cc38a" opacity=".9"/>
+  <rect x="186" y="506" width="26" height="22" fill="#4cc38a" opacity=".9"/>
+  <rect x="186" y="528" width="26" height="22" fill="#c7e04a" opacity=".9"/>
+  <rect x="186" y="440" width="26" height="110" fill="none" stroke="#1d2433" stroke-width="1.5"/>
+  <path d="M222,440 l10,-10 h26 l-10,10 z" fill="#5b8fe0" stroke="#1d2433" stroke-width="1"/>
+  <path d="M248,440 l10,-10 v110 l-10,10 z" fill="#2c3e9e" stroke="#1d2433" stroke-width="1"/>
+  <rect x="222" y="440" width="26" height="22" fill="#4cc38a" opacity=".9"/>
+  <rect x="222" y="462" width="26" height="22" fill="#25a5c9" opacity=".9"/>
+  <rect x="222" y="484" width="26" height="22" fill="#f5d33b" opacity=".9"/>
+  <rect x="222" y="506" width="26" height="22" fill="#c7e04a" opacity=".9"/>
+  <rect x="222" y="528" width="26" height="22" fill="#f5d33b" opacity=".9"/>
+  <rect x="222" y="440" width="26" height="110" fill="none" stroke="#1d2433" stroke-width="1.5"/>
+  <path d="M258,440 l10,-10 h26 l-10,10 z" fill="#5b8fe0" stroke="#1d2433" stroke-width="1"/>
+  <path d="M284,440 l10,-10 v110 l-10,10 z" fill="#2c3e9e" stroke="#1d2433" stroke-width="1"/>
+  <rect x="258" y="440" width="26" height="22" fill="#25a5c9" opacity=".9"/>
+  <rect x="258" y="462" width="26" height="22" fill="#25a5c9" opacity=".9"/>
+  <rect x="258" y="484" width="26" height="22" fill="#f5d33b" opacity=".9"/>
+  <rect x="258" y="506" width="26" height="22" fill="#f5d33b" opacity=".9"/>
+  <rect x="258" y="528" width="26" height="22" fill="#2f6fd6" opacity=".9"/>
+  <rect x="258" y="440" width="26" height="110" fill="none" stroke="#1d2433" stroke-width="1.5"/>
+  <path d="M294,440 l10,-10 h26 l-10,10 z" fill="#5b8fe0" stroke="#1d2433" stroke-width="1"/>
+  <path d="M320,440 l10,-10 v110 l-10,10 z" fill="#2c3e9e" stroke="#1d2433" stroke-width="1"/>
+  <rect x="294" y="440" width="26" height="22" fill="#2c3e9e" opacity=".9"/>
+  <rect x="294" y="462" width="26" height="22" fill="#c7e04a" opacity=".9"/>
+  <rect x="294" y="484" width="26" height="22" fill="#f5d33b" opacity=".9"/>
+  <rect x="294" y="506" width="26" height="22" fill="#f5d33b" opacity=".9"/>
+  <rect x="294" y="528" width="26" height="22" fill="#c7e04a" opacity=".9"/>
+  <rect x="294" y="440" width="26" height="110" fill="none" stroke="#1d2433" stroke-width="1.5"/>
+  <path d="M330,440 l10,-10 h26 l-10,10 z" fill="#5b8fe0" stroke="#1d2433" stroke-width="1"/>
+  <path d="M356,440 l10,-10 v110 l-10,10 z" fill="#2c3e9e" stroke="#1d2433" stroke-width="1"/>
+  <rect x="330" y="440" width="26" height="22" fill="#2f6fd6" opacity=".9"/>
+  <rect x="330" y="462" width="26" height="22" fill="#2c3e9e" opacity=".9"/>
+  <rect x="330" y="484" width="26" height="22" fill="#c7e04a" opacity=".9"/>
+  <rect x="330" y="506" width="26" height="22" fill="#f5d33b" opacity=".9"/>
+  <rect x="330" y="528" width="26" height="22" fill="#2c3e9e" opacity=".9"/>
+  <rect x="330" y="440" width="26" height="110" fill="none" stroke="#1d2433" stroke-width="1.5"/>
+  <path d="M410,440 l10,-10 h26 l-10,10 z" fill="#5b8fe0" stroke="#1d2433" stroke-width="1"/>
+  <path d="M436,440 l10,-10 v110 l-10,10 z" fill="#2c3e9e" stroke="#1d2433" stroke-width="1"/>
+  <rect x="410" y="440" width="26" height="22" fill="#25a5c9" opacity=".9"/>
+  <rect x="410" y="462" width="26" height="22" fill="#4cc38a" opacity=".9"/>
+  <rect x="410" y="484" width="26" height="22" fill="#4cc38a" opacity=".9"/>
+  <rect x="410" y="506" width="26" height="22" fill="#25a5c9" opacity=".9"/>
+  <rect x="410" y="528" width="26" height="22" fill="#4cc38a" opacity=".9"/>
+  <rect x="410" y="440" width="26" height="110" fill="none" stroke="#1d2433" stroke-width="1.5"/>
+  <path d="M446,440 l10,-10 h26 l-10,10 z" fill="#5b8fe0" stroke="#1d2433" stroke-width="1"/>
+  <path d="M472,440 l10,-10 v110 l-10,10 z" fill="#2c3e9e" stroke="#1d2433" stroke-width="1"/>
+  <rect x="446" y="440" width="26" height="22" fill="#c7e04a" opacity=".9"/>
+  <rect x="446" y="462" width="26" height="22" fill="#4cc38a" opacity=".9"/>
+  <rect x="446" y="484" width="26" height="22" fill="#25a5c9" opacity=".9"/>
+  <rect x="446" y="506" width="26" height="22" fill="#25a5c9" opacity=".9"/>
+  <rect x="446" y="528" width="26" height="22" fill="#25a5c9" opacity=".9"/>
+  <rect x="446" y="440" width="26" height="110" fill="none" stroke="#1d2433" stroke-width="1.5"/>
+  <text class="ink" x="390" y="500" font-size="20" text-anchor="middle">…</text>
+  <path class="s-ink" d="M150,566 q0,8 8,8 H296 q8,0 10,8 q2,-8 10,-8 H474 q8,0 8,-8" stroke-width="2"/>
+  <text class="ink" x="306" y="600" font-size="14" font-weight="800" text-anchor="middle">2048 slices · 3D 5×5×2048</text>
+  <path class="s-ink" d="M138,440 q-8,0 -8,8 V487 q0,8 -8,8 q8,0 8,8 V542 q0,8 8,8" stroke-width="2"/>
+  <text class="ink" x="100" y="500" font-size="14" font-weight="800" text-anchor="middle">5×5</text>
+  <rect x="146" y="426" width="44" height="128" rx="5" fill="none" stroke="#fde047" stroke-width="4" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.000;0.010;0.240;0.250;1" dur="8.0s" repeatCount="indefinite"/>
+  </rect>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.000;0.020;0.240;0.250;1" dur="8.0s" repeatCount="indefinite"/>
+    <path class="s-accent" d="M168,424 C168,380 500,380 548,400" stroke-width="2.2" fill="none" marker-end="url(#mi)"/>
+    <text class="muted" x="600" y="368" font-size="12" font-weight="700" text-anchor="middle">slice 0 · 5×5</text>
+    <rect x="556" y="380" width="20" height="20" fill="#2f6fd6"/><rect x="576" y="380" width="20" height="20" fill="#4cc38a"/><rect x="596" y="380" width="20" height="20" fill="#4cc38a"/><rect x="616" y="380" width="20" height="20" fill="#2f6fd6"/><rect x="636" y="380" width="20" height="20" fill="#f5d33b"/><rect x="556" y="400" width="20" height="20" fill="#4cc38a"/><rect x="576" y="400" width="20" height="20" fill="#f5d33b"/><rect x="596" y="400" width="20" height="20" fill="#25a5c9"/><rect x="616" y="400" width="20" height="20" fill="#4cc38a"/><rect x="636" y="400" width="20" height="20" fill="#c7e04a"/><rect x="556" y="420" width="20" height="20" fill="#2c3e9e"/><rect x="576" y="420" width="20" height="20" fill="#c7e04a"/><rect x="596" y="420" width="20" height="20" fill="#2c3e9e"/><rect x="616" y="420" width="20" height="20" fill="#2c3e9e"/><rect x="636" y="420" width="20" height="20" fill="#f5d33b"/><rect x="556" y="440" width="20" height="20" fill="#4cc38a"/><rect x="576" y="440" width="20" height="20" fill="#25a5c9"/><rect x="596" y="440" width="20" height="20" fill="#2c3e9e"/><rect x="616" y="440" width="20" height="20" fill="#f5d33b"/><rect x="636" y="440" width="20" height="20" fill="#f5d33b"/><rect x="556" y="460" width="20" height="20" fill="#2f6fd6"/><rect x="576" y="460" width="20" height="20" fill="#25a5c9"/><rect x="596" y="460" width="20" height="20" fill="#2f6fd6"/><rect x="616" y="460" width="20" height="20" fill="#25a5c9"/><rect x="636" y="460" width="20" height="20" fill="#2f6fd6"/>
+    <rect x="556" y="380" width="100" height="100" fill="none" class="s-ink" stroke-width="2"/>
+    <text class="ink" x="672" y="436" font-size="18" font-weight="800">⇒ AVG</text>
+    <text class="mono accent" x="700" y="470" font-size="16" font-weight="800" text-anchor="middle">0.42</text>
+  </g>
+  <circle r="6" fill="#fde047" stroke="#1d2433" stroke-width="2" opacity="0">
+    <animateMotion path="M700,478 C720,520 750,520 775,545" dur="8.0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.120;0.200;1" keyPoints="0;0;1;1"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.120;0.130;0.190;0.200;1" dur="8.0s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="182" y="426" width="44" height="128" rx="5" fill="none" stroke="#fde047" stroke-width="4" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.250;0.260;0.490;0.500;1" dur="8.0s" repeatCount="indefinite"/>
+  </rect>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.250;0.270;0.490;0.500;1" dur="8.0s" repeatCount="indefinite"/>
+    <path class="s-accent" d="M204,424 C204,380 500,380 548,400" stroke-width="2.2" fill="none" marker-end="url(#mi)"/>
+    <text class="muted" x="600" y="368" font-size="12" font-weight="700" text-anchor="middle">slice 1 · 5×5</text>
+    <rect x="556" y="380" width="20" height="20" fill="#c7e04a"/><rect x="576" y="380" width="20" height="20" fill="#2f6fd6"/><rect x="596" y="380" width="20" height="20" fill="#c7e04a"/><rect x="616" y="380" width="20" height="20" fill="#25a5c9"/><rect x="636" y="380" width="20" height="20" fill="#4cc38a"/><rect x="556" y="400" width="20" height="20" fill="#2c3e9e"/><rect x="576" y="400" width="20" height="20" fill="#f5d33b"/><rect x="596" y="400" width="20" height="20" fill="#c7e04a"/><rect x="616" y="400" width="20" height="20" fill="#2f6fd6"/><rect x="636" y="400" width="20" height="20" fill="#c7e04a"/><rect x="556" y="420" width="20" height="20" fill="#2f6fd6"/><rect x="576" y="420" width="20" height="20" fill="#25a5c9"/><rect x="596" y="420" width="20" height="20" fill="#4cc38a"/><rect x="616" y="420" width="20" height="20" fill="#f5d33b"/><rect x="636" y="420" width="20" height="20" fill="#2f6fd6"/><rect x="556" y="440" width="20" height="20" fill="#25a5c9"/><rect x="576" y="440" width="20" height="20" fill="#4cc38a"/><rect x="596" y="440" width="20" height="20" fill="#2c3e9e"/><rect x="616" y="440" width="20" height="20" fill="#25a5c9"/><rect x="636" y="440" width="20" height="20" fill="#2f6fd6"/><rect x="556" y="460" width="20" height="20" fill="#2f6fd6"/><rect x="576" y="460" width="20" height="20" fill="#2c3e9e"/><rect x="596" y="460" width="20" height="20" fill="#4cc38a"/><rect x="616" y="460" width="20" height="20" fill="#c7e04a"/><rect x="636" y="460" width="20" height="20" fill="#25a5c9"/>
+    <rect x="556" y="380" width="100" height="100" fill="none" class="s-ink" stroke-width="2"/>
+    <text class="ink" x="672" y="436" font-size="18" font-weight="800">⇒ AVG</text>
+    <text class="mono accent" x="700" y="470" font-size="16" font-weight="800" text-anchor="middle">1.37</text>
+  </g>
+  <circle r="6" fill="#fde047" stroke="#1d2433" stroke-width="2" opacity="0">
+    <animateMotion path="M700,478 C720,520 780,520 805,545" dur="8.0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.370;0.450;1" keyPoints="0;0;1;1"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.370;0.380;0.440;0.450;1" dur="8.0s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="218" y="426" width="44" height="128" rx="5" fill="none" stroke="#fde047" stroke-width="4" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.500;0.510;0.740;0.750;1" dur="8.0s" repeatCount="indefinite"/>
+  </rect>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.500;0.520;0.740;0.750;1" dur="8.0s" repeatCount="indefinite"/>
+    <path class="s-accent" d="M240,424 C240,380 500,380 548,400" stroke-width="2.2" fill="none" marker-end="url(#mi)"/>
+    <text class="muted" x="600" y="368" font-size="12" font-weight="700" text-anchor="middle">slice 2 · 5×5</text>
+    <rect x="556" y="380" width="20" height="20" fill="#2f6fd6"/><rect x="576" y="380" width="20" height="20" fill="#f5d33b"/><rect x="596" y="380" width="20" height="20" fill="#c7e04a"/><rect x="616" y="380" width="20" height="20" fill="#25a5c9"/><rect x="636" y="380" width="20" height="20" fill="#2f6fd6"/><rect x="556" y="400" width="20" height="20" fill="#c7e04a"/><rect x="576" y="400" width="20" height="20" fill="#f5d33b"/><rect x="596" y="400" width="20" height="20" fill="#f5d33b"/><rect x="616" y="400" width="20" height="20" fill="#c7e04a"/><rect x="636" y="400" width="20" height="20" fill="#2f6fd6"/><rect x="556" y="420" width="20" height="20" fill="#4cc38a"/><rect x="576" y="420" width="20" height="20" fill="#25a5c9"/><rect x="596" y="420" width="20" height="20" fill="#c7e04a"/><rect x="616" y="420" width="20" height="20" fill="#4cc38a"/><rect x="636" y="420" width="20" height="20" fill="#c7e04a"/><rect x="556" y="440" width="20" height="20" fill="#c7e04a"/><rect x="576" y="440" width="20" height="20" fill="#2c3e9e"/><rect x="596" y="440" width="20" height="20" fill="#f5d33b"/><rect x="616" y="440" width="20" height="20" fill="#c7e04a"/><rect x="636" y="440" width="20" height="20" fill="#c7e04a"/><rect x="556" y="460" width="20" height="20" fill="#c7e04a"/><rect x="576" y="460" width="20" height="20" fill="#f5d33b"/><rect x="596" y="460" width="20" height="20" fill="#c7e04a"/><rect x="616" y="460" width="20" height="20" fill="#2f6fd6"/><rect x="636" y="460" width="20" height="20" fill="#f5d33b"/>
+    <rect x="556" y="380" width="100" height="100" fill="none" class="s-ink" stroke-width="2"/>
+    <text class="ink" x="672" y="436" font-size="18" font-weight="800">⇒ AVG</text>
+    <text class="mono accent" x="700" y="470" font-size="16" font-weight="800" text-anchor="middle">0.08</text>
+  </g>
+  <circle r="6" fill="#fde047" stroke="#1d2433" stroke-width="2" opacity="0">
+    <animateMotion path="M700,478 C720,520 810,520 835,545" dur="8.0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.620;0.700;1" keyPoints="0;0;1;1"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.620;0.630;0.690;0.700;1" dur="8.0s" repeatCount="indefinite"/>
+  </circle>
+  <rect x="254" y="426" width="44" height="128" rx="5" fill="none" stroke="#fde047" stroke-width="4" opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.750;0.760;0.990;1.000;1" dur="8.0s" repeatCount="indefinite"/>
+  </rect>
+  <g opacity="0">
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.750;0.770;0.990;1.000;1" dur="8.0s" repeatCount="indefinite"/>
+    <path class="s-accent" d="M276,424 C276,380 500,380 548,400" stroke-width="2.2" fill="none" marker-end="url(#mi)"/>
+    <text class="muted" x="600" y="368" font-size="12" font-weight="700" text-anchor="middle">slice 3 · 5×5</text>
+    <rect x="556" y="380" width="20" height="20" fill="#f5d33b"/><rect x="576" y="380" width="20" height="20" fill="#4cc38a"/><rect x="596" y="380" width="20" height="20" fill="#f5d33b"/><rect x="616" y="380" width="20" height="20" fill="#f5d33b"/><rect x="636" y="380" width="20" height="20" fill="#f5d33b"/><rect x="556" y="400" width="20" height="20" fill="#2f6fd6"/><rect x="576" y="400" width="20" height="20" fill="#f5d33b"/><rect x="596" y="400" width="20" height="20" fill="#2c3e9e"/><rect x="616" y="400" width="20" height="20" fill="#c7e04a"/><rect x="636" y="400" width="20" height="20" fill="#f5d33b"/><rect x="556" y="420" width="20" height="20" fill="#2c3e9e"/><rect x="576" y="420" width="20" height="20" fill="#f5d33b"/><rect x="596" y="420" width="20" height="20" fill="#4cc38a"/><rect x="616" y="420" width="20" height="20" fill="#4cc38a"/><rect x="636" y="420" width="20" height="20" fill="#25a5c9"/><rect x="556" y="440" width="20" height="20" fill="#f5d33b"/><rect x="576" y="440" width="20" height="20" fill="#2c3e9e"/><rect x="596" y="440" width="20" height="20" fill="#4cc38a"/><rect x="616" y="440" width="20" height="20" fill="#2c3e9e"/><rect x="636" y="440" width="20" height="20" fill="#2f6fd6"/><rect x="556" y="460" width="20" height="20" fill="#2f6fd6"/><rect x="576" y="460" width="20" height="20" fill="#c7e04a"/><rect x="596" y="460" width="20" height="20" fill="#2c3e9e"/><rect x="616" y="460" width="20" height="20" fill="#2c3e9e"/><rect x="636" y="460" width="20" height="20" fill="#2f6fd6"/>
+    <rect x="556" y="380" width="100" height="100" fill="none" class="s-ink" stroke-width="2"/>
+    <text class="ink" x="672" y="436" font-size="18" font-weight="800">⇒ AVG</text>
+    <text class="mono accent" x="700" y="470" font-size="16" font-weight="800" text-anchor="middle">2.11</text>
+  </g>
+  <circle r="6" fill="#fde047" stroke="#1d2433" stroke-width="2" opacity="0">
+    <animateMotion path="M700,478 C720,520 840,520 865,545" dur="8.0s" repeatCount="indefinite" calcMode="linear" keyTimes="0;0.870;0.950;1" keyPoints="0;0;1;1"/>
+    <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.870;0.880;0.940;0.950;1" dur="8.0s" repeatCount="indefinite"/>
+  </circle>
+  <text class="ink" x="880" y="520" font-size="15" font-weight="800" text-anchor="middle">2048</text>
+  <rect class="lav" x="760" y="535" width="30" height="34"/>
+  <rect x="760" y="535" width="30" height="34" fill="#7c5cff" opacity="0"><animate attributeName="opacity" values="0;0;.75;.75;0" keyTimes="0;0.190;0.210;0.98;1" dur="8.0s" repeatCount="indefinite"/></rect>
+  <text class="mono" x="775" y="584" font-size="10" text-anchor="middle" fill="#7c5cff" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.190;0.210;0.98;1" dur="8.0s" repeatCount="indefinite"/>0.42</text>
+  <rect class="lav" x="790" y="535" width="30" height="34"/>
+  <rect x="790" y="535" width="30" height="34" fill="#7c5cff" opacity="0"><animate attributeName="opacity" values="0;0;.75;.75;0" keyTimes="0;0.440;0.460;0.98;1" dur="8.0s" repeatCount="indefinite"/></rect>
+  <text class="mono" x="805" y="584" font-size="10" text-anchor="middle" fill="#7c5cff" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.440;0.460;0.98;1" dur="8.0s" repeatCount="indefinite"/>1.37</text>
+  <rect class="lav" x="820" y="535" width="30" height="34"/>
+  <rect x="820" y="535" width="30" height="34" fill="#7c5cff" opacity="0"><animate attributeName="opacity" values="0;0;.75;.75;0" keyTimes="0;0.690;0.710;0.98;1" dur="8.0s" repeatCount="indefinite"/></rect>
+  <text class="mono" x="835" y="584" font-size="10" text-anchor="middle" fill="#7c5cff" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.690;0.710;0.98;1" dur="8.0s" repeatCount="indefinite"/>0.08</text>
+  <rect class="lav" x="850" y="535" width="30" height="34"/>
+  <rect x="850" y="535" width="30" height="34" fill="#7c5cff" opacity="0"><animate attributeName="opacity" values="0;0;.75;.75;0" keyTimes="0;0.940;0.960;0.98;1" dur="8.0s" repeatCount="indefinite"/></rect>
+  <text class="mono" x="865" y="584" font-size="10" text-anchor="middle" fill="#7c5cff" opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.940;0.960;0.98;1" dur="8.0s" repeatCount="indefinite"/>2.11</text>
+  <rect class="lav" x="880" y="535" width="30" height="34"/>
+  <rect class="lav" x="910" y="535" width="30" height="34"/>
+  <rect class="lav" x="970" y="535" width="30" height="34"/>
+  <rect class="lav" x="1000" y="535" width="30" height="34"/>
+  <text class="ink" x="955" y="558" font-size="16" text-anchor="middle">…</text>
+  <rect class="s-ink" x="760" y="535" width="270" height="34" stroke-width="2"/>
+  <path class="s-ink" d="M790,535 v34 M820,535 v34 M850,535 v34 M880,535 v34 M910,535 v34 M970,535 v34 M1000,535 v34" stroke-width="1" opacity=".5"/>
+  <text class="ink" x="895" y="606" font-size="14" font-weight="800" text-anchor="middle">1D · 2048</text>
+</svg>
