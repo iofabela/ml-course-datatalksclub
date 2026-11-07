@@ -1,2 +1,4 @@
 __pycache__
 .venv
+lesson-08/models/*.h5
+lesson-08/models/*.keras
