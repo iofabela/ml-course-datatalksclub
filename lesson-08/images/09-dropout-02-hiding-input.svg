@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540" role="img" aria-labelledby="t d">
+  <title id="t">Dropout idea: randomly hide a part of the input</title>
+  <desc id="d">Dropout: what if we could randomly hide a part of the image? More precisely, a part of the input. The same t-shirt is shown three times, each time with a different part covered by a black patch, so the model never sees the same image twice. This is only an intuition; dropout doesn't work exactly like that.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .bg{fill:#fdfcf5}.ink{fill:#1d2433}.muted{fill:#6b7280}.accent{fill:#2f5bea}.card{fill:#ffffff}.hdr{fill:#eef2ff}
+    .s-ink{stroke:#1d2433;fill:none}.s-accent{stroke:#2f5bea;fill:none}.s-grid{stroke:#1d2433;fill:none}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#0f1420}.ink{fill:#e6e8ef}.muted{fill:#9aa3b2}.accent{fill:#7c9bff}.card{fill:#161c2a}.hdr{fill:#26304d}
+      .s-ink{stroke:#e6e8ef}.s-accent{stroke:#7c9bff}.s-grid{stroke:#e6e8ef}
+    }
+  </style>
+  <style>.serif{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,"Times New Roman",serif;font-style:italic}.halo{stroke:#fdfcf5}@media (prefers-color-scheme:dark){.halo{stroke:#0f1420}}</style>
+  
+  <defs>
+<symbol id="tee" viewBox="0 0 100 100">
+      <path d="M31,14 L42,10 Q50,19 58,10 L69,14 L93,30 L83,46 L72,39 L72,89 L28,89 L28,39 L17,46 L7,30 Z" fill="#1f2430"/>
+      <path d="M42,10 Q50,19 58,10" fill="none" stroke="#3a4152" stroke-width="2"/>
+      <circle cx="61" cy="30" r="4.5" fill="#f4f4f4"/>
+    </symbol>
+    <symbol id="photo" viewBox="0 0 144 144">
+      <rect width="144" height="144" fill="#d4a15c"/>
+      <g fill="#c08a46">
+        <rect x="20" y="24" width="2" height="120"/><rect x="46" y="24" width="2" height="120"/><rect x="72" y="24" width="2" height="120"/>
+        <rect x="98" y="24" width="2" height="120"/><rect x="124" y="24" width="2" height="120"/>
+      </g>
+      <rect width="144" height="22" fill="#efe9dc"/>
+      <rect y="20" width="144" height="4" fill="#e2d9c6"/>
+      <use href="#tee" x="17" y="26" width="110" height="110"/>
+    </symbol>
+    <clipPath id="cp"><rect width="220" height="220" rx="4"/></clipPath>
+  </defs>
+  <rect class="bg" width="1000" height="540" rx="18"/>
+  <text class="accent" x="60" y="64" font-size="30" font-weight="800" letter-spacing="3">DROPOUT:</text>
+  <text class="ink" x="60" y="112" font-size="26" font-weight="700">What if we could randomly hide a part of</text>
+  <text class="ink" x="572" y="112" font-size="26" font-weight="700">the image?</text>
+  <path d="M566,104 L714,98" stroke="#2f5bea" stroke-width="4" stroke-linecap="round" stroke-dasharray="160" stroke-dashoffset="160">
+    <animate attributeName="stroke-dashoffset" values="160;160;0;0;160" keyTimes="0;0.62;0.68;0.97;1" dur="7.0s" repeatCount="indefinite"/>
+  </path>
+  <g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.68;0.72;0.97;1" dur="7.0s" repeatCount="indefinite"/>
+    <text x="730" y="112" font-size="26" font-weight="800" fill="#2f5bea">the input</text>
+  </g>
+  <g transform="translate(60,170)">
+    <rect class="card" x="-5" y="-5" width="230" height="230" rx="6"/>
+    <g clip-path="url(#cp)">
+      <use href="#photo" width="220" height="220"/>
+      <rect x="8" y="8" width="88" height="88" rx="22" fill="#000" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.10;0.14;0.97;1" dur="7.0s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    <rect class="s-ink" x="-5" y="-5" width="230" height="230" rx="6" stroke-width="2"/>
+    <text class="ink" x="110" y="258" font-size="16" font-weight="800" text-anchor="middle">epoch 1<tspan fill="#2f5bea">*</tspan></text>
+  </g>
+  <g transform="translate(390,170)">
+    <rect class="card" x="-5" y="-5" width="230" height="230" rx="6"/>
+    <g clip-path="url(#cp)">
+      <use href="#photo" width="220" height="220"/>
+      <rect x="124" y="118" width="92" height="92" rx="22" fill="#000" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.27;0.31;0.97;1" dur="7.0s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    <rect class="s-ink" x="-5" y="-5" width="230" height="230" rx="6" stroke-width="2"/>
+    <text class="ink" x="110" y="258" font-size="16" font-weight="800" text-anchor="middle">epoch 2<tspan fill="#2f5bea">*</tspan></text>
+  </g>
+  <g transform="translate(720,170)">
+    <rect class="card" x="-5" y="-5" width="230" height="230" rx="6"/>
+    <g clip-path="url(#cp)">
+      <use href="#photo" width="220" height="220"/>
+      <rect x="104" y="58" width="92" height="92" rx="22" fill="#000" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.44;0.48;0.97;1" dur="7.0s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    <rect class="s-ink" x="-5" y="-5" width="230" height="230" rx="6" stroke-width="2"/>
+    <text class="ink" x="110" y="258" font-size="16" font-weight="800" text-anchor="middle">epoch 3<tspan fill="#2f5bea">*</tspan></text>
+  </g>
+  <text x="60" y="510" font-size="17" font-weight="800" fill="#2f5bea">* doesn't work exactly like that</text>
+  <text class="muted" x="940" y="510" font-size="13" text-anchor="end">same shirt, a different part hidden each time</text>
+</svg>

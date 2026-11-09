@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 460" width="1100" height="460" role="img" aria-labelledby="t d">
+  <title id="t">Adding an inner dense layer: V1, V2 and a zoom on the inner layer</title>
+  <desc id="d">Version 1: a batch of 32 images of 150 by 150 goes through the base model, giving 32 by 5 by 5 by 2048; pooling gives vectors of 32 by 2048, and Dense(10) gives outputs of 32 by 10. Version 2 adds an inner layer between vectors and outputs: Dense(100) gives 32 by 100, then Dense(10) gives the outputs. Zoom on the inner layer: Dense(100) is followed by a ReLU activation, and Dense(10) produces raw scores; instead of a softmax activation we use the logits directly.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .bg{fill:#fdfcf5}.ink{fill:#1d2433}.muted{fill:#6b7280}.accent{fill:#2f5bea}.card{fill:#ffffff}.hdr{fill:#eef2ff}
+    .s-ink{stroke:#1d2433;fill:none}.s-accent{stroke:#2f5bea;fill:none}.s-grid{stroke:#1d2433;fill:none}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#0f1420}.ink{fill:#e6e8ef}.muted{fill:#9aa3b2}.accent{fill:#7c9bff}.card{fill:#161c2a}.hdr{fill:#26304d}
+      .s-ink{stroke:#e6e8ef}.s-accent{stroke:#7c9bff}.s-grid{stroke:#e6e8ef}
+    }
+  </style>
+  <style>.serif{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,"Times New Roman",serif;font-style:italic}.halo{stroke:#fdfcf5}@media (prefers-color-scheme:dark){.halo{stroke:#0f1420}}</style>
+  <style>.lblue{fill:#dceeff}.hl{fill:#fde047}.zbg{fill:#fdfcf5}
+  @media (prefers-color-scheme:dark){.lblue{fill:#1c3350}.hl{fill:#a68a00}.zbg{fill:#0f1420}}</style>
+  <defs>
+<symbol id="tee" viewBox="0 0 100 100">
+      <path d="M31,14 L42,10 Q50,19 58,10 L69,14 L93,30 L83,46 L72,39 L72,89 L28,89 L28,39 L17,46 L7,30 Z" fill="#1f2430"/>
+      <path d="M42,10 Q50,19 58,10" fill="none" stroke="#3a4152" stroke-width="2"/>
+      <circle cx="61" cy="30" r="4.5" fill="#f4f4f4"/>
+    </symbol>
+    <symbol id="photo" viewBox="0 0 144 144">
+      <rect width="144" height="144" fill="#d4a15c"/>
+      <g fill="#c08a46">
+        <rect x="20" y="24" width="2" height="120"/><rect x="46" y="24" width="2" height="120"/><rect x="72" y="24" width="2" height="120"/>
+        <rect x="98" y="24" width="2" height="120"/><rect x="124" y="24" width="2" height="120"/>
+      </g>
+      <rect width="144" height="22" fill="#efe9dc"/>
+      <rect y="20" width="144" height="4" fill="#e2d9c6"/>
+      <use href="#tee" x="17" y="26" width="110" height="110"/>
+    </symbol>
+    <marker id="mi" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ink"/></marker>
+    <marker id="mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e5484d"/></marker>
+    <marker id="mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#43a047"/></marker>
+  </defs>
+  <rect class="bg" width="1100" height="460" rx="18"/>
+  <g><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.628;0.640;1" dur="15.0s" repeatCount="indefinite"/>
+    <text class="accent" x="95" y="120" font-size="17" font-weight="800" text-anchor="middle" letter-spacing="2">INPUTS</text>
+    <rect class="card" x="58" y="160" width="100" height="100" rx="5"/><rect class="s-ink" x="58" y="160" width="100" height="100" rx="5" stroke-width="1.6"/>
+    <rect class="card" x="48" y="170" width="100" height="100" rx="5"/><rect class="s-ink" x="48" y="170" width="100" height="100" rx="5" stroke-width="1.6"/>
+    <rect class="card" x="36" y="180" width="102" height="102" rx="5"/><use href="#photo" x="40" y="184" width="94" height="94"/><rect class="s-ink" x="36" y="180" width="102" height="102" rx="5" stroke-width="2"/>
+    <rect class="hl" x="37" y="137" width="24" height="21" rx="4" opacity=".9"/><text class="mono ink" x="40" y="152" font-size="15" font-weight="700">32<tspan font-weight="500"></tspan></text>
+    <text class="mono muted" x="88" y="304" font-size="12" text-anchor="middle">150×150×3</text>
+    <g class="s-ink" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M168,213 H202 M168,227 H202 M192,204 L208,220 L192,236"/></g><path class="s-ink" d="M186,326 V292" stroke-width="2" marker-end="url(#mi)"/><text class="mono ink" x="186" y="344" font-size="14" font-weight="700" text-anchor="middle">base_model</text>
+    <path class="lblue" d="M224,182 L244,162 H344 V244 L324,264 Z"/><rect class="lblue" x="224" y="182" width="100" height="82"/>
+    <path class="s-ink" d="M224,182 L244,162 H344 V244 L324,264 M324,182 L344,162 M224,182 H324 V264 H224 Z" stroke-width="2.2" stroke-linejoin="round"/>
+    <text class="accent" x="274" y="229" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="2">BASE</text>
+    <text class="muted" x="230" y="96" font-size="12" font-weight="700">4D · batch ↓</text>
+    <rect class="hl" x="229" y="108" width="23" height="20" rx="4" opacity=".9"/><text class="mono ink" x="232" y="122" font-size="14" font-weight="700">32<tspan font-weight="500"> × 5×5×2048</tspan></text>
+    <g class="s-ink" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M358,213 H392 M358,227 H392 M382,204 L398,220 L382,236"/></g><path class="s-ink" d="M376,326 V292" stroke-width="2" marker-end="url(#mi)"/><text class="mono ink" x="376" y="344" font-size="14" font-weight="700" text-anchor="middle">pooling</text>
+    <rect class="card" x="410" y="178" width="150" height="84" rx="10"/><rect class="s-ink" x="410" y="178" width="150" height="84" rx="10" stroke-width="2.4"/><text class="accent" x="485.0" y="227" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="2">VECTORS</text>
+    <rect class="hl" x="421" y="152" width="23" height="20" rx="4" opacity=".9"/><text class="mono ink" x="424" y="166" font-size="14" font-weight="700">32<tspan font-weight="500"> × 2048</tspan></text>
+    <g><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.308;0.320;1" dur="15.0s" repeatCount="indefinite"/><g class="s-ink" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M572,213 H672 M572,227 H672 M662,204 L678,220 L662,236"/></g><path class="s-ink" d="M620,286 V252" stroke-width="2" marker-end="url(#mi)"/><text class="mono ink" x="620" y="304" font-size="14" font-weight="700" text-anchor="middle">Dense(10)</text></g>
+    <g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.350;0.362;0.628;0.640;1" dur="15.0s" repeatCount="indefinite"/>
+      <g class="s-ink" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M572,213 H606 M572,227 H606 M596,204 L612,220 L596,236"/></g><path class="s-ink" d="M590,286 V252" stroke-width="2" marker-end="url(#mi)"/><text class="mono ink" x="590" y="304" font-size="14" font-weight="700" text-anchor="middle">Dense(100)</text>
+      <rect class="card" x="626" y="178" width="120" height="84" rx="10"/><rect class="s-ink" x="626" y="178" width="120" height="84" rx="10" stroke-width="2.4"/><text class="accent" x="686.0" y="227" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="2">INNER</text>
+      <text class="mono ink" x="640" y="166" font-size="14" font-weight="700">32<tspan font-weight="500"> × 100</tspan></text>
+      <g class="s-ink" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M756,213 H826 M756,227 H826 M816,204 L832,220 L816,236"/></g><path class="s-ink" d="M790,286 V252" stroke-width="2" marker-end="url(#mi)"/><text class="mono ink" x="790" y="304" font-size="14" font-weight="700" text-anchor="middle">Dense(10)</text>
+    </g>
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0,0;0,0;200,0;200,0;0,0" keyTimes="0;0.320;0.350;0.640;1" dur="15.0s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.3 0 .2 1;0 0 1 1;0 0 1 1"/>
+      <rect class="card" x="686" y="178" width="150" height="84" rx="10"/><rect class="s-ink" x="686" y="178" width="150" height="84" rx="10" stroke-width="2.4"/><text class="accent" x="761.0" y="227" font-size="18" font-weight="800" text-anchor="middle" letter-spacing="2">OUTPUTS</text>
+      <rect class="hl" x="697" y="152" width="23" height="20" rx="4" opacity=".9"/><text class="mono ink" x="700" y="166" font-size="14" font-weight="700">32<tspan font-weight="500"> × 10</tspan></text>
+    </g>
+    <g><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.308;0.320;1" dur="15.0s" repeatCount="indefinite"/><text class="accent" x="1040" y="70" font-size="40" font-weight="800" text-anchor="middle">V1</text></g>
+    <g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.320;0.332;0.628;0.640;1" dur="15.0s" repeatCount="indefinite"/><text x="1040" y="70" font-size="40" font-weight="800" text-anchor="middle" fill="#43a047">V2</text><text class="muted" x="1040" y="92" font-size="12" text-anchor="middle">+ inner layer</text></g>
+    <g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.560;0.572;0.628;0.640;1" dur="15.0s" repeatCount="indefinite"/><rect x="614" y="146" width="144" height="128" rx="14" fill="none" stroke="#fde047" stroke-width="5"/><text x="686" y="138" font-size="13" font-weight="800" text-anchor="middle" fill="#b8860b">zoom ↘</text></g>
+  </g>
+  <g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.640;0.652;0.988;1" dur="15.0s" repeatCount="indefinite"/>
+    <text class="muted" x="40" y="44" font-size="13" font-weight="700" letter-spacing="2">ZOOM · INNER LAYER</text>
+    <path class="s-ink" d="M200,70 L420,140 M200,400 L420,330" stroke-width="2.4"/>
+    <path class="s-ink" d="M490,140 L690,180 M490,330 L690,300" stroke-width="2.4"/>
+    <rect class="card" x="140" y="70" width="60" height="330" rx="8"/><rect class="s-ink" x="140" y="70" width="60" height="330" rx="8" stroke-width="2.5"/>
+    <circle class="s-ink" cx="170" cy="102" r="13" stroke-width="2.4"/>
+    <circle class="s-ink" cx="170" cy="144" r="13" stroke-width="2.4"/>
+    <circle class="s-ink" cx="170" cy="372" r="13" stroke-width="2.4"/>
+    <circle class="ink" cx="170" cy="200" r="3"/>
+    <circle class="ink" cx="170" cy="240" r="3"/>
+    <circle class="ink" cx="170" cy="280" r="3"/>
+    <circle class="ink" cx="170" cy="320" r="3"/>
+    <text class="muted" x="170" y="426" font-size="12" text-anchor="middle">vectors · 2048</text>
+    <rect class="card" x="420" y="140" width="54" height="190" rx="8"/><rect class="s-ink" x="420" y="140" width="54" height="190" rx="8" stroke-width="2.5"/>
+    <circle class="s-ink" cx="447" cy="164" r="10" stroke-width="2.2"/>
+    <circle class="s-ink" cx="447" cy="194" r="10" stroke-width="2.2"/>
+    <circle class="s-ink" cx="447" cy="224" r="10" stroke-width="2.2"/>
+    <circle class="s-ink" cx="447" cy="254" r="10" stroke-width="2.2"/>
+    <circle class="s-ink" cx="447" cy="304" r="10" stroke-width="2.2"/>
+    <circle class="ink" cx="447" cy="276" r="2.5"/><circle class="ink" cx="447" cy="286" r="2.5"/>
+    <rect x="476" y="140" width="14" height="190" rx="5" fill="#2f5bea">
+      <animate attributeName="opacity" values="1;.45;1" dur="1.4s" repeatCount="indefinite"/>
+    </rect>
+    <text class="muted" x="447" y="352" font-size="12" text-anchor="middle">inner · 100</text>
+    <path d="M440,412 Q470,404 482,338" fill="none" stroke="#43a047" stroke-width="2.4" marker-end="url(#mg)"/>
+    <text x="420" y="430" font-size="20" font-weight="800" text-anchor="middle" fill="#43a047" letter-spacing="1">ReLU</text>
+    <rect class="card" x="690" y="180" width="50" height="120" rx="8"/><rect class="s-ink" x="690" y="180" width="50" height="120" rx="8" stroke-width="2.5"/>
+    <circle class="s-ink" cx="715" cy="200" r="9" stroke-width="2.2"/>
+    <circle class="s-ink" cx="715" cy="226" r="9" stroke-width="2.2"/>
+    <circle class="s-ink" cx="715" cy="252" r="9" stroke-width="2.2"/>
+    <circle class="s-ink" cx="715" cy="280" r="9" stroke-width="2.2"/>
+    <rect x="742" y="180" width="14" height="120" rx="5" fill="#2f5bea" opacity=".35"/>
+    <text class="mono ink" x="300" y="56" font-size="17" font-weight="700" text-anchor="middle">Dense(100)</text>
+    <path class="s-ink" d="M300,64 Q296,90 312,104" stroke-width="2" marker-end="url(#mi)"/>
+    <text class="mono ink" x="600" y="110" font-size="17" font-weight="700" text-anchor="middle">Dense(10)</text>
+    <path class="s-ink" d="M600,118 Q596,140 590,160" stroke-width="2" marker-end="url(#mi)"/>
+    <path d="M712,346 V308" stroke="#e5484d" stroke-width="2.4" marker-end="url(#mr)"/>
+    <text x="712" y="370" font-size="17" font-weight="800" text-anchor="middle" fill="#e5484d" letter-spacing="1">RAW SCORES</text>
+    <text class="muted" x="712" y="390" font-size="12" text-anchor="middle">(logits)</text>
+    <path d="M832,222 Q790,224 762,236" stroke="#e5484d" stroke-width="2.2" fill="none" marker-end="url(#mr)"/>
+    <text x="840" y="214" font-size="18" font-weight="800" fill="#e5484d" letter-spacing="1">“ACTIVATION”</text>
+    <text x="840" y="248" font-size="26" font-weight="800" fill="#e5484d" letter-spacing="2">SOFTMAX</text>
+    <path d="M832,262 L1000,224" stroke="#2f5bea" stroke-width="4" stroke-linecap="round" stroke-dasharray="180" stroke-dashoffset="180">
+      <animate attributeName="stroke-dashoffset" values="180;180;0;0" keyTimes="0;0.740;0.780;1" dur="15.0s" repeatCount="indefinite"/>
+    </path>
+    <g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.780;0.800;0.99;1" dur="15.0s" repeatCount="indefinite"/>
+      <text class="accent" x="840" y="296" font-size="19" font-weight="800">use logits directly</text>
+      <text class="mono ink" x="840" y="322" font-size="14">from_logits=True</text>
+    </g>
+  </g>
+</svg>

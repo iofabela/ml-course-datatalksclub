@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640" role="img" aria-labelledby="t d">
+  <title id="t">Learning rate as reading speed</title>
+  <desc id="d">Learning rate is like how fast you read. Reading many books fast is a high learning rate, and the result validates poorly. Reading a few books at an OK pace is a medium learning rate and works well. Reading one book very slowly is a low learning rate, and also validates poorly because too little is learned.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .bg{fill:#fdfcf5}.ink{fill:#1d2433}.muted{fill:#6b7280}.accent{fill:#2f5bea}.card{fill:#ffffff}.hdr{fill:#eef2ff}
+    .s-ink{stroke:#1d2433;fill:none}.s-accent{stroke:#2f5bea;fill:none}.s-grid{stroke:#1d2433;fill:none}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#0f1420}.ink{fill:#e6e8ef}.muted{fill:#9aa3b2}.accent{fill:#7c9bff}.card{fill:#161c2a}.hdr{fill:#26304d}
+      .s-ink{stroke:#e6e8ef}.s-accent{stroke:#7c9bff}.s-grid{stroke:#e6e8ef}
+    }
+  </style>
+  <style>.serif{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,"Times New Roman",serif;font-style:italic}.halo{stroke:#fdfcf5}@media (prefers-color-scheme:dark){.halo{stroke:#0f1420}}</style>
+  <style>.spine{fill:#a7abb3}.page{fill:#f1efe6}@media (prefers-color-scheme:dark){.spine{fill:#4a5163}.page{fill:#232a3a}}</style>
+  <defs>
+    <symbol id="book" viewBox="-4 -4 108 128">
+      <rect class="page" x="0" y="8" width="92" height="110" rx="4"/>
+      <path class="s-ink" d="M0,12 V114 Q0,118 4,118 H88 Q92,118 92,114" stroke-width="3"/>
+      <path class="s-ink" d="M3,112 H89 M3,106 H89" stroke-width="1.2" opacity=".5"/>
+      <rect class="card" x="6" y="0" width="92" height="104" rx="5"/>
+      <rect class="spine" x="6" y="0" width="30" height="104" rx="5"/>
+      <rect class="spine" x="26" y="0" width="10" height="104"/>
+      <rect class="s-ink" x="6" y="0" width="92" height="104" rx="5" stroke-width="3"/>
+      <g class="ink" opacity=".75"><rect x="46" y="26" width="40" height="5" rx="2.5"/><rect x="46" y="37" width="32" height="5" rx="2.5"/><rect x="46" y="48" width="36" height="5" rx="2.5"/></g>
+      <circle cx="72" cy="78" r="9" fill="none" stroke="#e5484d" stroke-width="3"/>
+    </symbol>
+  </defs>
+  <rect class="bg" width="1000" height="640" rx="18"/>
+
+  <text x="40" y="58" font-size="26" font-weight="800" xml:space="preserve"><tspan class="accent">Learning rate</tspan><tspan class="ink"> = how fast you read</tspan></text>
+  <g class="muted" font-size="12" font-weight="700" letter-spacing="2" text-anchor="middle">
+    <text x="640" y="110">READING</text><text x="770" y="110">LEARNING RATE</text><text x="910" y="110">VALIDATION</text>
+  </g>
+  <path class="s-grid" d="M40,250 H960 M40,420 H960" stroke-width="1.5" stroke-dasharray="4 6" opacity=".6"/>
+  <use href="#book" x="52.0" y="132.0" width="36.0" height="42.7" transform="rotate(5.3 70.0 153.3)"/>
+  <use href="#book" x="92.0" y="132.0" width="36.0" height="42.7" transform="rotate(5.8 110.0 153.3)"/>
+  <use href="#book" x="132.0" y="132.0" width="36.0" height="42.7" transform="rotate(-0.3 150.0 153.3)"/>
+  <use href="#book" x="172.0" y="132.0" width="36.0" height="42.7" transform="rotate(-4.3 190.0 153.3)"/>
+  <use href="#book" x="212.0" y="132.0" width="36.0" height="42.7" transform="rotate(-9.0 230.0 153.3)"/>
+  <use href="#book" x="252.0" y="132.0" width="36.0" height="42.7" transform="rotate(2.9 270.0 153.3)"/>
+  <use href="#book" x="292.0" y="132.0" width="36.0" height="42.7" transform="rotate(-0.5 310.0 153.3)"/>
+  <use href="#book" x="332.0" y="132.0" width="36.0" height="42.7" transform="rotate(4.7 350.0 153.3)"/>
+  <use href="#book" x="372.0" y="132.0" width="36.0" height="42.7" transform="rotate(-2.3 390.0 153.3)"/>
+  <use href="#book" x="412.0" y="132.0" width="36.0" height="42.7" transform="rotate(4.9 430.0 153.3)"/>
+  <use href="#book" x="452.0" y="132.0" width="36.0" height="42.7" transform="rotate(-4.1 470.0 153.3)"/>
+  <use href="#book" x="492.0" y="132.0" width="36.0" height="42.7" transform="rotate(5.4 510.0 153.3)"/>
+  <use href="#book" x="64.0" y="188.0" width="36.0" height="42.7" transform="rotate(4.1 82.0 209.3)"/>
+  <use href="#book" x="104.0" y="188.0" width="36.0" height="42.7" transform="rotate(-1.5 122.0 209.3)"/>
+  <use href="#book" x="144.0" y="188.0" width="36.0" height="42.7" transform="rotate(0.7 162.0 209.3)"/>
+  <use href="#book" x="184.0" y="188.0" width="36.0" height="42.7" transform="rotate(3.3 202.0 209.3)"/>
+  <use href="#book" x="224.0" y="188.0" width="36.0" height="42.7" transform="rotate(-5.5 242.0 209.3)"/>
+  <use href="#book" x="264.0" y="188.0" width="36.0" height="42.7" transform="rotate(1.0 282.0 209.3)"/>
+  <use href="#book" x="304.0" y="188.0" width="36.0" height="42.7" transform="rotate(5.5 322.0 209.3)"/>
+  <use href="#book" x="344.0" y="188.0" width="36.0" height="42.7" transform="rotate(-4.2 362.0 209.3)"/>
+  <use href="#book" x="384.0" y="188.0" width="36.0" height="42.7" transform="rotate(5.5 402.0 209.3)"/>
+  <use href="#book" x="424.0" y="188.0" width="36.0" height="42.7" transform="rotate(3.3 442.0 209.3)"/>
+  <use href="#book" x="464.0" y="188.0" width="36.0" height="42.7" transform="rotate(6.2 482.0 209.3)"/>
+  <use href="#book" x="504.0" y="188.0" width="36.0" height="42.7" transform="rotate(-3.0 522.0 209.3)"/>
+  <use href="#book" x="64.0" y="270.0" width="108.0" height="128.0" transform="rotate(-5.7 118.0 334.0)"/>
+  <use href="#book" x="182.0" y="270.0" width="108.0" height="128.0" transform="rotate(4.2 236.0 334.0)"/>
+  <use href="#book" x="300.0" y="270.0" width="108.0" height="128.0" transform="rotate(4.3 354.0 334.0)"/>
+  <use href="#book" x="418.0" y="270.0" width="108.0" height="128.0" transform="rotate(-0.8 472.0 334.0)"/>
+  <use href="#book" x="220.0" y="440.0" width="140.0" height="165.9" transform="rotate(-6.0 290.0 523.0)"/>
+  <text x="640" y="200" font-size="26" font-weight="800" text-anchor="middle" fill="#e5484d" letter-spacing="1">FAST</text>
+  <text class="accent" x="770" y="200" font-size="26" font-weight="800" text-anchor="middle" letter-spacing="1">HIGH</text>
+  <text x="910" y="200" font-size="22" font-weight="800" text-anchor="middle" fill="#e5484d">poorly</text>
+  <text class="ink" x="910" y="226" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="1.5">OVERFIT</text>
+  <text x="640" y="348" font-size="26" font-weight="800" text-anchor="middle" fill="#43a047" letter-spacing="1">OK</text>
+  <text class="accent" x="770" y="348" font-size="26" font-weight="800" text-anchor="middle" letter-spacing="1">MEDIUM</text>
+  <text x="910" y="348" font-size="22" font-weight="800" text-anchor="middle" fill="#43a047">good ✓</text>
+  <text class="ink" x="910" y="374" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="1.5">OK</text>
+  <text x="640" y="528" font-size="26" font-weight="800" text-anchor="middle" fill="#e8743b" letter-spacing="1">SLOOOW</text>
+  <text class="accent" x="770" y="528" font-size="26" font-weight="800" text-anchor="middle" letter-spacing="1">LOW</text>
+  <text x="910" y="528" font-size="22" font-weight="800" text-anchor="middle" fill="#e5484d">poorly</text>
+  <text class="ink" x="910" y="554" font-size="15" font-weight="800" text-anchor="middle" letter-spacing="1.5">UNDERFIT</text>
+</svg>

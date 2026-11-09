@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" role="img" aria-labelledby="t d">
+  <title id="t">Activation functions</title>
+  <desc id="d">Sigmoid and softmax are used for the output layer. ReLU and others such as tanh and Leaky ReLU are used for intermediate layers. ReLU(x) is 0 if x is less than or equal to 0, and x if x is greater than 0, which is max(0, x): negative inputs become zero and positive inputs go through unchanged.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .bg{fill:#fdfcf5}.ink{fill:#1d2433}.muted{fill:#6b7280}.accent{fill:#2f5bea}.card{fill:#ffffff}.hdr{fill:#eef2ff}
+    .s-ink{stroke:#1d2433;fill:none}.s-accent{stroke:#2f5bea;fill:none}.s-grid{stroke:#1d2433;fill:none}
+    @media (prefers-color-scheme:dark){
+      .bg{fill:#0f1420}.ink{fill:#e6e8ef}.muted{fill:#9aa3b2}.accent{fill:#7c9bff}.card{fill:#161c2a}.hdr{fill:#26304d}
+      .s-ink{stroke:#e6e8ef}.s-accent{stroke:#7c9bff}.s-grid{stroke:#e6e8ef}
+    }
+  </style>
+  <style>.serif{font-family:"Cambria Math","STIX Two Math","Latin Modern Math",Georgia,"Times New Roman",serif;font-style:italic}.halo{stroke:#fdfcf5}@media (prefers-color-scheme:dark){.halo{stroke:#0f1420}}</style>
+  
+  <defs><marker id="mi" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" class="ink"/></marker>
+  <path id="relu" d="M580,470 H760 L930,300"/></defs>
+  <rect class="bg" width="1000" height="600" rx="18"/>
+
+  <g font-size="24" font-weight="800" class="accent" letter-spacing="1.5">
+    <circle cx="66" cy="102" r="4" class="accent"/><text x="84" y="110">SIGMOID</text>
+    <circle cx="66" cy="160" r="4" class="accent"/><text x="84" y="168">SOFTMAX</text>
+    <circle cx="66" cy="262" r="4" class="accent"/><text x="84" y="270">ReLU</text>
+  </g>
+  <g class="muted" font-size="17" font-weight="700">
+    <circle cx="66" cy="316" r="4" class="accent"/><text x="84" y="322">tanh</text>
+    <circle cx="66" cy="364" r="4" class="accent"/><text x="84" y="370">Leaky ReLU, …</text>
+  </g>
+
+  <!-- mini icons -->
+  <g fill="none" stroke-width="3" stroke-linecap="round">
+    <path d="M240,116 C262,116 262,88 284,88" class="s-accent"/>
+    <path d="M240,118 H284 M240,86 V118" class="s-grid" stroke-width="1.2" opacity=".5"/>
+  </g>
+  <g class="accent"><rect x="242" y="164" width="9" height="10"/><rect x="255" y="148" width="9" height="26"/><rect x="268" y="160" width="9" height="14"/></g>
+  <path class="s-grid" d="M240,175 H284" stroke-width="1.2" opacity=".5"/>
+  <path d="M240,276 H262 L284,250" fill="none" stroke="#43a047" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- braces -->
+  <path class="s-accent" d="M318,82 q14,0 14,14 v24 q0,14 14,14 q-14,0 -14,14 v24 q0,14 -14,14" stroke-width="3" stroke-linecap="round"/>
+  <text class="accent" x="362" y="142" font-size="24" font-weight="800" letter-spacing="2">OUTPUT</text>
+  <text class="muted" x="362" y="164" font-size="13">last layer · turns scores into probabilities</text>
+  <path class="s-accent" d="M318,240 q14,0 14,14 v40 q0,14 14,14 q-14,0 -14,14 v40 q0,14 -14,14" stroke-width="3" stroke-linecap="round"/>
+  <text class="accent" x="362" y="314" font-size="24" font-weight="800" letter-spacing="2">INTERMEDIATE</text>
+  <text class="muted" x="362" y="336" font-size="13">inner layers · add non-linearity</text>
+
+  <!-- formula -->
+  <g class="serif ink" font-size="26">
+    <text x="60" y="490" xml:space="preserve"><tspan font-style="normal" font-weight="700" fill="#43a047">ReLU</tspan>(x) =</text>
+    <path class="s-ink" d="M214,446 q-12,0 -12,12 v12 q0,10 -10,10 q10,0 10,10 v12 q0,12 12,12" stroke-width="2.4" fill="none"/>
+    <text x="226" y="474" xml:space="preserve">0,  <tspan font-style="normal" font-size="20">if</tspan> x ≤ 0</text>
+    <text x="226" y="510" xml:space="preserve">x,  <tspan font-style="normal" font-size="20">if</tspan> x &gt; 0</text>
+    <text x="60" y="566" xml:space="preserve">= <tspan font-style="normal" font-weight="700">max</tspan>(0, x)</text>
+  </g>
+
+  <!-- graph -->
+  <path class="s-ink" d="M560,470 H960" stroke-width="2" marker-end="url(#mi)"/>
+  <path class="s-ink" d="M760,560 V250" stroke-width="2" marker-end="url(#mi)"/>
+  <text class="serif muted" x="952" y="494" font-size="18">x</text>
+  <text class="mono muted" x="766" y="490" font-size="12">0</text>
+  <path d="M580,470 H760 L930,300" fill="none" stroke="#43a047" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
+  <text x="640" y="452" font-size="13" font-weight="700" text-anchor="middle" fill="#43a047">negative → 0</text>
+  <text x="890" y="400" font-size="13" font-weight="700" text-anchor="middle" fill="#43a047">positive → x</text>
+  <circle r="9" fill="#fde047" stroke="#1d2433" stroke-width="2.5">
+    <animateMotion dur="6.0s" repeatCount="indefinite" keyPoints="0;1;0" keyTimes="0;0.5;1" calcMode="linear"><mpath href="#relu"/></animateMotion>
+  </circle>
+</svg>
