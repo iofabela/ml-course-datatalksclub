@@ -2,3 +2,8 @@ __pycache__
 .venv
 lesson-08/models/*.h5
 lesson-08/models/*.keras
+# Datasets (download with: git clone --depth 1 ...)
+lesson-08/clothing-dataset-small/
+lesson-08-pytorch-workshop/data/clothing-dataset-small/
+# Datasets from homeworks
+data/straight-curly-data
